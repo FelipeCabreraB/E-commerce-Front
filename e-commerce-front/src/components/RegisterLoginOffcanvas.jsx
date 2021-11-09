@@ -150,7 +150,7 @@ function OffCanvasExample({ name, ...props }) {
     </>
   );
 }
-function RegisterModal() {
+function RegisterLoginOffcanvas() {
   return (
     <>
       {["end"].map((placement, idx) => (
@@ -160,4 +160,4 @@ function RegisterModal() {
   );
 }
 
-export default RegisterModal;
+export default RegisterLoginOffcanvas;
