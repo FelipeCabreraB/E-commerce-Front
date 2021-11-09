@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import RegisterModal from "../components/RegisterModal";
 
 function NavBar() {
   return (
@@ -43,7 +44,7 @@ function NavBar() {
             </Nav>
             <Nav>
               <Nav.Link href="#deets">
-                <i class="far fa-user"></i>
+                <RegisterModal />
               </Nav.Link>
               <Nav.Link href="#memes">
                 <i class="fas fa-search"></i>

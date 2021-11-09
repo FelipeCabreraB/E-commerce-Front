@@ -1,3 +1,7 @@
 body {
   font-family: "Red Hat Display", sans-serif;
 }
+
+.pointer:hover {
+  cursor: pointer;
+}
