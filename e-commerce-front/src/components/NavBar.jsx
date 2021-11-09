@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -7,35 +8,53 @@ function NavBar() {
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
           <Navbar.Brand href="#home">
-            <img
-              src="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
-              alt=""
-              srcset="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
-            />
+            <Link style={{ textDecoration: "none", color: "black" }} to="/">
+              <img
+                src="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
+                alt=""
+                srcset="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
+              />
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#features">Features</Nav.Link>
-              <Nav.Link href="#pricing">Pricing</Nav.Link>
-              <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
+            <Nav className="me-auto ms-auto">
+              <Nav.Link href="#features">
+                <Link style={{ textDecoration: "none", color: "black" }} to="#">
+                  <strong>SUSCRIPCIÓN</strong>
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#features">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/coffee"
+                >
+                  <strong>CAFÉ</strong>
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#features">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/accessories"
+                >
+                  <strong>KIOSCO</strong>
+                </Link>
+              </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Dank memes
+              <Nav.Link href="#deets">
+                <i class="far fa-user"></i>
+              </Nav.Link>
+              <Nav.Link href="#memes">
+                <i class="fas fa-search"></i>
+              </Nav.Link>
+              <Nav.Link href="#memes">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/cart"
+                >
+                  <i class="fas fa-shopping-cart"></i>
+                </Link>
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
