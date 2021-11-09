@@ -5,3 +5,12 @@ body {
 .pointer:hover {
   cursor: pointer;
 }
+
+.main-footer {
+  color: white;
+  background-color: #222222;
+  padding-top: 3 rem;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
