@@ -6,7 +6,13 @@ function NavBar() {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img
+              src="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
+              alt=""
+              srcset="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
+            />
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
