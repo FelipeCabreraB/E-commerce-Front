@@ -9,11 +9,9 @@ function Home() {
     <>
       <Navbar />
       <Header />
-   <Carusel />
+      <Carusel />
       <Footer />
     </>
-   
-  
   );
 }
 

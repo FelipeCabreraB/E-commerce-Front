@@ -5,7 +5,7 @@
   left: 50%;
   top: 50%;
   object-fit: cover;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -55%);
   z-index: -1;
 }
 #header-title-never-run-out-coffee {
