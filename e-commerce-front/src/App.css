@@ -13,3 +13,7 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+#dropdown-basic {
+  border: rgb(0, 0, 0);
+}

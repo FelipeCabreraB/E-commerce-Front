@@ -55,7 +55,7 @@ function Footer() {
           </div>
         </div>
         <div className="row p-3">
-          <h3 className="text-center">CULTO</h3>
+          <h3 className="text-center text-white">CULTO</h3>
         </div>
         <hr />
         <div className="row">
