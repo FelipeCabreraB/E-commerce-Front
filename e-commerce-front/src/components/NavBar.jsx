@@ -9,12 +9,16 @@ function NavBar() {
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
           <Navbar.Brand href="#home">
-            <Link style={{ textDecoration: "none", color: "black" }} to="/">
-              <img
-                src="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
-                alt=""
-                srcset="https://cultocafe.uy/wp-content/uploads/2020/03/logo.png"
-              />
+            <Link
+              style={{
+                textDecoration: "none",
+                color: "black",
+                fontSize: "2rem",
+                letterSpacing: "4px",
+              }}
+              to="/"
+            >
+              <strong>CULTO</strong>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
