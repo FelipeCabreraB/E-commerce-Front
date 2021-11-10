@@ -83,6 +83,7 @@ function OffCanvasExample({ name, ...props }) {
                             backgroundColor: "black",
                             color: "white",
                             fontSize: "12px",
+                            width: "100%",
                           }}
                           className="btn rounded-pill mt-5 px-5 py-2"
                         >
@@ -123,7 +124,7 @@ function OffCanvasExample({ name, ...props }) {
                             Remember
                           </label>
                         </div>
-                        <Link className="text-black" to="/">
+                        <Link className="text-black" to="/lost-password">
                           Lost password?
                         </Link>
                       </div>
@@ -134,6 +135,7 @@ function OffCanvasExample({ name, ...props }) {
                             backgroundColor: "black",
                             color: "white",
                             fontSize: "12px",
+                            width: "100%",
                           }}
                           className="btn rounded-pill mt-5 px-5 py-2"
                         >
