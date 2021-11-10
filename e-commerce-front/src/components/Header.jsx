@@ -27,11 +27,11 @@ function Header() {
             style={{
               backgroundColor: "white",
               color: "black",
-              fontSize: "20px",
+              fontSize: "15px",
             }}
             className="btn rounded-pill mt-5 px-5 py-2"
           >
-            SUBSCRIBE
+            <strong>SUBSCRIBE</strong>
           </button>
         </div>
       </div>
