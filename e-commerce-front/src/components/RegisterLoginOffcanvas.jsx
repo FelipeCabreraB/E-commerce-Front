@@ -74,7 +74,7 @@ function OffCanvasExample({ name, ...props }) {
                         value="newsletter"
                       />
                       <label className="ms-2" for="newsletter">
-                        RECIBÍ NUESTROS RITUALES
+                        RECEIVE OUR NEWSLETTER
                       </label>
                       <div className="d-flex justify-content-center">
                         <button

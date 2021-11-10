@@ -1,0 +1,34 @@
+#header-video {
+  position: absolute;
+  width: 100%;
+  height: 80%;
+  left: 50%;
+  top: 50%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+#header-title-never-run-out-coffee {
+  margin-top: 250px;
+  font-weight: bolder;
+  font-size: 4rem;
+}
+
+@media (max-width: 730px) {
+  #header-title-never-run-out-coffee {
+    margin-top: 150px;
+    font-weight: bolder;
+    font-size: 4rem;
+  }
+}
+@media (max-width: 387px) {
+  #header-title-never-run-out-coffee {
+    margin-top: 50px;
+    font-weight: bolder;
+    font-size: 4rem;
+  }
+}
+
+#header-button-container {
+  margin-bottom: 200px;
+}

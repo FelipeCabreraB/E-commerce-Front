@@ -22,7 +22,7 @@ function NavBar() {
             <Nav className="me-auto ms-auto">
               <Nav.Link href="#features">
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
-                  <strong>SUSCRIPCIÓN</strong>
+                  <strong>SUBSCRIPTION</strong>
                 </Link>
               </Nav.Link>
               <Nav.Link href="#features">
@@ -30,7 +30,7 @@ function NavBar() {
                   style={{ textDecoration: "none", color: "black" }}
                   to="/coffee"
                 >
-                  <strong>CAFÉ</strong>
+                  <strong>COFFEE</strong>
                 </Link>
               </Nav.Link>
               <Nav.Link href="#features">
@@ -38,7 +38,7 @@ function NavBar() {
                   style={{ textDecoration: "none", color: "black" }}
                   to="/accessories"
                 >
-                  <strong>KIOSCO</strong>
+                  <strong>ACCESSORIES</strong>
                 </Link>
               </Nav.Link>
             </Nav>
