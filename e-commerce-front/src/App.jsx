@@ -6,6 +6,7 @@ import Accessories from "./pages/Accessories";
 import Coffee from "./pages/Coffee";
 import DetailedProduct from "./pages/DetailedProduct";
 import LostPassword from "./pages/LostPassword";
+import CheckOut from "./pages/CheckOut";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/product" element={<DetailedProduct />} />
           <Route path="/lost-password" element={<LostPassword />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Routes>
       </BrowserRouter>
     </div>
