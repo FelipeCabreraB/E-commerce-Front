@@ -5,7 +5,7 @@ import RegisterLoginOffcanvas from "../components/RegisterLoginOffcanvas";
 
 function NavBar() {
   return (
-    <div>
+    <div style={{ borderBottom: "1px solid rgb(230, 230, 230)" }}>
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
           <Navbar.Brand href="#home">
