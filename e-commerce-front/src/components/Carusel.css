@@ -2,13 +2,13 @@ body {
   font-family: "Red Hat Display", sans-serif;
 }
 
-#precioCarusel {
+#priceCarusel {
   font-size: 26px;
   line-height: 35px;
   font-weight: bold;
 }
 
-h3 {
+.titleCarusel {
   font-weight: 900;
   font-size: 14.8px;
   letter-spacing: 1px;
@@ -49,8 +49,6 @@ h3 {
   width: 70%;
 
   height: 80%;
-
-  border-radius: 10px;
 }
 
 .slide-content {
@@ -66,14 +64,9 @@ h3 {
 .swiper-button-next,
 .swiper-button-prev {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--arrow-size, 50px);
-  height: var(--arrow-size, 50px);
   position: absolute;
-  top: calc(50% - var(--arrow-size, 50px) / 2);
+  top: 50%;
   --swiper-theme-color: #fff;
-  background-image: none !important;
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;

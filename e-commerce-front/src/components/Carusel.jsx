@@ -49,9 +49,12 @@ const data = [
 ];
 
 function Carusel() {
+  const navigationPrevRef = React.useRef(null);
+  const navigationNextRef = React.useRef(null);
+
   return (
     <div>
-      <h3 className="text-center title mb-4">COFFEE</h3>
+      <h3 className="titleCarusel text-center title mb-4">COFFEE</h3>
       <div className="carusel">
         <Swiper
           spaceBetween={20}
@@ -69,8 +72,8 @@ function Carusel() {
                   <img className="product-photo" src={product.image} alt="" />
                 </div>
                 <div className="carusel-details">
-                  <h3 className="text-center">{product.name}</h3>
-                  <p className="text-center" id="precioCarusel">
+                  <h3 className="titleCarusel text-center">{product.name}</h3>
+                  <p className="text-center" id="priceCarusel">
                     {product.price}
                   </p>
                 </div>

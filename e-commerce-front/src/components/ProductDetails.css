@@ -1,0 +1,35 @@
+.product-details {
+  justify-content: center;
+  align-items: center;
+}
+
+.productPrice {
+  font-weight: 900;
+  color: #000;
+  font-size: 26px;
+  line-height: 35px;
+  margin-top: -10px;
+}
+
+.productName {
+  font-weight: 900;
+  color: #000;
+  font-size: 26px;
+  line-height: 35px;
+}
+
+.addToCart {
+  font-weight: bold;
+  color: #999;
+  margin-top: 0 !important;
+  font-size: 12px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  font-family: Red\Hat\Display;
+  text-decoration: none;
+  color: inherit;
+}

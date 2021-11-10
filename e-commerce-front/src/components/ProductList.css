@@ -1,0 +1,33 @@
+.firstTitle {
+  font-family: Red\Hat\Display;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 33px;
+  color: #000;
+}
+
+/* .row__posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px 0 20px 0;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row__poster {
+  margin-right: 10px;
+  max-height: 100px;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: transform 0.45s;
+  width: 100%;
+}
+
+.row__poster:hover {
+  cursor: pointer;
+  opacity: 1;
+  transform: scale(1.08);
+} */
