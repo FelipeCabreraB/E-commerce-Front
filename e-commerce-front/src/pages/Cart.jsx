@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
+import Counter from "../components/Counter";
 
 function Cart() {
   return (
@@ -10,8 +11,8 @@ function Cart() {
         <Container className="my-4 py-4">
           <Row>
             {/* Table of products in cart */}
-            <Col>
-              <Table striped bordered hover>
+            <Col xs={12} md={7} className="pt-4">
+              <Table hover className="">
                 <thead>
                   <tr>
                     <th>PRODUCT</th>
@@ -22,52 +23,102 @@ function Cart() {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>
+                      <div>
+                        <Row>
+                          <Col>
+                            <img
+                              src="https://cultocafe.uy/wp-content/uploads/2020/03/DSC09432-768x960.jpg"
+                              alt=""
+                              className="img-fluid img-cart"
+                            />
+                          </Col>
+                          <Col>
+                            <p>
+                              <strong>SABANERA</strong>
+                            </p>
+                            <p>Grinding type: Chemex</p>
+                            <p>Remove</p>
+                          </Col>
+                        </Row>
+                      </div>
+                    </td>
+                    <td>$ {550}</td>
+                    <td>
+                      <Counter />
+                    </td>
+                    <td>$ {1100}</td>
                   </tr>
                   <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td colSpan="2">Larry the Bird</td>
-                    <td>@twitter</td>
+                    <td>
+                      <div>
+                        <Row>
+                          <Col>
+                            <img
+                              src="https://cultocafe.uy/wp-content/uploads/2020/03/DSC09428-768x960.jpg"
+                              alt=""
+                              className="img-fluid img-cart"
+                            />
+                          </Col>
+                          <Col>
+                            <p>
+                              <strong>CASCABEL</strong>
+                            </p>
+                            <p>Grinding type: Chemex</p>
+                            <p>Remove</p>
+                          </Col>
+                        </Row>
+                      </div>
+                    </td>
+                    <td>$ {500}</td>
+                    <td>
+                      <Counter />
+                    </td>
+                    <td>$ {1100}</td>
                   </tr>
                 </tbody>
               </Table>
+              <div className="d-flex justify-content-between">
+                <p>
+                  {" "}
+                  <i class="bi bi-ticket-perferated"></i> Enter your promotional
+                  code
+                </p>
+                <p>
+                  {" "}
+                  <i class="fas fa-less-than"></i> Return to shop
+                </p>
+              </div>
             </Col>
 
             {/* Total numbers */}
-            <Col className="border border-2 py-4">
-              <p>
-                <strong>TOTAL FROM CART</strong>
-              </p>
-              <hr />
-              <div>
-                <div className="d-flex justify-content-between">
-                  <p>Subtotal</p>
-                  <p>
+            <Col xs={12} md={5} className="">
+              <div className="border border-2 p-4">
+                <p>
+                  <strong>TOTAL FROM CART</strong>
+                </p>
+                <hr />
+                <div>
+                  <div className="d-flex justify-content-between">
+                    <p>Subtotal</p>
+                    <p>
+                      <strong>$2.000</strong>
+                    </p>
+                  </div>
+                  <div className="d-flex justify-content-between">
+                    <p>Total</p>
                     <strong>$2.000</strong>
-                  </p>
+                  </div>
                 </div>
-                <div className="d-flex justify-content-between">
-                  <p>Total</p>
-                  <strong>$2.000</strong>
+                <div className="btn-block">
+                  <Button
+                    variant="dark"
+                    type="button"
+                    className="my-3 rounded-pill px-4 w-100"
+                  >
+                    Proceed to checkout
+                  </Button>
                 </div>
-              </div>
-              <div className="btn-block">
-                <Button
-                  variant="dark"
-                  type="button"
-                  className="my-3 rounded-pill px-4 btn-block"
-                >
-                  Proceed to checkout
-                </Button>
               </div>
             </Col>
           </Row>
