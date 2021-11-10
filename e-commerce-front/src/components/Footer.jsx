@@ -6,7 +6,7 @@ function Footer() {
     <footer className="main-footer">
       <div className="container">
         <div className="row pt-5 mt-3">
-          <div className="col-3">
+          <div className="col-md-3">
             <p>
               <strong>Contact</strong>
             </p>
@@ -17,7 +17,7 @@ function Footer() {
             </p>
             <p>Privacy policy</p>
           </div>
-          <div className="col-3">
+          <div className="col-md-3">
             <p>
               <strong>Locals</strong>
             </p>
@@ -32,15 +32,15 @@ function Footer() {
               <li>Horario: 8:00–19:00hs</li>
             </ul>
           </div>
-          <div className="col-3">
+          <div className="col-md-3">
             <p>
-              <strong>Tienda</strong>
+              <strong>Store</strong>
             </p>
             <p>SUBSCRIPTIONS</p>
             <p>COFFEE</p>
             <p>ACCESSORIES</p>
           </div>
-          <div className="col-3">
+          <div className="col-md-3">
             <p>CHECK OUR NEWSLETTER</p>
             <form className="form-inline d-flex flex-row">
               <input
