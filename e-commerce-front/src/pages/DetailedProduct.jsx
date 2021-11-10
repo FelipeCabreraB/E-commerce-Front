@@ -6,14 +6,14 @@ function DetailedProduct() {
     <div className="detailed-product">
       <Container className="my-4">
         <Row>
-          <Col xs={6}>
+          <Col xs={12} md={6}>
             <img
               src="https://cultocafe.uy/wp-content/uploads/2021/07/Kiosco__0001_Layer-14.jpg"
               alt="Timbo coffee pack"
               className="img-fluid"
             />
           </Col>
-          <Col xs={4} className="mt-3">
+          <Col xs={12} md={4} className="mt-3">
             <h2>
               <strong>Timbo</strong>
             </h2>
