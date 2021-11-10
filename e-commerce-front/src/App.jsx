@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Accessories from "./pages/Accessories";
 import Coffee from "./pages/Coffee";
+import LostPassword from "./pages/LostPassword";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/coffee" element={<Coffee />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/lost-password" element={<LostPassword />} />
         </Routes>
       </BrowserRouter>
     </div>
