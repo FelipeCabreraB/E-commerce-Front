@@ -43,13 +43,11 @@ function NavBar() {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">
-                <RegisterLoginOffcanvas />
-              </Nav.Link>
-              <Nav.Link href="#memes">
+              <RegisterLoginOffcanvas />
+              <Nav.Link>
                 <i class="fas fa-search"></i>
               </Nav.Link>
-              <Nav.Link href="#memes">
+              <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/cart"
