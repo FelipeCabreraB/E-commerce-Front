@@ -1,12 +1,9 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/NavBar";
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
 import Counter from "../components/Counter";
 
 function Cart() {
   return (
     <>
-      <Navbar />
       <div className="cart">
         <Container className="my-4 py-4">
           <Row>
@@ -124,7 +121,6 @@ function Cart() {
           </Row>
         </Container>
       </div>
-      <Footer />
     </>
   );
 }

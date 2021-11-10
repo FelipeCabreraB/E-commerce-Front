@@ -57,10 +57,7 @@ function Footer() {
           <h3 className="text-center text-white">CULTO</h3>
         </div>
         <hr />
-        <div
-          className="row"
-          style={{ borderBottom: "1px solid rgb(230, 230, 230)" }}
-        >
+        <div className="row">
           <div className="col">
             <p>&copy; {new Date().getFullYear()} cultocafé</p>
           </div>

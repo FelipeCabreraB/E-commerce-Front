@@ -29,7 +29,8 @@ a,
 a:hover,
 a:focus,
 a:active {
-  font-family: Red\Hat\Display;
+  /* font-family: Red\Hat\Display; */
+  font-family: "Red Hat Display", sans-serif;
   text-decoration: none;
   color: inherit;
 }

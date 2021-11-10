@@ -1,11 +1,8 @@
-import Navbar from "../components/NavBar";
-import Footer from "../components/Footer";
 import "./LostPassword.css";
 
 function LostPassword() {
   return (
     <>
-      <Navbar />
       <div className="d-flex justify-content-center">
         <div id="lost-password-container" className="px-2">
           <p className=" mt-5">
@@ -40,8 +37,6 @@ function LostPassword() {
           </form>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

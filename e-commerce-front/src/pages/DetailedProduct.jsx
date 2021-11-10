@@ -1,13 +1,10 @@
 import React from "react";
 import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
-import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
 import Counter from "../components/Counter";
 
 function DetailedProduct() {
   return (
     <>
-      <NavBar />
       <div className="detailed-product">
         <Container className="my-4">
           <Row>
@@ -101,7 +98,6 @@ function DetailedProduct() {
           </Row>
         </Container>
       </div>
-      <Footer />
     </>
   );
 }

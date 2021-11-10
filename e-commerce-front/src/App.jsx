@@ -7,11 +7,14 @@ import Coffee from "./pages/Coffee";
 import DetailedProduct from "./pages/DetailedProduct";
 import LostPassword from "./pages/LostPassword";
 import CheckOut from "./pages/CheckOut";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/accessories" element={<Accessories />} />
@@ -21,6 +24,7 @@ function App() {
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

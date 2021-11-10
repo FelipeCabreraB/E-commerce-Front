@@ -1,11 +1,8 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/NavBar";
 import { Row, Col } from "react-bootstrap";
 
 function CheckOut() {
   return (
     <div>
-      <Navbar />
       <div className="container">
         <Row className="mb-4">
           <Col sm={7}>
@@ -232,7 +229,6 @@ function CheckOut() {
           </Col>
         </Row>
       </div>
-      <Footer />
     </div>
   );
 }
