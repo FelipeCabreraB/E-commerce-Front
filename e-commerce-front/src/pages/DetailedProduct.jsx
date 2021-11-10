@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import Counter from "../components/Counter";
 
 function DetailedProduct() {
   return (
@@ -59,10 +60,13 @@ function DetailedProduct() {
                   </Dropdown.Menu>
                 </Dropdown>
               </div>
-              {/* Count Component */}{" "}
-              <Button variant="secondary" className="my-3 rounded-pill px-4">
-                Add to cart
-              </Button>{" "}
+              <form className="d-flex">
+                <Counter />
+                <Button variant="secondary" className="my-3 rounded-pill px-4">
+                  Add to cart
+                </Button>
+              </form>
+
               <p className="mt-3">
                 PROVENANCE
                 <br />
