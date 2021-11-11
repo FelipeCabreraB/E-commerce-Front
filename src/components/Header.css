@@ -1,11 +1,11 @@
 #header-video {
   position: absolute;
   width: 100%;
-  height: 80%;
+  height: 90%;
   left: 50%;
   top: 50%;
   object-fit: cover;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -45%);
   z-index: -1;
 }
 #header-title-never-run-out-coffee {

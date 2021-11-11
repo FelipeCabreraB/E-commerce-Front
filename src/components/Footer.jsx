@@ -54,7 +54,14 @@ function Footer() {
           </div>
         </div>
         <div className="row p-3">
-          <h3 className="text-center text-white">CULTO</h3>
+          <h3
+            className="text-center text-white"
+            style={{
+              letterSpacing: "4px",
+            }}
+          >
+            CULTO
+          </h3>
         </div>
         <hr />
         <div className="row">

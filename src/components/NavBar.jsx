@@ -5,7 +5,7 @@ import RegisterLoginOffcanvas from "../components/RegisterLoginOffcanvas";
 
 function NavBar() {
   return (
-    <div style={{ borderBottom: "1px solid rgb(230, 230, 230)" }}>
+    <div style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
           <Navbar.Brand href="#home">
@@ -49,14 +49,14 @@ function NavBar() {
             <Nav>
               <RegisterLoginOffcanvas />
               <Nav.Link>
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search text-muted"></i>
               </Nav.Link>
               <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/cart"
                 >
-                  <i class="fas fa-shopping-cart"></i>
+                  <i class="fas fa-shopping-cart text-muted"></i>
                 </Link>
               </Nav.Link>
             </Nav>

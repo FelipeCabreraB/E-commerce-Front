@@ -9,8 +9,8 @@ function Cart() {
           <Row>
             {/* Table of products in cart */}
             <Col xs={12} md={7} className="pt-4">
-              <Table hover className="">
-                <thead>
+              <Table hover className="table-borderless">
+                <thead style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
                   <tr>
                     <th>PRODUCT</th>
                     <th>PRICE</th>

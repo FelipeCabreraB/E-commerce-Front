@@ -11,12 +11,12 @@ function OffCanvasExample({ name, ...props }) {
   return (
     <>
       <Nav.Link onClick={handleShow}>
-        <i className="far fa-user pointer"></i>
+        <i className="far fa-user pointer text-muted"></i>
       </Nav.Link>
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <div className="d-flex">
           <div className=" px-2 mt-3 ms-2 pointer" onClick={handleClose}>
-            <i className="fas fa-times"></i>
+            <i className="fas fa-times ms-2"></i>
           </div>
         </div>
 
