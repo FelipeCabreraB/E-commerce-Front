@@ -1,7 +1,10 @@
+import { useDispatch } from "react-redux";
 import VideoCulto from "../videos/Culto-Web-v1-optimizado.mp4";
 import "./Header.css";
 
 function Header() {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <video id="header-video" loop autoPlay muted>
