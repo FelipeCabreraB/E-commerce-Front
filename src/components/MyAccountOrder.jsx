@@ -1,8 +1,5 @@
 import React from "react";
-import { Row, Col, Container, ListGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
-import { useLocation, useRouteMatch } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
 import MyAccountMenu from "./MyAccountMenu";
 
 function MyAccountOrder() {
@@ -14,12 +11,7 @@ function MyAccountOrder() {
             <MyAccountMenu />
           </Col>
           <Col className="myAccountResponsive" sm={9}>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Doloremque fuga unde distinctio veniam, iure deserunt quia
-              consectetur, animi necessitatibus expedita enim quos error
-              perspiciatis reiciendis ut eaque similique modi tenetur?
-            </p>
+            <p>No orders have been placed yet. </p>
           </Col>
         </Row>
       </Container>

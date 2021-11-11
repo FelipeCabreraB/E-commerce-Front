@@ -2,10 +2,9 @@ import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import MyAccountMenu from "./MyAccountMenu";
 
-function MyAccountDetail() {
+function MyAccountAdress() {
   return (
     <div>
-      {" "}
       <Container className="py-5">
         <Row>
           <Col sm={3}>
@@ -20,4 +19,4 @@ function MyAccountDetail() {
   );
 }
 
-export default MyAccountDetail;
+export default MyAccountAdress;
