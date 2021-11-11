@@ -20,3 +20,7 @@ body {
 #header-button-id {
   margin-bottom: 130px;
 }
+
+.purchase-confirmation a {
+  text-decoration: underline;
+}
