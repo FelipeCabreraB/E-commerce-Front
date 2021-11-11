@@ -21,6 +21,18 @@ body {
   margin-bottom: 130px;
 }
 
+.myAccount a {
+  text-decoration: none;
+  color: #222222;
+  font-size: 1rem;
+}
+
+@media (max-width: 575px) {
+  .myAccountResponsive {
+    margin-top: 2rem;
+    padding: 0 2rem;
+  }
+}
 .purchase-confirmation a {
   text-decoration: underline;
 }

@@ -9,6 +9,10 @@ import LostPassword from "./pages/LostPassword";
 import CheckOut from "./pages/CheckOut";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import MyAccount from "./components/MyAccount";
+import MyAccountOrder from "./components/MyAccountOrder";
+import MyAccountDetail from "./components/MyAccountDetail";
+import MyAccountAddress from "./components/MyAccountAddress";
 import PurchaseConfirmation from "./pages/PurchaseConfirmation";
 
 function App() {
@@ -24,11 +28,20 @@ function App() {
           <Route path="/product" element={<DetailedProduct />} />
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/my-account/orders" element={<MyAccountOrder />} />
+          <Route path="/my-account/address" element={<MyAccountAddress />} />
+          <Route
+            path="/my-account/edit-account"
+            element={<MyAccountDetail />}
+          />
+
           <Route
             path="/purchase-confirmation"
             element={<PurchaseConfirmation />}
           />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </div>
