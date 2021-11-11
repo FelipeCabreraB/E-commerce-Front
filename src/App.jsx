@@ -9,7 +9,10 @@ import LostPassword from "./pages/LostPassword";
 import CheckOut from "./pages/CheckOut";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import MyAccount from "./pages/MyAccount";
+import MyAccount from "./components/MyAccount";
+import MyAccountOrder from "./components/MyAccountOrder";
+import MyAccountDetail from "./components/MyAccountDetail";
+import MyAccountAdress from "./components/MyAccountAdress";
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/my-account" element={<MyAccount />} />
+          <Route path="/my-account/orders" element={<MyAccountOrder />} />
         </Routes>
+
         <Footer />
       </BrowserRouter>
     </div>
