@@ -1,4 +1,6 @@
 import { Row, Col } from "react-bootstrap";
+import AccordionCards from "../components/AccordionCards";
+import AccordionCheckOut from "../components/AccordionCheckOut";
 
 function CheckOut() {
   return (
@@ -6,12 +8,14 @@ function CheckOut() {
       <div className="container">
         <Row className="mb-4">
           <Col sm={7}>
-            <p className="mt-5">
+            <div className="mt-5 border p-3 mb-3">
               <i className="far fa-user me-2"></i> Already have an account?
-              <span className="ms-2 pointer">Click here to Login</span>
-            </p>
+              <span className="ms-2 pointer">
+                <AccordionCheckOut />
+              </span>
+            </div>
             <p>
-              <i class="fas fa-ticket-alt me-2"></i> Have a coupon code?
+              <i class="bi bi-ticket-perferated me-2"></i> Have a coupon code?
             </p>
             <p style={{ fontSize: "0.75rem" }}>
               If you have a discount coupon code, please enter it in the field
@@ -41,7 +45,11 @@ function CheckOut() {
             <hr />
 
             <form>
-              <label className="form-label" htmlFor="fullname">
+              <label
+                className="form-label"
+                htmlFor="fullname"
+                style={{ fontSize: "0.85rem" }}
+              >
                 Full name *
               </label>
               <input
@@ -50,7 +58,11 @@ function CheckOut() {
                 id="fullname"
                 name="fullname"
               />
-              <label className="form-label mt-3" htmlFor="phone">
+              <label
+                className="form-label mt-3"
+                htmlFor="phone"
+                style={{ fontSize: "0.85rem" }}
+              >
                 Phone number *
               </label>
               <input
@@ -59,7 +71,11 @@ function CheckOut() {
                 id="phone"
                 name="phone"
               />
-              <label className="form-label mt-3" htmlFor="email">
+              <label
+                className="form-label mt-3"
+                htmlFor="email"
+                style={{ fontSize: "0.85rem" }}
+              >
                 Email address *
               </label>
               <input
@@ -68,7 +84,11 @@ function CheckOut() {
                 id="email"
                 name="email"
               />
-              <label className="form-label mt-3" htmlFor="deliveryAdress">
+              <label
+                className="form-label mt-3"
+                htmlFor="deliveryAdress"
+                style={{ fontSize: "0.85rem" }}
+              >
                 Delivery address *
               </label>
               <input
@@ -84,13 +104,17 @@ function CheckOut() {
                 value="newsletter"
                 className="mt-4"
               />
-              <label className="ms-2" for="newsletter">
+              <label
+                className="ms-2"
+                for="newsletter"
+                style={{ fontSize: "0.9rem" }}
+              >
                 RECEIVE OUR NEWSLETTER
               </label>
             </form>
           </Col>
           <Col sm={5}>
-            <div className="border p-3" style={{ marginTop: "200px" }}>
+            <div className="border p-3 mt-5">
               <p className="mt-2">
                 <strong>YOUR ORDER</strong>
               </p>
@@ -160,6 +184,7 @@ function CheckOut() {
                 <p className="mt-2">
                   <strong>ENTER CARD DETAILS</strong>
                 </p>
+                <AccordionCards />
                 <form>
                   <label className="form-label mt-3" htmlFor="cardNumber">
                     Card Number <span className="text-danger">*</span>
