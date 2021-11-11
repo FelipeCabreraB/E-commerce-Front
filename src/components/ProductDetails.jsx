@@ -51,7 +51,10 @@ function ProductDetails(product) {
   console.log(product);
   return (
     <div className="movie text-center">
-      <Link to={`/product/${product.product.name}`}>
+      <Link
+        style={{ textDecoration: "none" }}
+        to={`/product/${product.product.name}`}
+      >
         <div className="product-details">
           <img
             className="mt-5 img-fluid"
@@ -62,7 +65,10 @@ function ProductDetails(product) {
         </div>
       </Link>
       <p className="productPrice">{product.product.price}</p>
-      <a className="addToCart">ADD TO CART</a>
+      <Link to="/cart" className="productAddToCart">
+        {" "}
+        ADD TO CART
+      </Link>
     </div>
   );
 }

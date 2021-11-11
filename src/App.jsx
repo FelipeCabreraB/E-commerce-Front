@@ -9,6 +9,7 @@ import LostPassword from "./pages/LostPassword";
 import CheckOut from "./pages/CheckOut";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import MyAccount from "./pages/MyAccount";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/product" element={<DetailedProduct />} />
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/my-account" element={<MyAccount />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -9,6 +9,8 @@
   font-size: 26px;
   line-height: 35px;
   margin-top: -10px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .productName {
@@ -16,20 +18,14 @@
   color: #000;
   font-size: 26px;
   line-height: 35px;
+  text-decoration: none;
 }
 
-.addToCart {
+.productAddToCart {
   font-weight: bold;
   color: #999;
   margin-top: 0 !important;
   font-size: 12px;
-}
-
-a,
-a:hover,
-a:focus,
-a:active {
-  /* font-family: Red\Hat\Display; */
   font-family: "Red Hat Display", sans-serif;
   text-decoration: none;
   color: inherit;
