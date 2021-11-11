@@ -33,3 +33,6 @@ body {
     padding: 0 2rem;
   }
 }
+.purchase-confirmation a {
+  text-decoration: underline;
+}
