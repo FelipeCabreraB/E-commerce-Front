@@ -1,12 +1,55 @@
 import { Offcanvas, Tab, Row, Col, Nav } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 
 function OffCanvasExample({ name, ...props }) {
+  const dispatch = useDispatch();
+  const [emailReg, setEmailReg] = useState("");
+  const [passwordReg, setPasswordReg] = useState("");
+  const [emailLog, setEmailLog] = useState("");
+  const [passwordLog, setPasswordLog] = useState("");
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleRegister = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:8888/register`, {
+        data: { emailReg, passwordReg },
+        headers: { "Content-Type": "application/json" },
+      });
+      console.log(response.data);
+      if (response.data.token) {
+        dispatch({ type: "ADD_TOKEN", payload: response.data });
+      } else if (response.data.error) {
+        console.log("error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLogin = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:8888/login`, {
+        data: { emailLog, passwordLog },
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.data.token) {
+        dispatch({ type: "ADD_TOKEN", payload: response.data });
+      } else if (response.data.error) {
+        console.log("error");
+      }
+    } catch (error) {
+      //handle error
+      console.log("error ", error);
+    }
+  };
 
   return (
     <>
@@ -54,7 +97,7 @@ function OffCanvasExample({ name, ...props }) {
               <Col>
                 <Tab.Content className="px-3 mt-3">
                   <Tab.Pane eventKey="first">
-                    <form>
+                    <form onSubmit={(ev) => handleRegister(ev)}>
                       <label className="form-label" htmlFor="email">
                         Email address *
                       </label>
@@ -63,10 +106,22 @@ function OffCanvasExample({ name, ...props }) {
                         type="email"
                         id="email"
                         name="email"
+                        value={emailReg}
+                        onChange={(ev) => setEmailReg(ev.target.value)}
+                        required
                       />
-                      <p className="mt-2" style={{ fontSize: "12px" }}>
-                        A password will be sent to your email address.
-                      </p>
+                      <label className="form-label mt-3" htmlFor="password">
+                        Password *
+                      </label>
+                      <input
+                        className="form-control mb-3"
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={passwordReg}
+                        onChange={(ev) => setPasswordReg(ev.target.value)}
+                        required
+                      />
                       <input
                         type="checkbox"
                         id="newsletter"
@@ -78,7 +133,7 @@ function OffCanvasExample({ name, ...props }) {
                       </label>
                       <div className="d-flex justify-content-center">
                         <button
-                          type="button"
+                          type="submit"
                           style={{
                             backgroundColor: "black",
                             color: "white",
@@ -93,7 +148,7 @@ function OffCanvasExample({ name, ...props }) {
                     </form>
                   </Tab.Pane>
                   <Tab.Pane eventKey="second">
-                    <form>
+                    <form onSubmit={(ev) => handleLogin(ev)}>
                       <label className="form-label" htmlFor="usernameOrEmail">
                         Username or email address *
                       </label>
@@ -102,6 +157,9 @@ function OffCanvasExample({ name, ...props }) {
                         type="text"
                         id="usernameOrEmail"
                         name="usernameOrEmail"
+                        value={emailLog}
+                        onChange={(ev) => setEmailLog(ev.target.value)}
+                        required
                       />
                       <label className="form-label mt-2" htmlFor="password">
                         Password *
@@ -111,6 +169,9 @@ function OffCanvasExample({ name, ...props }) {
                         type="password"
                         id="password"
                         name="password"
+                        value={passwordLog}
+                        onChange={(ev) => setPasswordLog(ev.target.value)}
+                        required
                       />
                       <div className="d-flex justify-content-between">
                         <div>
@@ -130,7 +191,7 @@ function OffCanvasExample({ name, ...props }) {
                       </div>
                       <div className="d-flex justify-content-center">
                         <button
-                          type="button"
+                          type="submit"
                           style={{
                             backgroundColor: "black",
                             color: "white",
