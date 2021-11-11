@@ -186,7 +186,11 @@ function CheckOut() {
                 </p>
                 <AccordionCards />
                 <form>
-                  <label className="form-label mt-3" htmlFor="cardNumber">
+                  <label
+                    className="form-label mt-3"
+                    htmlFor="cardNumber"
+                    style={{ fontSize: "0.85rem" }}
+                  >
                     Card Number <span className="text-danger">*</span>
                   </label>
                   <input
@@ -195,7 +199,11 @@ function CheckOut() {
                     id="cardNumber"
                     name="cardNumber"
                   />
-                  <label className="form-label mt-3" htmlFor="NameOnCard">
+                  <label
+                    className="form-label mt-3"
+                    htmlFor="NameOnCard"
+                    style={{ fontSize: "0.85rem" }}
+                  >
                     Name on card <span className="text-danger">*</span>
                   </label>
                   <input
@@ -206,7 +214,11 @@ function CheckOut() {
                   />
                   <Row>
                     <Col sm={6}>
-                      <label className="form-label mt-3" htmlFor="expiryDate">
+                      <label
+                        className="form-label mt-3"
+                        htmlFor="expiryDate"
+                        style={{ fontSize: "0.85rem" }}
+                      >
                         Expiry date <span className="text-danger">*</span>
                       </label>
                       <input
@@ -218,7 +230,11 @@ function CheckOut() {
                       />
                     </Col>
                     <Col sm={6}>
-                      <label className="form-label mt-3" htmlFor="securityCode">
+                      <label
+                        className="form-label mt-3"
+                        htmlFor="securityCode"
+                        style={{ fontSize: "0.85rem" }}
+                      >
                         Security code <span className="text-danger">*</span>
                       </label>
                       <input

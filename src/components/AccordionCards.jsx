@@ -6,7 +6,12 @@ function AccordionCards() {
     <>
       <Accordion flush>
         <Accordion.Item eventKey="0">
-          <Accordion.Header className=" ms-2">Accepted cards</Accordion.Header>
+          <Accordion.Header className=" ms-2">
+            <p className="my-0" style={{ fontSize: "0.85rem" }}>
+              {" "}
+              Accepted cards
+            </p>
+          </Accordion.Header>
           <Accordion.Body>
             <div className="border px-4 pt-3 pb-2 bg-light mb-0">
               <p className="mb-0" style={{ fontSize: "0.8rem" }}>
