@@ -141,6 +141,7 @@ function OffCanvasExample({ name, ...props }) {
                             width: "100%",
                           }}
                           className="btn rounded-pill mt-5 px-5 py-2"
+                          onClick={() => handleClose()}
                         >
                           REGISTER
                         </button>
@@ -199,6 +200,7 @@ function OffCanvasExample({ name, ...props }) {
                             width: "100%",
                           }}
                           className="btn rounded-pill mt-5 px-5 py-2"
+                          onClick={() => handleClose()}
                         >
                           LOG IN
                         </button>
