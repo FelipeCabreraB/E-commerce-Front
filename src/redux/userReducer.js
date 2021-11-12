@@ -10,7 +10,7 @@ function userReducer(user = {}, action) {
         id: action.payload.id,
       };
 
-    case "REMOVE_TOKEN":
+    case "LOGOUT":
       return {};
 
     default:

@@ -2,8 +2,10 @@ import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
 import MyAccountOrder from "./MyAccountOrder";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 function MyAccount() {
+  const dispatch = useDispatch();
   return (
     <div className="myAccount">
       <ListGroup as="ul" className="dark" variant="flush dark">
@@ -16,8 +18,8 @@ function MyAccount() {
         <ListGroup.Item as="li">
           <Link to="/my-account/address">Address</Link>
         </ListGroup.Item>
-        <ListGroup.Item as="li" action href="/">
-          <Link to="/">Logout</Link>{" "}
+        <ListGroup.Item as="li" onClick={() => dispatch({ type: "LOGOUT" })}>
+          <Link to="/">Logout</Link>
         </ListGroup.Item>
       </ListGroup>
     </div>
