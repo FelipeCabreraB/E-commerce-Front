@@ -4,7 +4,7 @@ function Coffee() {
   return (
     <div>
       <h1 className="mt-5 text-center">COFFEE</h1>
-      <ProductList />
+      <ProductList categoryId={1} />
     </div>
   );
 }
