@@ -66,7 +66,7 @@ function Footer() {
         <hr />
         <div className="row">
           <div className="col">
-            <p>&copy; {new Date().getFullYear()} cultocafé</p>
+            <p>&copy; {new Date().getFullYear()} culto coffee shop</p>
           </div>
           <div className="col text-end">
             <p>All rights reserved</p>

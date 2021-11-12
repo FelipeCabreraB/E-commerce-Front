@@ -9,7 +9,7 @@ function cartReducer(cart = [], action) {
     case "UPDATE_ITEM":
       return [...action.payload, ...cart];
 
-    case "REMOVE_TOKEN":
+    case "LOGOUT":
       return [];
 
     default:
