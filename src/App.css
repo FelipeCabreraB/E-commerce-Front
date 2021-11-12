@@ -36,3 +36,15 @@ body {
 .purchase-confirmation a {
   text-decoration: underline;
 }
+
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}

@@ -33,11 +33,13 @@ function DetailedProduct() {
         <Container className="my-4">
           <Row>
             <Col xs={12} md={6}>
-              <img
-                src={product.picture}
-                alt={product.productName}
-                className="img-fluid"
-              />
+              <div className="img-hover-zoom">
+                <img
+                  src={product.picture}
+                  alt={product.productName}
+                  className="img-fluid"
+                />
+              </div>
             </Col>
             <Col xs={12} md={4} className="mt-3">
               <h2>
