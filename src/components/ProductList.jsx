@@ -3,16 +3,20 @@ import axios from "axios";
 import { useEffect } from "react";
 import "./ProductList.css";
 import ProductDetails from "./ProductDetails";
+import { Spinner } from "react-bootstrap";
 
-function ProductList() {
+function ProductList({ categoryId }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async (ev) => {
       try {
-        const response = await axios.get(`http://localhost:8888/products`, {
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await axios.get(
+          `http://localhost:8888/products/${categoryId}`,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
         setProducts(response.data);
       } catch (error) {
         console.log(error);
@@ -32,7 +36,9 @@ function ProductList() {
               </div>
             ))
           ) : (
-            <p className="text-center">Lo siento no hay productos</p>
+            <div style={{ marginBottom: "80px", marginTop: "50px" }}>
+              <Spinner animation="border" />
+            </div>
           )}
         </div>
       </div>
