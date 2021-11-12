@@ -53,8 +53,8 @@ function Carusel() {
   const navigationNextRef = React.useRef(null);
 
   return (
-    <div className="mt-5">
-      <h3 className="titleCarusel text-center title mb-4">COFFEE</h3>
+    <div>
+      <h3 className="titleCarusel text-center title mb-5">COFFEE</h3>
       <div className="carusel">
         <Swiper
           spaceBetween={20}
