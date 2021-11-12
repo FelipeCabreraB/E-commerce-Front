@@ -75,7 +75,7 @@ function Carusel() {
                 <div className="carusel-details">
                   <h3 className="titleCarusel text-center">{product.name}</h3>
                   <p className="text-center" id="priceCarusel">
-                    {product.price}
+                    $ {product.price}
                   </p>
                 </div>
               </div>
