@@ -84,7 +84,7 @@ function Carusel() {
       </div>
       <div className="d-flex justify-content-center ">
         <Button
-          className="btn-lg mt-5 mb-5 button-carusel rounded-pill"
+          className="btn-lg mt-5 mb-5 px-4 py-2 button-carusel rounded-pill"
           variant="dark"
         >
           SEE ALL

@@ -89,7 +89,7 @@ function DetailedProduct() {
                 <br />
                 <strong>Honey</strong>
               </p>
-              <p className="mt-3">
+              <p className="mt-3 mb-5">
                 RATING
                 <br />
                 <strong>87</strong>

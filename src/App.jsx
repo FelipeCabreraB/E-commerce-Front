@@ -32,7 +32,7 @@ function App() {
           <Route path="/my-account/orders" element={<MyAccountOrder />} />
           <Route path="/my-account/address" element={<MyAccountAddress />} />
           <Route
-            path="/my-account/edit-account"
+            path="/my-account/account-details"
             element={<MyAccountDetail />}
           />
 
