@@ -1,5 +1,6 @@
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
 import Counter from "../components/Counter";
+import { Link } from "react-router-dom";
 
 function Cart() {
   return (
@@ -108,13 +109,15 @@ function Cart() {
                   </div>
                 </div>
                 <div className="btn-block">
-                  <Button
-                    variant="dark"
-                    type="button"
-                    className="my-3 rounded-pill px-4 w-100"
-                  >
-                    Proceed to checkout
-                  </Button>
+                  <Link to="/checkout">
+                    <Button
+                      variant="dark"
+                      type="button"
+                      className="my-3 rounded-pill px-4 w-100"
+                    >
+                      Proceed to checkout
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </Col>
