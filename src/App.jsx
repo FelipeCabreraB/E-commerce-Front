@@ -14,6 +14,7 @@ import MyAccountOrder from "./components/MyAccountOrder";
 import MyAccountDetail from "./components/MyAccountDetail";
 import MyAccountAddress from "./components/MyAccountAddress";
 import PurchaseConfirmation from "./pages/PurchaseConfirmation";
+import DetailedProductAcc from "./pages/DetailedProductAcc";
 
 function App() {
   return (
@@ -26,6 +27,10 @@ function App() {
           <Route path="/coffee" element={<Coffee />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:productName" element={<DetailedProduct />} />
+          {/* <Route
+            path="/product/:productName"
+            element={<DetailedProductAcc />}
+          /> */}
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/my-account" element={<MyAccount />} />
