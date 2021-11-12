@@ -13,6 +13,8 @@ function OffCanvasExample({ name, ...props }) {
   const [emailLog, setEmailLog] = useState("");
   const [passwordLog, setPasswordLog] = useState("");
   const [show, setShow] = useState(false);
+  const [errorRegister, setErrorRegister] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -27,8 +29,9 @@ function OffCanvasExample({ name, ...props }) {
       if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });
         handleClose();
+        setErrorRegister("");
       } else if (response.data.error) {
-        console.log("error");
+        setErrorRegister(response.data.error);
       }
     } catch (error) {
       console.log(error);
@@ -46,8 +49,9 @@ function OffCanvasExample({ name, ...props }) {
       if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });
         handleClose();
+        setErrorLogin("");
       } else if (response.data.error) {
-        console.log("error");
+        setErrorLogin(response.data.error);
       }
     } catch (error) {
       //handle error
@@ -60,9 +64,24 @@ function OffCanvasExample({ name, ...props }) {
       <Nav.Link onClick={handleShow}>
         <i className="far fa-user pointer text-muted"></i>
       </Nav.Link>
-      <Offcanvas show={show} onHide={handleClose} {...props}>
+      <Offcanvas
+        show={show}
+        onHide={() => {
+          handleClose();
+          setErrorLogin("");
+          setErrorRegister("");
+        }}
+        {...props}
+      >
         <div className="d-flex">
-          <div className=" px-2 mt-3 ms-2 pointer" onClick={handleClose}>
+          <div
+            className=" px-2 mt-3 ms-2 pointer"
+            onClick={() => {
+              handleClose();
+              setErrorLogin("");
+              setErrorRegister("");
+            }}
+          >
             <i className="fas fa-times ms-2"></i>
           </div>
         </div>
@@ -122,6 +141,14 @@ function OffCanvasExample({ name, ...props }) {
                           onChange={(ev) => setEmailReg(ev.target.value)}
                           required
                         />
+                        {errorRegister !== "" && (
+                          <p
+                            className="text-danger mb-0 mt-1"
+                            style={{ fontSize: "0.8rem" }}
+                          >
+                            * {errorRegister}
+                          </p>
+                        )}
                         <label className="form-label mt-3" htmlFor="password">
                           Password *
                         </label>
@@ -161,14 +188,14 @@ function OffCanvasExample({ name, ...props }) {
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
                       <form onSubmit={(ev) => handleLogin(ev)}>
-                        <label className="form-label" htmlFor="usernameOrEmail">
-                          Username or email address *
+                        <label className="form-label" htmlFor="email">
+                          Email address *
                         </label>
                         <input
                           className="form-control"
                           type="text"
-                          id="usernameOrEmail"
-                          name="usernameOrEmail"
+                          id="email"
+                          name="email"
                           value={emailLog}
                           onChange={(ev) => setEmailLog(ev.target.value)}
                           required
@@ -185,6 +212,14 @@ function OffCanvasExample({ name, ...props }) {
                           onChange={(ev) => setPasswordLog(ev.target.value)}
                           required
                         />
+                        {errorLogin !== "" && (
+                          <p
+                            className="text-danger mb-3 mt-0"
+                            style={{ fontSize: "0.8rem" }}
+                          >
+                            * {errorLogin}
+                          </p>
+                        )}
                         <div className="d-flex justify-content-between">
                           <div>
                             <input
