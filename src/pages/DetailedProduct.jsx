@@ -1,19 +1,38 @@
-import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
 import Counter from "../components/Counter";
+import { useParams } from "react-router";
 
 function DetailedProduct() {
+  const [product, setProduct] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    const getProduct = async (ev) => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8888/product/${params.productName}`,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        setProduct(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, []);
+
   return (
     <>
       <div className="detailed-product">
         <Container className="my-4">
           <Row>
             <Col xs={12} md={6}>
-              <img
-                src="https://cultocafe.uy/wp-content/uploads/2021/07/Kiosco__0001_Layer-14.jpg"
-                alt="Timbo coffee pack"
-                className="img-fluid"
-              />
+              <img src="" alt="Timbo coffee pack" className="img-fluid" />
             </Col>
             <Col xs={12} md={4} className="mt-3">
               <h2>
