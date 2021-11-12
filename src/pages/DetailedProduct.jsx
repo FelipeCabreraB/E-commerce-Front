@@ -18,6 +18,7 @@ function DetailedProduct() {
             headers: { "Content-Type": "application/json" },
           }
         );
+
         setProduct(response.data);
       } catch (error) {
         console.log(error);
@@ -32,24 +33,20 @@ function DetailedProduct() {
         <Container className="my-4">
           <Row>
             <Col xs={12} md={6}>
-              <img src="" alt="Timbo coffee pack" className="img-fluid" />
+              <img
+                src={product.picture}
+                alt={product.productName}
+                className="img-fluid"
+              />
             </Col>
             <Col xs={12} md={4} className="mt-3">
               <h2>
-                <strong>Timbo</strong>
+                <strong>{product.productName}</strong>
               </h2>
               <h4 className="my-4">
-                <strong>$ 620</strong>
+                <strong>$ {product.price}</strong>
               </h4>
-              <p>
-                In 2005 the Santa Ana Volcano erupted for the first time in 85
-                years and its ashes became natural fertilizer for the entire
-                area of El Salvador. The Las Nubes farm –with more than 100
-                years producing high quality coffee– benefited from this sudden
-                change in the character of the soil, which resulted in a rich
-                acidity in the bean, manifested in the particular “glint” of
-                each sip.
-              </p>
+              <p>{product.description}</p>
               <p className="pt-4">Grinding type: </p>
               <div>
                 <Dropdown>
@@ -84,34 +81,39 @@ function DetailedProduct() {
               </form>
 
               <p className="mt-3">
-                PROVENANCE
+                ORIGIN
                 <br />
-                <strong>El Salvador</strong>
+                <strong>{product.origin}</strong>
               </p>
               <p className="mt-3">
                 FARM
                 <br />
-                <strong>Las Nubes</strong>
+                <strong>{product.farm}</strong>
               </p>
               <p className="mt-3">
                 NOTES
                 <br />
-                <strong>Grapefruit, cinnamon, light caramel</strong>
+                <strong>{product.notes}</strong>
               </p>
               <p className="mt-3">
-                ASSORTMENT
+                VARIETY
                 <br />
-                <strong>Red bourbon, bales</strong>
+                <strong>{product.variety}</strong>
+              </p>
+              <p className="mt-3">
+                HEIGHT
+                <br />
+                <strong>{product.height}</strong>
               </p>
               <p className="mt-3">
                 PROCESS
                 <br />
-                <strong>Honey</strong>
+                <strong>{product.process}</strong>
               </p>
               <p className="mt-3 mb-5">
                 RATING
                 <br />
-                <strong>87</strong>
+                <strong>{product.rating}</strong>
               </p>
             </Col>
           </Row>
