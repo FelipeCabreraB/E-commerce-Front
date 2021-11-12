@@ -14,6 +14,7 @@ import "swiper/swiper-bundle.css";
 
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
+import { Link } from "react-router-dom";
 
 SwiperCore.use([Autoplay, Navigation, Pagination, Controller, Thumbs]);
 
@@ -83,12 +84,14 @@ function Carusel() {
         </Swiper>
       </div>
       <div className="d-flex justify-content-center ">
-        <Button
-          className="btn-lg mt-5 mb-5 px-4 py-2 button-carusel rounded-pill"
-          variant="dark"
-        >
-          SEE ALL
-        </Button>{" "}
+        <Link to="/coffee">
+          <Button
+            className="btn-lg mt-5 mb-5 px-4 py-2 button-carusel rounded-pill"
+            variant="dark"
+          >
+            SEE ALL
+          </Button>{" "}
+        </Link>
       </div>
     </div>
   );
