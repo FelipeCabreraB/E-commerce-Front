@@ -26,11 +26,11 @@ function App() {
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/coffee" element={<Coffee />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/product/:productName" element={<DetailedProduct />} />
-          {/* <Route
-            path="/product/:productName"
+          <Route path="/product/1/:productName" element={<DetailedProduct />} />
+          <Route
+            path="/product/2/:productName"
             element={<DetailedProductAcc />}
-          /> */}
+          />
           <Route path="/lost-password" element={<LostPassword />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/my-account" element={<MyAccount />} />

@@ -59,9 +59,9 @@ function DetailedProductAcc() {
                 Characteristics:
                 <br />
                 <ul>
-                  <li>{product.origin}</li>
-                  <li>{product.origin}</li>
-                  <li>{product.origin}</li>
+                  <li>{product.accessoriesChar1}</li>
+                  <li>{product.accessoriesChar2}</li>
+                  <li>{product.accessoriesChar3}</li>
                 </ul>
               </p>
             </Col>

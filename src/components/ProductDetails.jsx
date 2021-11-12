@@ -7,7 +7,7 @@ function ProductDetails({ product }) {
     <div className="movie text-center">
       <Link
         style={{ textDecoration: "none" }}
-        to={`/product/${product.productName}`}
+        to={`/product/${product.categoryId}/${product.productName}`}
       >
         <div className="product-details">
           <img
@@ -19,8 +19,10 @@ function ProductDetails({ product }) {
         </div>
       </Link>
       <p className="productPrice">$ {product.price}</p>
-      <Link to={`/product/${product.productName}`} className="productChoose">
-        {" "}
+      <Link
+        to={`/product/${product.categoryId}/${product.productName}`}
+        className="productChoose"
+      >
         CHOOSE OPTIONS
       </Link>
     </div>
