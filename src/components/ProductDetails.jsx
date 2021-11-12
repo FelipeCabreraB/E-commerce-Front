@@ -19,7 +19,7 @@ function ProductDetails({ product }) {
         </div>
       </Link>
       <p className="productPrice">$ {product.price}</p>
-      <Link to="/cart" className="productChoose">
+      <Link to={`/product/${product.productName}`} className="productChoose">
         {" "}
         CHOOSE OPTIONS
       </Link>
