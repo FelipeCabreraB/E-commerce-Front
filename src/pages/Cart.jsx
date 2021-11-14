@@ -39,7 +39,12 @@ function Cart() {
                               <p>
                                 <strong>{product.productName}</strong>
                               </p>
-                              <p>Grinding type: Chemex</p>
+                              <p
+                                className="text-muted"
+                                style={{ fontSize: "0.85rem" }}
+                              >
+                                Grinding type: {product.grindingType}
+                              </p>
                               <p
                                 className="pointer"
                                 onClick={() =>

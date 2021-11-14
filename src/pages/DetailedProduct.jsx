@@ -10,6 +10,8 @@ function DetailedProduct() {
   const [product, setProduct] = useState([]);
   const [counterMessage, setCounterMessage] = useState("");
   const [addToCartMessage, setAddToCartMessage] = useState("");
+  const [grindingType, setGrindingType] = useState("Choose an option");
+  const [selectGrindingType, setSelectGrindingType] = useState("");
   const params = useParams();
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
@@ -18,7 +20,7 @@ function DetailedProduct() {
     const getProduct = async (ev) => {
       try {
         const response = await axios.get(
-          `http://localhost:8888/product/${params.productName}`,
+          `${process.env.REACT_APP_URL_BACKEND}/product/${params.productName}`,
           {
             headers: { "Content-Type": "application/json" },
           }
@@ -54,7 +56,94 @@ function DetailedProduct() {
                 <strong>$ {product.price}</strong>
               </h4>
               <p>{product.description}</p>
+              <hr />
+              <p className="pt-1">Grinding type: </p>
+              <div>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="light"
+                    id="dropdown-basic"
+                    className="rounded-0 border-dark my-3"
+                  >
+                    {grindingType}
+                  </Dropdown.Toggle>
 
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Cold Brew");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Cold Brew
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Grain");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Grain
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Aeroress");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Aeroress
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Turkish coffee");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Turkish coffee
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Chemex");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Chemex
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Espresso");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Espresso
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Filtered");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Filtered
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("French");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      French
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setGrindingType("Moka");
+                        setSelectGrindingType("");
+                      }}
+                    >
+                      Moka
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
               <form className="d-flex">
                 {cart.filter(
                   (cartProduct) =>
@@ -168,20 +257,31 @@ function DetailedProduct() {
                 )}
 
                 <Button
-                  onClick={() => {
-                    dispatch({
-                      type: "ADD_ITEM",
-                      payload: {
-                        quantity: count,
-                        productName: product.productName,
-                        price: product.price,
-                        picture: product.picture,
-                      },
-                    });
-                    setCount(0);
-                    setCounterMessage("");
-                    setAddToCartMessage("Product added to cart correctly.");
-                  }}
+                  onClick={
+                    grindingType !== "Choose an option"
+                      ? () => {
+                          dispatch({
+                            type: "ADD_ITEM",
+                            payload: {
+                              quantity: count,
+                              productName: product.productName,
+                              price: product.price,
+                              picture: product.picture,
+                              grindingType: grindingType,
+                            },
+                          });
+                          setCount(0);
+                          setCounterMessage("");
+                          setAddToCartMessage(
+                            "Product added to cart correctly."
+                          );
+                          setSelectGrindingType("");
+                        }
+                      : () =>
+                          setSelectGrindingType(
+                            "Please select a grinding type."
+                          )
+                  }
                   variant="secondary"
                   className="my-3 rounded-pill px-4"
                 >
@@ -190,7 +290,7 @@ function DetailedProduct() {
               </form>
               <p className="text-danger">{counterMessage}</p>
               <p className="text-success">{addToCartMessage}</p>
-
+              <p className="text-danger">{selectGrindingType}</p>
               <p className="mt-3">
                 ORIGIN
                 <br />

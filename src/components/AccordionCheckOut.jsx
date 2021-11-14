@@ -2,7 +2,7 @@ import { Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function AccordionCheckOut() {
   const [emailLog, setEmailLog] = useState("");
@@ -13,10 +13,13 @@ function AccordionCheckOut() {
   const handleLogin = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8888/login`, {
-        data: { emailLog, passwordLog },
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL_BACKEND}/login`,
+        {
+          data: { emailLog, passwordLog },
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });

@@ -18,7 +18,7 @@ function DetailedProductAcc() {
     const getProduct = async (ev) => {
       try {
         const response = await axios.get(
-          `http://localhost:8888/product/${params.productName}`,
+          `${process.env.REACT_APP_URL_BACKEND}/product/${params.productName}`,
           {
             headers: { "Content-Type": "application/json" },
           }

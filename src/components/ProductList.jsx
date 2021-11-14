@@ -12,7 +12,7 @@ function ProductList({ categoryId }) {
     const getProducts = async (ev) => {
       try {
         const response = await axios.get(
-          `http://localhost:8888/products/${categoryId}`,
+          `${process.env.REACT_APP_URL_BACKEND}/products/${categoryId}`,
           {
             headers: { "Content-Type": "application/json" },
           }

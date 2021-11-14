@@ -21,10 +21,13 @@ function OffCanvasExample({ name, ...props }) {
   const handleRegister = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8888/register`, {
-        data: { emailReg, passwordReg },
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL_BACKEND}/register`,
+        {
+          data: { emailReg, passwordReg },
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       console.log(response.data);
       if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });
@@ -41,10 +44,13 @@ function OffCanvasExample({ name, ...props }) {
   const handleLogin = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:8888/login`, {
-        data: { emailLog, passwordLog },
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_URL_BACKEND}/login`,
+        {
+          data: { emailLog, passwordLog },
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
       if (response.data.token) {
         dispatch({ type: "ADD_TOKEN", payload: response.data });
