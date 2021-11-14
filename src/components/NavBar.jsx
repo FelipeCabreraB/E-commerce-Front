@@ -74,7 +74,9 @@ function NavBar() {
                         }}
                         className="numberOfCart text-center"
                       >
-                        {cart.reduce((acc, value) => acc + value.quantity, 0)}
+                        <p className="innerNumerOfCart">
+                          {cart.reduce((acc, value) => acc + value.quantity, 0)}
+                        </p>
                       </div>
                     </i>
                   ) : (
