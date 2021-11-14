@@ -32,3 +32,8 @@
 #header-button-container {
   margin-bottom: 70px;
 }
+@media (max-width: 268px) {
+  #header-button-container {
+    margin-bottom: 0px;
+  }
+}

@@ -59,10 +59,22 @@ function Carusel() {
       <div className="carusel">
         <Swiper
           spaceBetween={20}
-          slidesPerView={3}
+          slidesPerView={1}
           navigation
           // pagination={{ clickable: true }}
           //scrollbar={{ draggable: true }}
+          breakpoints={{
+            // when window width is >= 640px
+            1084: {
+              minwidth: 700,
+              slidesPerView: 3,
+            },
+            // when window width is >= 768px
+            600: {
+              minWidth: 400,
+              slidesPerView: 2,
+            },
+          }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >

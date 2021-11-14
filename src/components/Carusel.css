@@ -66,7 +66,7 @@ body {
   display: flex;
   position: absolute;
   top: 50%;
-  --swiper-theme-color: #fff;
+  --swiper-theme-color: rgb(255, 255, 255);
   cursor: pointer;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
