@@ -14,7 +14,7 @@
   font-size: 4rem;
 }
 
-@media (max-width: 730px) {
+@media (max-width: 681px) {
   #header-title-never-run-out-coffee {
     margin-top: 150px;
     font-weight: bolder;
@@ -31,9 +31,4 @@
 
 #header-button-container {
   margin-bottom: 70px;
-}
-@media (max-width: 268px) {
-  #header-button-container {
-    margin-bottom: 0px;
-  }
 }
