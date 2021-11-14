@@ -14,7 +14,7 @@ function DetailedProduct() {
   const [selectGrindingType, setSelectGrindingType] = useState("");
   const params = useParams();
   const dispatch = useDispatch();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     const getProduct = async (ev) => {
@@ -156,13 +156,13 @@ function DetailedProduct() {
                         style={{ outline: "none", boxShadow: "none" }}
                         type="button"
                         onClick={
-                          count > 0
+                          count > 1
                             ? () => {
                                 setCount((prev) => --prev);
                                 setCounterMessage("");
                               }
                             : () => {
-                                setCount(0);
+                                setCount(1);
                                 setCounterMessage("");
                               }
                         }
@@ -218,9 +218,9 @@ function DetailedProduct() {
                         style={{ outline: "none", boxShadow: "none" }}
                         type="button"
                         onClick={
-                          count > 0
+                          count > 1
                             ? () => setCount((prev) => --prev)
-                            : () => setCount(0)
+                            : () => setCount(1)
                         }
                       >
                         <i class="fas fa-minus"></i>
@@ -270,7 +270,7 @@ function DetailedProduct() {
                               grindingType: grindingType,
                             },
                           });
-                          setCount(0);
+                          setCount(1);
                           setCounterMessage("");
                           setAddToCartMessage(
                             "Product added to cart correctly."

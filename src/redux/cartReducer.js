@@ -39,7 +39,7 @@ function cartReducer(cart = [], action) {
     case "REMOVE_ONE_QUANTITY":
       return cart.map((product) => {
         if (product.productName !== action.payload.productName) return product;
-        if (product.quantity <= 0) return product;
+        if (product.quantity <= 1) return product;
         return {
           ...product,
           quantity: product.quantity - 1,
