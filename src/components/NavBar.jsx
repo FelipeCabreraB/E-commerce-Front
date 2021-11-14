@@ -29,7 +29,7 @@ function NavBar() {
               <Nav.Link href="#features">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
-                  to="/accessories"
+                  to="/about-this-project"
                 >
                   <strong>ABOUT THIS PROJECT</strong>
                 </Link>
@@ -64,7 +64,7 @@ function NavBar() {
               <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
-                  to="/about-this-project"
+                  to="/cart"
                 >
                   {cart.reduce((acc, value) => acc + value.quantity, 0) !==
                   0 ? (
