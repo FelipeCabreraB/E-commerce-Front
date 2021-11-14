@@ -58,23 +58,27 @@ function NavBar() {
                   style={{ textDecoration: "none", color: "black" }}
                   to="/cart"
                 >
-                  <i class="fas fa-shopping-cart text-muted"></i>
                   {cart.reduce((acc, value) => acc + value.quantity, 0) !==
-                    0 && (
-                    <div
-                      style={{
-                        color: "white",
-                        backgroundColor: "rgb(108,117,125)",
-                        borderRadius: "50%",
-                        fontWeight: "bolder",
-                        width: "17px",
-                        height: "17px",
-                        fontSize: "0.7rem",
-                      }}
-                      className="numberOfCart text-center"
-                    >
-                      {cart.reduce((acc, value) => acc + value.quantity, 0)}
-                    </div>
+                  0 ? (
+                    <i className="fas fa-shopping-cart text-muted">
+                      {" "}
+                      <div
+                        style={{
+                          color: "white",
+                          backgroundColor: "rgb(108,117,125)",
+                          borderRadius: "50%",
+                          fontWeight: "bolder",
+                          width: "17px",
+                          height: "17px",
+                          fontSize: "0.7rem",
+                        }}
+                        className="numberOfCart text-center"
+                      >
+                        {cart.reduce((acc, value) => acc + value.quantity, 0)}
+                      </div>
+                    </i>
+                  ) : (
+                    <i class="fas fa-shopping-cart text-muted"></i>
                   )}
                 </Link>
               </Nav.Link>

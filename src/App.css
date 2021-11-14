@@ -48,8 +48,12 @@ body {
 .img-hover-zoom:hover img {
   transform: scale(1.1);
 }
+
+.fa-shopping-cart {
+  position: relative;
+}
 .numberOfCart {
   position: absolute;
-  right: 50px;
-  bottom: 39px;
+  left: 20px;
+  bottom: 10px;
 }
