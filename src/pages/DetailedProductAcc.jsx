@@ -56,7 +56,7 @@ function DetailedProductAcc() {
               <form className="d-flex">
                 <Counter count={count} setCount={setCount} />
                 <Button
-                  onClick={() =>
+                  onClick={() => {
                     dispatch({
                       type: "ADD_ITEM",
                       payload: {
@@ -65,8 +65,9 @@ function DetailedProductAcc() {
                         price: product.price,
                         picture: product.picture,
                       },
-                    })
-                  }
+                    });
+                    setCount(0);
+                  }}
                   variant="secondary"
                   className="my-3 rounded-pill px-4"
                 >

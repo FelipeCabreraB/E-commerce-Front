@@ -1,8 +1,10 @@
 import { Row, Col } from "react-bootstrap";
 import AccordionCards from "../components/AccordionCards";
 import AccordionCheckOut from "../components/AccordionCheckOut";
+import { useSelector } from "react-redux";
 
 function CheckOut() {
+  const cart = useSelector((state) => state.cart);
   return (
     <div>
       <div className="container">
@@ -119,34 +121,49 @@ function CheckOut() {
                 <strong>YOUR ORDER</strong>
               </p>
               <hr />
-              <div className="d-flex justify-content-between">
-                <div>
-                  <p>Sabanera x 1</p>
-                  <p
-                    className="text-muted my-0"
-                    style={{ fontSize: "0.75rem" }}
-                  >
-                    Grinding type: Grain
+              {cart.map((product) => (
+                <div className="d-flex justify-content-between mb-2">
+                  <div>
+                    <p className="text-muted mb-1">
+                      {product.productName} x {product.quantity}
+                    </p>
+                    <p
+                      className="text-muted my-0"
+                      style={{ fontSize: "0.75rem" }}
+                    >
+                      Grinding type: Grain
+                    </p>
+                  </div>
+                  <p className="fs-3">
+                    <strong>$ {product.price * product.quantity}</strong>
                   </p>
                 </div>
-                <p className="fs-3">
-                  <strong>$550</strong>
-                </p>
-              </div>
+              ))}
 
               <hr />
               <div className="d-flex justify-content-between">
                 <p className="align-self-center">Subtotal</p>
-
                 <p className="fs-3">
-                  <strong>$550</strong>
+                  <strong>
+                    ${" "}
+                    {cart.reduce(
+                      (acc, value) => acc + value.price * value.quantity,
+                      0
+                    )}
+                  </strong>
                 </p>
               </div>
               <div className="d-flex justify-content-between">
                 <p className="align-self-center">Total</p>
-
                 <p className="fs-3">
-                  <strong>$550</strong>
+                  <strong>
+                    {" "}
+                    ${" "}
+                    {cart.reduce(
+                      (acc, value) => acc + value.price * value.quantity,
+                      0
+                    )}
+                  </strong>
                 </p>
               </div>
               <hr className="mt-1" />

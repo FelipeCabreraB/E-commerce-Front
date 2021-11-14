@@ -1,7 +1,6 @@
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -18,9 +17,9 @@ function Cart() {
                 <thead style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
                   <tr>
                     <th>PRODUCT</th>
-                    <th>PRICE</th>
-                    <th>QUANTITY</th>
-                    <th>SUBTOTAL</th>
+                    <th className="text-center">PRICE</th>
+                    <th className="text-center">QUANTITY</th>
+                    <th className="text-center">SUBTOTAL</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -41,16 +40,31 @@ function Cart() {
                                 <strong>{product.productName}</strong>
                               </p>
                               <p>Grinding type: Chemex</p>
-                              <p>Remove</p>
+                              <p
+                                className="pointer"
+                                onClick={() =>
+                                  dispatch({
+                                    type: "REMOVE_ITEM",
+                                    payload: {
+                                      productName: product.productName,
+                                    },
+                                  })
+                                }
+                              >
+                                Remove
+                              </p>
                             </Col>
                           </Row>
                         </div>
                       </td>
-                      <td>$ {product.price}</td>
-                      <td>
+                      <td className="text-center">$ {product.price}</td>
+                      <td className="text-center">
                         {" "}
-                        <div className="align-self-center  me-3">
-                          <div className="input-group mb-3 align-self-center">
+                        <div className="align-self-center text-center me-3">
+                          <div
+                            className="input-group mb-3 align-self-center text-center"
+                            style={{ minWidth: "88px" }}
+                          >
                             <button
                               className="btn btn-outline-secondary btn-block px-1"
                               style={{ outline: "none", boxShadow: "none" }}
@@ -70,7 +84,7 @@ function Cart() {
                             <input
                               type="text"
                               className="text-center form-control"
-                              style={{ maxWidth: "41px" }}
+                              style={{ maxWidth: "41px", minWidth: "41px" }}
                               value={product.quantity}
                             />
                             <button
