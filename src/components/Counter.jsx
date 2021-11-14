@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Counter({ count, setCount }) {
   return (
     <div className="align-self-center mt-3 me-3">

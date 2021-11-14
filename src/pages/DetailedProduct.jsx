@@ -2,12 +2,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
-import Counter from "../components/Counter";
 import { useParams } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function DetailedProduct() {
+  const cart = useSelector((state) => state.cart);
   const [product, setProduct] = useState([]);
+  const [counterMessage, setCounterMessage] = useState("");
+  const [addToCartMessage, setAddToCartMessage] = useState("");
   const params = useParams();
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
@@ -52,34 +54,119 @@ function DetailedProduct() {
                 <strong>$ {product.price}</strong>
               </h4>
               <p>{product.description}</p>
-              <p className="pt-4">Grinding type: </p>
-              <div>
-                <Dropdown>
-                  <Dropdown.Toggle
-                    variant="light"
-                    id="dropdown-basic"
-                    className="rounded-0 border-dark my-3"
-                  >
-                    Choose an option
-                  </Dropdown.Toggle>
 
-                  <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Cold Brew</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">Grain</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Aeroress</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">
-                      Turkish coffee
-                    </Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Chemex</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Espresso</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Filtered</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">French</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">Moka</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </div>
               <form className="d-flex">
-                <Counter count={count} setCount={setCount} />
+                {cart.filter(
+                  (cartProduct) =>
+                    cartProduct.productName === product.productName
+                )[0] ? (
+                  <div className="align-self-center mt-3 me-3">
+                    <div className="input-group mb-3 align-self-center">
+                      <button
+                        className="btn btn-outline-secondary btn-block px-1"
+                        style={{ outline: "none", boxShadow: "none" }}
+                        type="button"
+                        onClick={
+                          count > 0
+                            ? () => {
+                                setCount((prev) => --prev);
+                                setCounterMessage("");
+                              }
+                            : () => {
+                                setCount(0);
+                                setCounterMessage("");
+                              }
+                        }
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <input
+                        type="text"
+                        className="text-center form-control"
+                        value={count}
+                        style={{ maxWidth: "41px" }}
+                      />
+                      <button
+                        className="btn btn-outline-secondary px-1"
+                        style={{ outline: "none", boxShadow: "none" }}
+                        type="button"
+                        onClick={
+                          cart.filter(
+                            (cartProduct) =>
+                              cartProduct.productName === product.productName
+                          )[0].quantity +
+                            count <
+                          10
+                            ? () => {
+                                setCount((prev) => ++prev);
+                                setAddToCartMessage("");
+                              }
+                            : () => {
+                                setCount(
+                                  10 -
+                                    cart.filter(
+                                      (cartProduct) =>
+                                        cartProduct.productName ===
+                                        product.productName
+                                    )[0].quantity
+                                );
+                                setCounterMessage(
+                                  "You've reached the maximum amount of the same product allowed in one order."
+                                );
+                                setAddToCartMessage("");
+                              }
+                        }
+                      >
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="align-self-center mt-3 me-3">
+                    <div className="input-group mb-3 align-self-center">
+                      <button
+                        className="btn btn-outline-secondary btn-block px-1"
+                        style={{ outline: "none", boxShadow: "none" }}
+                        type="button"
+                        onClick={
+                          count > 0
+                            ? () => setCount((prev) => --prev)
+                            : () => setCount(0)
+                        }
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                      <input
+                        type="text"
+                        className="text-center form-control"
+                        value={count}
+                        style={{ maxWidth: "41px" }}
+                      />
+                      <button
+                        className="btn btn-outline-secondary px-1"
+                        style={{ outline: "none", boxShadow: "none" }}
+                        type="button"
+                        onClick={
+                          count < 10
+                            ? () => {
+                                setCount((prev) => ++prev);
+                                setAddToCartMessage("");
+                              }
+                            : () => {
+                                setCount(10);
+                                setAddToCartMessage("");
+                                setCounterMessage(
+                                  "You've reached the maximum amount of the same product allowed in one order."
+                                );
+                              }
+                        }
+                      >
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 <Button
                   onClick={() => {
                     dispatch({
@@ -92,6 +179,8 @@ function DetailedProduct() {
                       },
                     });
                     setCount(0);
+                    setCounterMessage("");
+                    setAddToCartMessage("Product added to cart correctly.");
                   }}
                   variant="secondary"
                   className="my-3 rounded-pill px-4"
@@ -99,6 +188,8 @@ function DetailedProduct() {
                   Add to cart
                 </Button>
               </form>
+              <p className="text-danger">{counterMessage}</p>
+              <p className="text-success">{addToCartMessage}</p>
 
               <p className="mt-3">
                 ORIGIN
