@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-function Counter() {
-  const [count, setCount] = useState(0);
-
+function Counter({ count, setCount }) {
   return (
     <div className="align-self-center mt-3 me-3">
       <div className="input-group mb-3 align-self-center">

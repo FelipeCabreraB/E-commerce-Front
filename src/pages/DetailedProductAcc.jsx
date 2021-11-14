@@ -4,10 +4,13 @@ import { useEffect } from "react";
 import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
 import Counter from "../components/Counter";
 import { useParams } from "react-router";
+import { useDispatch } from "react-redux";
 
 function DetailedProductAcc() {
   const [product, setProduct] = useState([]);
   const params = useParams();
+  const dispatch = useDispatch();
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const getProduct = async (ev) => {
@@ -51,8 +54,22 @@ function DetailedProductAcc() {
               <p>{product.description}</p>
 
               <form className="d-flex">
-                <Counter />
-                <Button variant="secondary" className="my-3 rounded-pill px-4">
+                <Counter count={count} setCount={setCount} />
+                <Button
+                  onClick={() =>
+                    dispatch({
+                      type: "ADD_ITEM",
+                      payload: {
+                        quantity: count,
+                        productName: product.productName,
+                        price: product.price,
+                        picture: product.picture,
+                      },
+                    })
+                  }
+                  variant="secondary"
+                  className="my-3 rounded-pill px-4"
+                >
                   Add to cart
                 </Button>
               </form>

@@ -2,8 +2,10 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import RegisterLoginOffcanvas from "../components/RegisterLoginOffcanvas";
+import { useSelector } from "react-redux";
 
 function NavBar() {
+  const cart = useSelector((state) => state.cart);
   return (
     <div style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
       <Navbar collapseOnSelect expand="lg" bg="white">
@@ -57,6 +59,23 @@ function NavBar() {
                   to="/cart"
                 >
                   <i class="fas fa-shopping-cart text-muted"></i>
+                  {cart.reduce((acc, value) => acc + value.quantity, 0) !==
+                    0 && (
+                    <div
+                      style={{
+                        color: "white",
+                        backgroundColor: "rgb(108,117,125)",
+                        borderRadius: "50%",
+                        fontWeight: "bolder",
+                        width: "17px",
+                        height: "17px",
+                        fontSize: "0.7rem",
+                      }}
+                      className="numberOfCart text-center"
+                    >
+                      {cart.reduce((acc, value) => acc + value.quantity, 0)}
+                    </div>
+                  )}
                 </Link>
               </Nav.Link>
             </Nav>

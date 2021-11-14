@@ -1,8 +1,12 @@
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
-import Counter from "../components/Counter";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function Cart() {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="cart">
@@ -20,60 +24,77 @@ function Cart() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div>
-                        <Row>
-                          <Col>
-                            <img
-                              src="https://cultocafe.uy/wp-content/uploads/2020/03/DSC09432-768x960.jpg"
-                              alt=""
-                              className="img-fluid img-cart"
+                  {cart.map((product) => (
+                    <tr>
+                      <td>
+                        <div>
+                          <Row>
+                            <Col>
+                              <img
+                                src={product.picture}
+                                alt=""
+                                className="img-fluid img-cart"
+                              />
+                            </Col>
+                            <Col>
+                              <p>
+                                <strong>{product.productName}</strong>
+                              </p>
+                              <p>Grinding type: Chemex</p>
+                              <p>Remove</p>
+                            </Col>
+                          </Row>
+                        </div>
+                      </td>
+                      <td>$ {product.price}</td>
+                      <td>
+                        {" "}
+                        <div className="align-self-center  me-3">
+                          <div className="input-group mb-3 align-self-center">
+                            <button
+                              className="btn btn-outline-secondary btn-block px-1"
+                              style={{ outline: "none", boxShadow: "none" }}
+                              type="button"
+                              onClick={() =>
+                                dispatch({
+                                  type: "REMOVE_ONE_QUANTITY",
+                                  payload: {
+                                    productName: product.productName,
+                                    quantity: product.quantity,
+                                  },
+                                })
+                              }
+                            >
+                              <i class="fas fa-minus"></i>
+                            </button>
+                            <input
+                              type="text"
+                              className="text-center form-control"
+                              style={{ maxWidth: "41px" }}
+                              value={product.quantity}
                             />
-                          </Col>
-                          <Col>
-                            <p>
-                              <strong>SABANERA</strong>
-                            </p>
-                            <p>Grinding type: Chemex</p>
-                            <p>Remove</p>
-                          </Col>
-                        </Row>
-                      </div>
-                    </td>
-                    <td>$ {550}</td>
-                    <td>
-                      <Counter />
-                    </td>
-                    <td>$ {1100}</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div>
-                        <Row>
-                          <Col>
-                            <img
-                              src="https://cultocafe.uy/wp-content/uploads/2020/03/DSC09428-768x960.jpg"
-                              alt=""
-                              className="img-fluid img-cart"
-                            />
-                          </Col>
-                          <Col>
-                            <p>
-                              <strong>CASCABEL</strong>
-                            </p>
-                            <p>Grinding type: Chemex</p>
-                            <p>Remove</p>
-                          </Col>
-                        </Row>
-                      </div>
-                    </td>
-                    <td>$ {500}</td>
-                    <td>
-                      <Counter />
-                    </td>
-                    <td>$ {1100}</td>
-                  </tr>
+                            <button
+                              className="btn btn-outline-secondary px-1"
+                              style={{ outline: "none", boxShadow: "none" }}
+                              type="button"
+                              onClick={() =>
+                                dispatch({
+                                  type: "ADD_ONE_QUANTITY",
+                                  payload: {
+                                    productName: product.productName,
+                                    quantity: product.quantity,
+                                  },
+                                })
+                              }
+                            >
+                              <i class="fas fa-plus"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                      <td>$ {product.price * product.quantity}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </Table>
               <div className="d-flex justify-content-between">
@@ -100,12 +121,25 @@ function Cart() {
                   <div className="d-flex justify-content-between">
                     <p>Subtotal</p>
                     <p>
-                      <strong>$2.000</strong>
+                      <strong>
+                        ${" "}
+                        {cart.reduce(
+                          (acc, value) => acc + value.price * value.quantity,
+                          0
+                        )}
+                      </strong>
                     </p>
                   </div>
                   <div className="d-flex justify-content-between">
                     <p>Total</p>
-                    <strong>$2.000</strong>
+                    <strong>
+                      {" "}
+                      ${" "}
+                      {cart.reduce(
+                        (acc, value) => acc + value.price * value.quantity,
+                        0
+                      )}
+                    </strong>
                   </div>
                 </div>
                 <div className="btn-block">
