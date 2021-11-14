@@ -1,7 +1,34 @@
 import { Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function AccordionCheckOut() {
+  const [emailLog, setEmailLog] = useState("");
+  const [passwordLog, setPasswordLog] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
+  const dispatch = useDispatch();
+
+  const handleLogin = async (ev) => {
+    ev.preventDefault();
+    try {
+      const response = await axios.post(`http://localhost:8888/login`, {
+        data: { emailLog, passwordLog },
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (response.data.token) {
+        dispatch({ type: "ADD_TOKEN", payload: response.data });
+        setErrorLogin("");
+      } else if (response.data.error) {
+        setErrorLogin(response.data.error);
+      }
+    } catch (error) {
+      //handle error
+      console.log("error ", error);
+    }
+  };
   return (
     <>
       <Accordion flush>
@@ -11,15 +38,18 @@ function AccordionCheckOut() {
           </Accordion.Header>
           <Accordion.Body>
             <div className="border p-4">
-              <form>
-                <label className="form-label" htmlFor="usernameOrEmail">
-                  Username or email address *
+              <form onSubmit={(ev) => handleLogin(ev)}>
+                <label className="form-label" htmlFor="email">
+                  Email address *
                 </label>
                 <input
                   className="form-control"
                   type="text"
-                  id="usernameOrEmail"
-                  name="usernameOrEmail"
+                  id="email"
+                  name="email"
+                  value={emailLog}
+                  onChange={(ev) => setEmailLog(ev.target.value)}
+                  required
                 />
                 <label className="form-label mt-2" htmlFor="password">
                   Password *
@@ -29,7 +59,18 @@ function AccordionCheckOut() {
                   type="password"
                   id="password"
                   name="password"
+                  value={passwordLog}
+                  onChange={(ev) => setPasswordLog(ev.target.value)}
+                  required
                 />
+                {errorLogin !== "" && (
+                  <p
+                    className="text-danger mb-3 mt-0"
+                    style={{ fontSize: "0.8rem" }}
+                  >
+                    * {errorLogin}
+                  </p>
+                )}
                 <div className="d-flex justify-content-between">
                   <div>
                     <input
@@ -48,7 +89,7 @@ function AccordionCheckOut() {
                 </div>
                 <div className="d-flex justify-content-center">
                   <button
-                    type="button"
+                    type="submit"
                     style={{
                       backgroundColor: "black",
                       color: "white",

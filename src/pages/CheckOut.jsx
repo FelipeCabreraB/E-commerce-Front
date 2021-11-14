@@ -5,18 +5,23 @@ import { useSelector } from "react-redux";
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+
   return (
     <div>
       <div className="container">
         <Row className="mb-4">
           <Col sm={7}>
-            <div className="mt-5 border p-3 mb-3">
-              <i className="far fa-user me-2"></i> Already have an account?
-              <span className="ms-2 pointer">
-                <AccordionCheckOut />
-              </span>
-            </div>
-            <p>
+            {!user.token && (
+              <div className="mt-5 border p-3">
+                <i className="far fa-user me-2"></i> Already have an account?
+                <span className="ms-2 pointer">
+                  <AccordionCheckOut />
+                </span>
+              </div>
+            )}
+
+            <p className="mt-4">
               <i class="bi bi-ticket-perferated me-2"></i> Have a coupon code?
             </p>
             <p style={{ fontSize: "0.75rem" }}>
