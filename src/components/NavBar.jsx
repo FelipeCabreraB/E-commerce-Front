@@ -27,6 +27,14 @@ function NavBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto ms-auto">
               <Nav.Link href="#features">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/accessories"
+                >
+                  <strong>ABOUT THIS PROJECT</strong>
+                </Link>
+              </Nav.Link>
+              <Nav.Link href="#features">
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
                   <strong>SUBSCRIPTION</strong>
                 </Link>
@@ -56,7 +64,7 @@ function NavBar() {
               <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
-                  to="/cart"
+                  to="/about-this-project"
                 >
                   {cart.reduce((acc, value) => acc + value.quantity, 0) !==
                   0 ? (
