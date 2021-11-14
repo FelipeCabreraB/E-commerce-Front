@@ -276,6 +276,7 @@ function DetailedProduct() {
                             "Product added to cart correctly."
                           );
                           setSelectGrindingType("");
+                          setGrindingType("Choose an option");
                         }
                       : () =>
                           setSelectGrindingType(
