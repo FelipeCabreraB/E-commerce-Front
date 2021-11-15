@@ -134,7 +134,7 @@ function AdminPage() {
               </Col>
             </Row>
             <Row className="mt-3">
-              <div className="mt-5">
+              <div className="my-5">
                 <Line
                   data={{
                     labels: [
