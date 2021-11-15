@@ -17,7 +17,7 @@ function AdminPage() {
           <Col xs={12} md={10}>
             <div className="text-center">
               <i class="fas fa-users fa-2x"></i>
-              <h2 className="py-3">Welcome to the Admin Dashboard</h2>
+              <h2 className="py-3">Welcome to the Admin Dashboard </h2>
             </div>
             <Row>
               <Col md={6}>
