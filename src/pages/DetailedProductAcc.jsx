@@ -12,7 +12,7 @@ function DetailedProductAcc() {
   const [addToCartMessage, setAddToCartMessage] = useState("");
   const params = useParams();
   const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const getProduct = async (ev) => {
@@ -73,7 +73,7 @@ function DetailedProductAcc() {
                                 setCounterMessage("");
                               }
                             : () => {
-                                setCount(1);
+                                setCount(0);
                                 setCounterMessage("");
                               }
                         }
@@ -96,23 +96,21 @@ function DetailedProductAcc() {
                               cartProduct.productName === product.productName
                           )[0].quantity +
                             count <
-                          10
+                          product.stock
                             ? () => {
                                 setCount((prev) => ++prev);
                                 setAddToCartMessage("");
                               }
                             : () => {
                                 setCount(
-                                  10 -
+                                  product.stock -
                                     cart.filter(
                                       (cartProduct) =>
                                         cartProduct.productName ===
                                         product.productName
                                     )[0].quantity
                                 );
-                                setCounterMessage(
-                                  "You've reached the maximum amount of the same product allowed in one order."
-                                );
+                                setCounterMessage("No more product available.");
                                 setAddToCartMessage("");
                               }
                         }
@@ -153,17 +151,15 @@ function DetailedProductAcc() {
                         style={{ outline: "none", boxShadow: "none" }}
                         type="button"
                         onClick={
-                          count < 10
+                          count < product.stock
                             ? () => {
                                 setCount((prev) => ++prev);
                                 setAddToCartMessage("");
                               }
                             : () => {
-                                setCount(10);
+                                setCount(product.stock);
                                 setAddToCartMessage("");
-                                setCounterMessage(
-                                  "You've reached the maximum amount of the same product allowed in one order."
-                                );
+                                setCounterMessage("No more product available.");
                               }
                         }
                       >
@@ -176,15 +172,16 @@ function DetailedProductAcc() {
                 <Button
                   onClick={() => {
                     dispatch({
-                      type: "ADD_ITEM_ACC",
+                      type: "ADD_ITEM",
                       payload: {
                         quantity: count,
                         productName: product.productName,
                         price: product.price,
                         picture: product.picture,
+                        stock: product.stock,
                       },
                     });
-                    setCount(1);
+                    setCount(0);
                     setCounterMessage("");
                     setAddToCartMessage("Product added to cart correctly.");
                   }}

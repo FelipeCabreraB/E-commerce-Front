@@ -1,27 +1,6 @@
 function cartReducer(cart = [], action) {
   switch (action.type) {
-    case "ADD_ITEM_ACC":
-      if (
-        cart.some((product) => {
-          return product.productName === action.payload.productName;
-        })
-      ) {
-        return cart.map((product) => {
-          if (product.productName !== action.payload.productName)
-            return product;
-          /* if (product.quantity + action.payload.quantity > 10)
-            return {
-              ...product,
-              quantity: 10,
-            }; */
-          return {
-            ...product,
-            quantity: product.quantity + action.payload.quantity,
-          };
-        });
-      } else return [...cart, action.payload];
-
-    case "ADD_ITEM_COFF":
+    case "ADD_ITEM":
       if (
         cart.some((product) => {
           return (
@@ -46,14 +25,33 @@ function cartReducer(cart = [], action) {
       } else return [...cart, action.payload];
 
     case "REMOVE_ITEM":
-      return cart.filter(
-        (product) => product.productName !== action.payload.productName
-      );
+      return cart.filter((product) => {
+        return !(
+          product.grindingType === action.payload.grindingType &&
+          product.productName === action.payload.productName
+        );
+      });
 
     case "ADD_ONE_QUANTITY":
+      console.log(
+        cart
+          .filter((product) => {
+            return product.productName === action.payload.productName;
+          })
+          .reduce((acc, value) => acc + value.quantity, 0)
+      );
       return cart.map((product) => {
         if (product.productName !== action.payload.productName) return product;
-        if (product.quantity >= 10) return product;
+        if (product.grindingType !== action.payload.grindingType)
+          return product;
+        if (
+          cart
+            .filter((product) => {
+              return product.productName === action.payload.productName;
+            })
+            .reduce((acc, value) => acc + value.quantity, 0) >= product.stock
+        )
+          return product;
         return {
           ...product,
           quantity: product.quantity + 1,
@@ -63,6 +61,8 @@ function cartReducer(cart = [], action) {
     case "REMOVE_ONE_QUANTITY":
       return cart.map((product) => {
         if (product.productName !== action.payload.productName) return product;
+        if (product.grindingType !== action.payload.grindingType)
+          return product;
         if (product.quantity <= 1) return product;
         return {
           ...product,

@@ -54,6 +54,7 @@ function Cart() {
                                     type: "REMOVE_ITEM",
                                     payload: {
                                       productName: product.productName,
+                                      grindingType: product.grindingType,
                                     },
                                   })
                                 }
@@ -82,6 +83,7 @@ function Cart() {
                                   payload: {
                                     productName: product.productName,
                                     quantity: product.quantity,
+                                    grindingType: product.grindingType,
                                   },
                                 })
                               }
@@ -104,6 +106,8 @@ function Cart() {
                                   payload: {
                                     productName: product.productName,
                                     quantity: product.quantity,
+                                    grindingType: product.grindingType,
+                                    stock: product.stock,
                                   },
                                 })
                               }

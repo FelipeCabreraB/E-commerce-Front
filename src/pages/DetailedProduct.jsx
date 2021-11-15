@@ -13,7 +13,7 @@ function DetailedProduct() {
   const [selectGrindingType, setSelectGrindingType] = useState("");
   const params = useParams();
   const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const getProduct = async (ev) => {
@@ -161,7 +161,7 @@ function DetailedProduct() {
                                 setCounterMessage("");
                               }
                             : () => {
-                                setCount(1);
+                                setCount(0);
                                 setCounterMessage("");
                               }
                         }
@@ -179,28 +179,35 @@ function DetailedProduct() {
                         style={{ outline: "none", boxShadow: "none" }}
                         type="button"
                         onClick={
-                          cart.filter(
-                            (cartProduct) =>
-                              cartProduct.productName === product.productName
-                          )[0].quantity +
+                          cart
+                            .filter((cartproduct) => {
+                              return (
+                                cartproduct.productName === product.productName
+                              );
+                            })
+                            .reduce((acc, value) => acc + value.quantity, 0) +
                             count <
-                          10
+                          product.stock
                             ? () => {
                                 setCount((prev) => ++prev);
                                 setAddToCartMessage("");
                               }
                             : () => {
                                 setCount(
-                                  10 -
-                                    cart.filter(
-                                      (cartProduct) =>
-                                        cartProduct.productName ===
-                                        product.productName
-                                    )[0].quantity
+                                  product.stock -
+                                    cart
+                                      .filter((cartproduct) => {
+                                        return (
+                                          cartproduct.productName ===
+                                          product.productName
+                                        );
+                                      })
+                                      .reduce(
+                                        (acc, value) => acc + value.quantity,
+                                        0
+                                      )
                                 );
-                                setCounterMessage(
-                                  "You've reached the maximum amount of the same product allowed in one order."
-                                );
+                                setCounterMessage("No more product available.");
                                 setAddToCartMessage("");
                               }
                         }
@@ -241,17 +248,15 @@ function DetailedProduct() {
                         style={{ outline: "none", boxShadow: "none" }}
                         type="button"
                         onClick={
-                          count < 10
+                          count < product.stock
                             ? () => {
                                 setCount((prev) => ++prev);
                                 setAddToCartMessage("");
                               }
                             : () => {
-                                setCount(10);
+                                setCount(product.stock);
                                 setAddToCartMessage("");
-                                setCounterMessage(
-                                  "You've reached the maximum amount of the same product allowed in one order."
-                                );
+                                setCounterMessage("No more product available.");
                               }
                         }
                       >
@@ -266,16 +271,17 @@ function DetailedProduct() {
                     grindingType !== "Choose an option"
                       ? () => {
                           dispatch({
-                            type: "ADD_ITEM_COFF",
+                            type: "ADD_ITEM",
                             payload: {
                               quantity: count,
                               productName: product.productName,
                               price: product.price,
                               picture: product.picture,
                               grindingType: grindingType,
+                              stock: product.stock,
                             },
                           });
-                          setCount(1);
+                          setCount(0);
                           setCounterMessage("");
                           setAddToCartMessage(
                             "Product added to cart correctly."
