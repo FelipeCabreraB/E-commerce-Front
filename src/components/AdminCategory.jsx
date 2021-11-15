@@ -1,30 +1,28 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
-//import MyAccountMenu from "./MyAccountMenu";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
-import { Link } from "react-router-dom";
 
 function AdminProduct() {
-  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const getProducts = async (ev) => {
+    const getcategories = async (ev) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/`,
           {
             headers: { "Content-Type": "application/json" },
           }
         );
-        setProducts(response.data);
+        setCategories(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    getProducts();
+    getcategories();
   }, []);
   return (
     <div>
@@ -33,7 +31,7 @@ function AdminProduct() {
           <Col sm={12} md={2}>
             <AdminMenu />
             <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add a Product
+              Add a Category
             </Button>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
@@ -41,19 +39,17 @@ function AdminProduct() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Picture</th>
                   <th>Name</th>
-                  <th>Price</th>
-                  <th>Stock</th>
-                  <th>Featured</th>
-                  <th>Category</th>
-                  <th>Actions</th>
+                  <th>Description</th>
+                  <th>Picture</th>
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
-                  <tr key={product.id}>
-                    <td>{product.id}</td>
+                {categories.map((category) => (
+                  <tr key={category.id}>
+                    <td>{category.id}</td>
+                    <td>{category.categoryName}</td>
+                    <td>{category.description}</td>
                     <td>
                       <div
                         className="mb-3"
@@ -61,22 +57,16 @@ function AdminProduct() {
                       >
                         <img
                           className="img-fluid"
-                          src={product.picture}
+                          src={category.picture}
                           alt=""
                         />
                       </div>
                     </td>
-                    <td>{product.productName}</td>
-                    <td>{product.price}</td>
-                    <td>{product.stock}</td>
-                    <td>{product.featured}</td>
-                    <td>{product.categoryId}</td>
+
                     <td>
-                      <Link to="/admin/product/edit">
-                        <Button className="btn btn-warning me-2">
-                          <i class="far fa-edit"></i>
-                        </Button>
-                      </Link>
+                      <Button className="btn btn-warning me-2">
+                        <i class="far fa-edit"></i>
+                      </Button>
                       <Button className="btn btn-danger">
                         <i class="far fa-trash-alt"></i>
                       </Button>
