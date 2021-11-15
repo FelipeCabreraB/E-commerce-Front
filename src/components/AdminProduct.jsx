@@ -2,9 +2,10 @@ import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
 //import MyAccountMenu from "./MyAccountMenu";
-import { Form, Button, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
+import { Link } from "react-router-dom";
 
 function AdminProduct() {
   const [products, setProducts] = useState([]);
@@ -71,9 +72,11 @@ function AdminProduct() {
                     <td>{product.featured}</td>
                     <td>{product.categoryId}</td>
                     <td>
-                      <Button className="btn btn-warning me-2">
-                        <i class="far fa-edit"></i>
-                      </Button>
+                      <Link to="/admin/product/edit">
+                        <Button className="btn btn-warning me-2">
+                          <i class="far fa-edit"></i>
+                        </Button>
+                      </Link>
                       <Button className="btn btn-danger">
                         <i class="far fa-trash-alt"></i>
                       </Button>
