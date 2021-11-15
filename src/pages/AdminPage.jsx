@@ -9,7 +9,6 @@ function AdminPage() {
       <Container>
         <Row className="my-3">
           {/* Menu */}
-          <Col xs={12} md={3}>
           <Col xs={12} md={2}>
             <AdminMenu />
           </Col>
@@ -134,8 +133,8 @@ function AdminPage() {
                 </div>
               </Col>
             </Row>
-            <Row>
-              <div>
+            <Row className="mt-3">
+              <div className="mt-5">
                 <Line
                   data={{
                     labels: [
