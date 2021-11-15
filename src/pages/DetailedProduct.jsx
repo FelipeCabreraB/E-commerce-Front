@@ -219,8 +219,14 @@ function DetailedProduct() {
                         type="button"
                         onClick={
                           count > 1
-                            ? () => setCount((prev) => --prev)
-                            : () => setCount(1)
+                            ? () => {
+                                setCount((prev) => --prev);
+                                setCounterMessage("");
+                              }
+                            : () => {
+                                setCount(1);
+                                setCounterMessage("");
+                              }
                         }
                       >
                         <i class="fas fa-minus"></i>
@@ -261,7 +267,7 @@ function DetailedProduct() {
                     grindingType !== "Choose an option"
                       ? () => {
                           dispatch({
-                            type: "ADD_ITEM",
+                            type: "ADD_ITEM_COFF",
                             payload: {
                               quantity: count,
                               productName: product.productName,
