@@ -19,6 +19,8 @@ import AboutThisProject from "./pages/AboutThisProject";
 import AdminPage from "./pages/AdminPage";
 import AdminProduct from "./components/AdminProduct";
 import AdminCategory from "./components/AdminCategory";
+import AdminOrder from "./components/AdminOrder";
+import AdminUser from "./components/AdminUser";
 
 import EditProduct from "./pages/EditProduct";
 
@@ -54,6 +56,9 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/products" element={<AdminProduct />} />
           <Route path="/admin/categories" element={<AdminCategory />} />
+          <Route path="/admin/orders" element={<AdminOrder />} />
+          <Route path="/admin/users" element={<AdminUser />} />
+
           <Route path="/admin/product/edit" element={<EditProduct />} />
         </Routes>
 
