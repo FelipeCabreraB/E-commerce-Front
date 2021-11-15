@@ -176,7 +176,7 @@ function DetailedProductAcc() {
                 <Button
                   onClick={() => {
                     dispatch({
-                      type: "ADD_ITEM",
+                      type: "ADD_ITEM_ACC",
                       payload: {
                         quantity: count,
                         productName: product.productName,

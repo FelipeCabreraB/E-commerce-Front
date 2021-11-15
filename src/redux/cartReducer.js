@@ -1,6 +1,6 @@
 function cartReducer(cart = [], action) {
   switch (action.type) {
-    case "ADD_ITEM":
+    case "ADD_ITEM_ACC":
       if (
         cart.some((product) => {
           return product.productName === action.payload.productName;
@@ -9,11 +9,35 @@ function cartReducer(cart = [], action) {
         return cart.map((product) => {
           if (product.productName !== action.payload.productName)
             return product;
-          if (product.quantity + action.payload.quantity > 10)
+          /* if (product.quantity + action.payload.quantity > 10)
             return {
               ...product,
               quantity: 10,
-            };
+            }; */
+          return {
+            ...product,
+            quantity: product.quantity + action.payload.quantity,
+          };
+        });
+      } else return [...cart, action.payload];
+
+    case "ADD_ITEM_COFF":
+      if (
+        cart.some((product) => {
+          return (
+            product.productName === action.payload.productName &&
+            product.grindingType === action.payload.grindingType
+          );
+        })
+      ) {
+        return cart.map((product) => {
+          if (product.productName !== action.payload.productName)
+            return product;
+          /* if (product.quantity + action.payload.quantity > 10)
+              return {
+                ...product,
+                quantity: 10,
+              }; */
           return {
             ...product,
             quantity: product.quantity + action.payload.quantity,

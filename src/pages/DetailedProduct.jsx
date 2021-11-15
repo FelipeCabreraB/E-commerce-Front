@@ -267,7 +267,7 @@ function DetailedProduct() {
                     grindingType !== "Choose an option"
                       ? () => {
                           dispatch({
-                            type: "ADD_ITEM",
+                            type: "ADD_ITEM_COFF",
                             payload: {
                               quantity: count,
                               productName: product.productName,
