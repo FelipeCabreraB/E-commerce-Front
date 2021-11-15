@@ -18,6 +18,7 @@ import DetailedProductAcc from "./pages/DetailedProductAcc";
 import AboutThisProject from "./pages/AboutThisProject";
 import AdminPage from "./pages/AdminPage";
 import AdminProduct from "./components/AdminProduct";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -43,7 +44,6 @@ function App() {
             path="/my-account/account-details"
             element={<MyAccountDetail />}
           />
-
           <Route
             path="/purchase-confirmation"
             element={<PurchaseConfirmation />}
@@ -51,6 +51,7 @@ function App() {
           <Route path="/about-this-project" element={<AboutThisProject />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/products" element={<AdminProduct />} />
+          <Route path="/admin/product/edit" element={<EditProduct />} />
         </Routes>
 
         <Footer />
