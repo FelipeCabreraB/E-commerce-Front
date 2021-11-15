@@ -129,14 +129,14 @@ function CheckOut() {
               {cart.map((product) => (
                 <div className="d-flex justify-content-between mb-2">
                   <div>
-                    <p className="text-muted mb-1">
+                    <p className="mb-1">
                       {product.productName} x {product.quantity}
                     </p>
                     <p
                       className="text-muted my-0"
                       style={{ fontSize: "0.75rem" }}
                     >
-                      Grinding type: Grain
+                      Grinding type: {product.grindingType}
                     </p>
                   </div>
                   <p className="fs-3">

@@ -2,7 +2,7 @@ function cartReducer(cart = [], action) {
   switch (action.type) {
     case "ADD_ITEM":
       if (
-        cart.some(function (product) {
+        cart.some((product) => {
           return product.productName === action.payload.productName;
         })
       ) {
