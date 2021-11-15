@@ -16,6 +16,7 @@ import MyAccountAddress from "./components/MyAccountAddress";
 import PurchaseConfirmation from "./pages/PurchaseConfirmation";
 import DetailedProductAcc from "./pages/DetailedProductAcc";
 import AboutThisProject from "./pages/AboutThisProject";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             element={<PurchaseConfirmation />}
           />
           <Route path="/about-this-project" element={<AboutThisProject />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
 
         <Footer />
