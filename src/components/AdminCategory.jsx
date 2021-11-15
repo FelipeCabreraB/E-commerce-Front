@@ -31,7 +31,7 @@ function AdminProduct() {
           <Col sm={12} md={2}>
             <AdminMenu />
             <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add a Category
+              Add Category
             </Button>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
@@ -42,6 +42,7 @@ function AdminProduct() {
                   <th>Name</th>
                   <th>Description</th>
                   <th>Picture</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>

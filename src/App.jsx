@@ -53,7 +53,7 @@ function App() {
             element={<PurchaseConfirmation />}
           />
           <Route path="/about-this-project" element={<AboutThisProject />} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/dashboard" element={<AdminPage />} />
           <Route path="/admin/products" element={<AdminProduct />} />
           <Route path="/admin/categories" element={<AdminCategory />} />
           <Route path="/admin/orders" element={<AdminOrder />} />

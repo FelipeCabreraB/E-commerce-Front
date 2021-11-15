@@ -41,6 +41,7 @@ function AdminProduct() {
                   <th>#</th>
                   <th>Status Order</th>
                   <th>User Id</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,7 +51,7 @@ function AdminProduct() {
                     <td>{order.statusOrder}</td>
                     <td>{order.userId}</td>
 
-                    <td>
+                    <td className="text-center">
                       <Button className="btn btn-warning me-2">
                         <i class="far fa-edit"></i>
                       </Button>

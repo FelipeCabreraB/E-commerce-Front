@@ -44,6 +44,7 @@ function AdminProduct() {
                   <th>Role</th>
                   <th>Email</th>
                   <th>Completed Orders</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
