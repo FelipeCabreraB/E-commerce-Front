@@ -8,6 +8,7 @@ function userReducer(user = {}, action) {
         ...user,
         token: action.payload.token,
         id: action.payload.id,
+        role: action.payload.role,
       };
 
     case "LOGOUT":

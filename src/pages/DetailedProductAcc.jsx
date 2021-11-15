@@ -130,8 +130,14 @@ function DetailedProductAcc() {
                         type="button"
                         onClick={
                           count > 1
-                            ? () => setCount((prev) => --prev)
-                            : () => setCount(1)
+                            ? () => {
+                                setCount((prev) => --prev);
+                                setCounterMessage("");
+                              }
+                            : () => {
+                                setCount(1);
+                                setCounterMessage("");
+                              }
                         }
                       >
                         <i class="fas fa-minus"></i>
