@@ -4,6 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 //import MyAccountMenu from "./MyAccountMenu";
 import { Form, Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import AdminMenu from "../components/AdminMenu";
 
 function AdminProduct() {
   const [products, setProducts] = useState([]);
@@ -26,15 +27,15 @@ function AdminProduct() {
   }, []);
   return (
     <div>
-      <Container className="py-5">
+      <Container fluid className="py-3  ">
         <Row>
-          <Col sm={1}>
-            <p>Menu lateral</p>
-          </Col>
-          <Col className="myAccountResponsive" sm={11}>
-            <Button variant="dark" style={{ float: "right", margin: "1rem" }}>
+          <Col sm={12} md={2}>
+            <AdminMenu />
+            <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
               Add a Product
             </Button>
+          </Col>
+          <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>
               <thead>
                 <tr>
