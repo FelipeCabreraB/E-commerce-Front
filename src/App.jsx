@@ -58,8 +58,10 @@ function App() {
           <Route path="/admin/categories" element={<AdminCategory />} />
           <Route path="/admin/orders" element={<AdminOrder />} />
           <Route path="/admin/users" element={<AdminUser />} />
-
-          <Route path="/admin/product/edit" element={<EditProduct />} />
+          <Route
+            path="/admin/product/edit/:productId"
+            element={<EditProduct />}
+          />
         </Routes>
 
         <Footer />

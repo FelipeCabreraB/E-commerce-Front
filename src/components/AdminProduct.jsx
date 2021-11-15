@@ -72,7 +72,7 @@ function AdminProduct() {
                     <td>{product.featured}</td>
                     <td>{product.categoryId}</td>
                     <td>
-                      <Link to="/admin/product/edit">
+                      <Link to={`/admin/product/edit/${product.id}`}>
                         <Button className="btn btn-warning me-2">
                           <i class="far fa-edit"></i>
                         </Button>
