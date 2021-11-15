@@ -18,6 +18,8 @@ import DetailedProductAcc from "./pages/DetailedProductAcc";
 import AboutThisProject from "./pages/AboutThisProject";
 import AdminPage from "./pages/AdminPage";
 import AdminProduct from "./components/AdminProduct";
+import AdminCategory from "./components/AdminCategory";
+
 
 function App() {
   return (
@@ -51,6 +53,7 @@ function App() {
           <Route path="/about-this-project" element={<AboutThisProject />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/products" element={<AdminProduct />} />
+          <Route path="/admin/categories" element={<AdminCategory />} />
         </Routes>
 
         <Footer />
