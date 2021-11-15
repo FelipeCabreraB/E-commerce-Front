@@ -21,7 +21,6 @@ function AdminPage() {
           <Col xs={12} md={9}>
             <i class="fas fa-users fa-2x"></i>
             <h2 className="py-3">Welcome to the Admin Dashboard</h2>
-            <p></p>
           </Col>
         </Row>
       </Container>
