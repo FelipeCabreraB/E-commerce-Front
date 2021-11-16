@@ -12,7 +12,7 @@ function AdminProduct() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = async (ev) => {
+    const getProducts = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
