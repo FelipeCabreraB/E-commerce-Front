@@ -12,11 +12,6 @@ function cartReducer(cart = [], action) {
         return cart.map((product) => {
           if (product.productName !== action.payload.productName)
             return product;
-          /* if (product.quantity + action.payload.quantity > 10)
-              return {
-                ...product,
-                quantity: 10,
-              }; */
           return {
             ...product,
             quantity: product.quantity + action.payload.quantity,
@@ -33,13 +28,6 @@ function cartReducer(cart = [], action) {
       });
 
     case "ADD_ONE_QUANTITY":
-      console.log(
-        cart
-          .filter((product) => {
-            return product.productName === action.payload.productName;
-          })
-          .reduce((acc, value) => acc + value.quantity, 0)
-      );
       return cart.map((product) => {
         if (product.productName !== action.payload.productName) return product;
         if (product.grindingType !== action.payload.grindingType)

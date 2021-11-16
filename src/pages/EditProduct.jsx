@@ -6,6 +6,8 @@ import axios from "axios";
 
 function EditProduct() {
   const [product, setProduct] = useState({});
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
@@ -22,9 +24,10 @@ function EditProduct() {
   const [price, setPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [category, setCategory] = useState(0);
+  const [featured, setFeatured] = useState(false);
 
   useEffect(() => {
-    const getProduct = async (ev) => {
+    const getProduct = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/${params.productId}`,
@@ -47,7 +50,8 @@ function EditProduct() {
         setAccessoriesChar3(response.data.accessoriesChar3);
         setPrice(response.data.price);
         setStock(response.data.stock);
-        setCategory(response.data.category);
+        setCategory(response.data.categoryId);
+        setFeatured(response.data.featured);
       } catch (error) {
         console.log(error);
       }
@@ -78,10 +82,17 @@ function EditProduct() {
             price,
             stock,
             category,
+            featured,
           },
           headers: { "Content-Type": "application/json" },
         }
       );
+      if (response.data.success) {
+        setSuccessMessage(response.data.success);
+      }
+      if (response.data.error) {
+        setErrorMessage(response.data.error);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -128,123 +139,163 @@ function EditProduct() {
                 value={description}
                 onChange={(ev) => setDescription(ev.target.value)}
               ></textarea>
-              <label className="form-label mt-2" htmlFor="origin">
-                Origin
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="origin"
-                name="origin"
-                value={origin}
-                onChange={(ev) => setOrigin(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="farm">
-                Farm
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="farm"
-                name="farm"
-                value={farm}
-                onChange={(ev) => setFarm(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="notes">
-                Notes
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="notes"
-                name="notes"
-                value={notes}
-                onChange={(ev) => setNotes(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="variety">
-                Variety
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="variety"
-                name="variety"
-                value={variety}
-                onChange={(ev) => setVariety(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="height">
-                Height
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="height"
-                name="height"
-                value={height}
-                onChange={(ev) => setHeight(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="process">
-                Process
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="process"
-                name="process"
-                value={processCoff}
-                onChange={(ev) => setProcessCoff(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="rating">
-                Rating
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="rating"
-                name="rating"
-                value={rating}
-                onChange={(ev) => setRating(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="accessoriesChar1">
-                Accessories Charactiristic 1
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar1"
-                name="accessoriesChar1"
-                value={accessoriesChar1}
-                onChange={(ev) => setAccessoriesChar1(ev.target.value)}
-              />
-              <label className="form-label mt-2" htmlFor="accessoriesChar2">
-                Accessories Charactiristic 2
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar2"
-                name="accessoriesChar2"
-                value={accessoriesChar2}
-                onChange={(ev) => setAccessoriesChar2(ev.target.value)}
-              />
-              <label className="form-label mt-2" htmlFor="accessoriesChar3">
-                Accessories Charactiristic 3
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar3"
-                name="accessoriesChar3"
-                value={accessoriesChar3}
-                onChange={(ev) => setAccessoriesChar3(ev.target.value)}
-              />
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="origin">
+                    Origin
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="origin"
+                    name="origin"
+                    value={origin}
+                    onChange={(ev) => setOrigin(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="farm">
+                    Farm
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="farm"
+                    name="farm"
+                    value={farm}
+                    onChange={(ev) => setFarm(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="notes">
+                    Notes
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="notes"
+                    name="notes"
+                    value={notes}
+                    onChange={(ev) => setNotes(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="variety">
+                    Variety
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="variety"
+                    name="variety"
+                    value={variety}
+                    onChange={(ev) => setVariety(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="height">
+                    Height
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="height"
+                    name="height"
+                    value={height}
+                    onChange={(ev) => setHeight(ev.target.value)}
+                    required
+                  />{" "}
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="process">
+                    Process
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="process"
+                    name="process"
+                    value={processCoff}
+                    onChange={(ev) => setProcessCoff(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 1 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="rating">
+                    Rating
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="rating"
+                    name="rating"
+                    value={rating}
+                    onChange={(ev) => setRating(ev.target.value)}
+                    required
+                  />
+                </div>
+              )}
+              {product.categoryId === 2 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar1">
+                    Accessories Charactiristic 1
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar1"
+                    name="accessoriesChar1"
+                    value={accessoriesChar1}
+                    onChange={(ev) => setAccessoriesChar1(ev.target.value)}
+                  />
+                </div>
+              )}
+              {product.categoryId === 2 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar2">
+                    Accessories Charactiristic 2
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar2"
+                    name="accessoriesChar2"
+                    value={accessoriesChar2}
+                    onChange={(ev) => setAccessoriesChar2(ev.target.value)}
+                  />
+                </div>
+              )}
+              {product.categoryId === 2 && (
+                <div>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar3">
+                    Accessories Charactiristic 3
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar3"
+                    name="accessoriesChar3"
+                    value={accessoriesChar3}
+                    onChange={(ev) => setAccessoriesChar3(ev.target.value)}
+                  />
+                </div>
+              )}
               <label className="form-label mt-2" htmlFor="picture">
                 Change picture
               </label>
@@ -294,10 +345,19 @@ function EditProduct() {
                 onChange={(ev) => setCategory(ev.target.value)}
                 required
               />
+              <div class="form-text">
+                Category 1: Coffee - Category 2: Accessories
+              </div>
               <label className="form-label mt-2 me-3 mt-2" htmlFor="featured">
                 Featured:
               </label>
-              <input type="checkbox" id="featured" name="featured" />
+              <input
+                type="checkbox"
+                id="featured"
+                name="featured"
+                checked={featured}
+                onChange={() => setFeatured(!featured)}
+              />
               <Button
                 type="submit"
                 variant="dark"
@@ -305,6 +365,14 @@ function EditProduct() {
               >
                 Confirm changes
               </Button>
+              <p className="text-success text-center">
+                {" "}
+                <strong>{successMessage}</strong>{" "}
+              </p>
+              <p className="text-danger text-center">
+                {" "}
+                <strong>{errorMessage}</strong>{" "}
+              </p>
             </form>
           </Col>
         </Row>
