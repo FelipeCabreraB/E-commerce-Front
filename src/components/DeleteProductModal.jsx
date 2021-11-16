@@ -1,11 +1,29 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
 
-function DeleteProductModal({ productId, productName }) {
+function DeleteProductModal({ productId, productName, setProducts }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/delete`,
+        {
+          data: {
+            id: productId,
+          },
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      setProducts((prev) => prev.filter((product) => product.id !== productId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -25,7 +43,13 @@ function DeleteProductModal({ productId, productName }) {
           erased.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="dark" onClick={handleClose}>
+          <Button
+            variant="dark"
+            onClick={() => {
+              handleClose();
+              handleDelete();
+            }}
+          >
             Confirm
           </Button>
         </Modal.Footer>

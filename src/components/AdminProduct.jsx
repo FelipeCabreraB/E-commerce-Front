@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 function AdminProduct() {
   const [products, setProducts] = useState([]);
+  const [launch, setLaunch] = useState(false);
 
   useEffect(() => {
     const getProducts = async (ev) => {
@@ -26,7 +27,8 @@ function AdminProduct() {
       }
     };
     getProducts();
-  }, []);
+  }, [launch]);
+
   return (
     <div>
       <Container fluid className="py-3  ">
@@ -81,6 +83,7 @@ function AdminProduct() {
                       <DeleteProductModal
                         productId={product.id}
                         productName={product.productName}
+                        setProducts={setProducts}
                       />
                     </td>
                   </tr>
