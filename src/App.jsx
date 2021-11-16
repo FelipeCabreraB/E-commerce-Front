@@ -21,6 +21,7 @@ import AdminProduct from "./components/AdminProduct";
 import AdminCategory from "./components/AdminCategory";
 import AdminOrder from "./components/AdminOrder";
 import AdminUser from "./components/AdminUser";
+import AddNewProduct from "./pages/AddNewProduct";
 
 import EditProduct from "./pages/EditProduct";
 
@@ -62,6 +63,7 @@ function App() {
             path="/admin/product/edit/:productId"
             element={<EditProduct />}
           />
+          <Route path="/admin/product/create" element={<AddNewProduct />} />
         </Routes>
 
         <Footer />

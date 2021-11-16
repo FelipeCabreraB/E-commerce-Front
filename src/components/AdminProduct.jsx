@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 function AdminProduct() {
   const [products, setProducts] = useState([]);
-  const [launch, setLaunch] = useState(false);
 
   useEffect(() => {
     const getProducts = async (ev) => {
@@ -27,7 +26,7 @@ function AdminProduct() {
       }
     };
     getProducts();
-  }, [launch]);
+  }, []);
 
   return (
     <div>
@@ -35,9 +34,11 @@ function AdminProduct() {
         <Row>
           <Col sm={12} md={2}>
             <AdminMenu />
-            <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add a Product
-            </Button>
+            <Link to="/admin/product/create">
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add a Product
+              </Button>
+            </Link>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>

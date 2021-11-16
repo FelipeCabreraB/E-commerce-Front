@@ -11,7 +11,7 @@ function DeleteProductModal({ productId, productName, setProducts }) {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/delete`,
+        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
         {
           data: {
             id: productId,
