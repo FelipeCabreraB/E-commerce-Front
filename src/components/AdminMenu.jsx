@@ -8,29 +8,30 @@ function AdminMenu() {
 
   return (
     <div className="myAccount">
-      <ListGroup as="ul" className="dark" variant="flush dark">
-        <ListGroup.Item>
-          {" "}
+      <ListGroup as="ul" className="dark " variant="flush dark  ">
+        <ListGroup.Item action>
+          <i class="bi bi-house"></i>{" "}
           <Link to="/admin/dashboard">Dashboard</Link>
         </ListGroup.Item>
-        <ListGroup.Item>
-          <Link to="/admin/products">Products</Link>
+        <ListGroup.Item action>
+          <i class="bi bi-bag"></i> <Link to="/admin/products">Products</Link>
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item action>
           {" "}
+          <i class="bi bi-tag"></i>{" "}
           <Link to="/admin/categories">Categories</Link>
         </ListGroup.Item>
-        <ListGroup.Item>
-          {" "}
-          <Link to="/admin/users">Users</Link>
+        <ListGroup.Item action>
+          <i class="bi bi-people"></i> <Link to="/admin/users">Users</Link>
         </ListGroup.Item>
-        <ListGroup.Item>
+        <ListGroup.Item action>
           {" "}
+          <i class="bi bi-card-checklist"></i>{" "}
           <Link to="/admin/orders">Orders</Link>
         </ListGroup.Item>
 
         <ListGroup.Item as="li" onClick={() => dispatch({ type: "LOGOUT" })}>
-          <Link to="/">Logout</Link>
+          <i class="bi bi-box-arrow-in-left"></i> <Link to="/">Logout</Link>
         </ListGroup.Item>
       </ListGroup>
     </div>

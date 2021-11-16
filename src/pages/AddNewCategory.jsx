@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import AdminMenu from "../components/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function AddNewCategory() {
+  const token = useSelector((state) => state.user.token);
+
   const [category, setCategory] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,7 +28,10 @@ function AddNewCategory() {
             description,
             picture,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       if (response.data.success) {

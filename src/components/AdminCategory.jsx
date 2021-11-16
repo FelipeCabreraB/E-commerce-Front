@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
 import { Link } from "react-router-dom";
 import DeleteCategoryModal from "./DeleteCategoryModal";
+import { useSelector } from "react-redux";
 
 function AdminCategory() {
   const [categories, setCategories] = useState([]);
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     const getcategories = async (ev) => {
@@ -16,7 +18,10 @@ function AdminCategory() {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/`,
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setCategories(response.data);

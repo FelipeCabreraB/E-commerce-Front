@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function DeleteCategoryModal({ categoryId, categoryName, setCategories }) {
   const [show, setShow] = useState(false);
+  const token = useSelector((state) => state.user.token);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -16,7 +18,10 @@ function DeleteCategoryModal({ categoryId, categoryName, setCategories }) {
           data: {
             id: categoryId,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       setCategories((prev) =>

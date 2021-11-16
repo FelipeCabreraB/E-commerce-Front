@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import AdminMenu from "../components/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function EditCategory() {
+  const token = useSelector((state) => state.user.token);
+
   const [category, setCategory] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,6 +23,7 @@ function EditCategory() {
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/${params.categoryId}`,
           {
             headers: { "Content-Type": "application/json" },
+            Authorization: "Bearer " + token,
           }
         );
         setCategory(response.data);
