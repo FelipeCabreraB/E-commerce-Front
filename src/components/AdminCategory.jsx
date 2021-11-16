@@ -32,17 +32,16 @@ function AdminCategory() {
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
-            <AdminMenu />
-            <Link to="/admin/category/create">
-              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-                Add a Category
-              </Button>
-            </Link>
             <div className="sticky-top">
               <AdminMenu />
-              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-                Add Category
-              </Button>
+              <Link to="/admin/category/create">
+                <Button
+                  variant="dark"
+                  style={{ float: "right", margin: "2rem" }}
+                >
+                  Add Category
+                </Button>
+              </Link>
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
