@@ -83,7 +83,10 @@ function OffCanvasExample({ name, ...props }) {
       ) : (
         <Nav.Link onClick={handleShow}>
           {" "}
-          <i className="far fa-user pointer text-muted"></i>{" "}
+          <i
+            className="far fa-user pointer"
+            style={{ color: "black" }}
+          ></i>{" "}
         </Nav.Link>
       )}
 
@@ -223,7 +226,7 @@ function OffCanvasExample({ name, ...props }) {
                           onChange={(ev) => setEmailLog(ev.target.value)}
                           required
                         />
-                        <label className="form-label mt-2" htmlFor="password">
+                        <label className="form-label mt-3" htmlFor="password">
                           Password *
                         </label>
                         <input
@@ -255,7 +258,11 @@ function OffCanvasExample({ name, ...props }) {
                               Remember
                             </label>
                           </div>
-                          <Link className="text-black" to="/lost-password">
+                          <Link
+                            className="text-black"
+                            to="/lost-password"
+                            onClick={() => handleClose()}
+                          >
                             Lost password?
                           </Link>
                         </div>

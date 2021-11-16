@@ -73,7 +73,7 @@ function NavBar() {
             <Nav>
               <RegisterLoginOffcanvas />
               <Nav.Link>
-                <i class="fas fa-search text-muted"></i>
+                <i class="fas fa-search" style={{ color: "black" }}></i>
               </Nav.Link>
               <Nav.Link>
                 <Link
@@ -82,7 +82,10 @@ function NavBar() {
                 >
                   {cart.reduce((acc, value) => acc + value.quantity, 0) !==
                   0 ? (
-                    <i className="fas fa-shopping-cart text-muted">
+                    <i
+                      className="fas fa-shopping-cart"
+                      style={{ color: "black" }}
+                    >
                       {" "}
                       <div
                         style={{
@@ -102,7 +105,10 @@ function NavBar() {
                       </div>
                     </i>
                   ) : (
-                    <i class="fas fa-shopping-cart text-muted"></i>
+                    <i
+                      class="fas fa-shopping-cart"
+                      style={{ color: "black" }}
+                    ></i>
                   )}
                 </Link>
               </Nav.Link>

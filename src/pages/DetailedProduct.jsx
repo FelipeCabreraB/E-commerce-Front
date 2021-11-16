@@ -270,29 +270,38 @@ function DetailedProduct() {
                   onClick={
                     grindingType !== "Choose an option"
                       ? () => {
-                          dispatch({
-                            type: "ADD_ITEM",
-                            payload: {
-                              quantity: count,
-                              productName: product.productName,
-                              price: product.price,
-                              picture: product.picture,
-                              grindingType: grindingType,
-                              stock: product.stock,
-                            },
-                          });
+                          {
+                            count !== 0 &&
+                              dispatch({
+                                type: "ADD_ITEM",
+                                payload: {
+                                  quantity: count,
+                                  productName: product.productName,
+                                  price: product.price,
+                                  picture: product.picture,
+                                  grindingType: grindingType,
+                                  stock: product.stock,
+                                },
+                              });
+                          }
+
                           setCount(0);
                           setCounterMessage("");
-                          setAddToCartMessage(
-                            "Product added to cart correctly."
-                          );
+                          {
+                            count !== 0 &&
+                              setAddToCartMessage(
+                                "Product added to cart correctly."
+                              );
+                          }
                           setSelectGrindingType("");
                           setGrindingType("Choose an option");
                         }
-                      : () =>
-                          setSelectGrindingType(
-                            "Please select a grinding type."
-                          )
+                      : () => {
+                          count !== 0 &&
+                            setSelectGrindingType(
+                              "Please select a grinding type."
+                            );
+                        }
                   }
                   variant="secondary"
                   className="my-3 rounded-pill px-4"

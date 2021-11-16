@@ -171,19 +171,26 @@ function DetailedProductAcc() {
 
                 <Button
                   onClick={() => {
-                    dispatch({
-                      type: "ADD_ITEM",
-                      payload: {
-                        quantity: count,
-                        productName: product.productName,
-                        price: product.price,
-                        picture: product.picture,
-                        stock: product.stock,
-                      },
-                    });
+                    {
+                      count !== 0 &&
+                        dispatch({
+                          type: "ADD_ITEM",
+                          payload: {
+                            quantity: count,
+                            productName: product.productName,
+                            price: product.price,
+                            picture: product.picture,
+                            stock: product.stock,
+                          },
+                        });
+                    }
+
                     setCount(0);
                     setCounterMessage("");
-                    setAddToCartMessage("Product added to cart correctly.");
+                    {
+                      count !== 0 &&
+                        setAddToCartMessage("Product added to cart correctly.");
+                    }
                   }}
                   variant="secondary"
                   className="my-3 rounded-pill px-4"
