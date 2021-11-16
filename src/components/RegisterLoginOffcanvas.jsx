@@ -69,16 +69,18 @@ function OffCanvasExample({ name, ...props }) {
     <>
       {user.token ? (
         <Nav.Link onClick={handleShow}>
-          <i className="far fa-user pointer" style={{ color: "black" }}></i>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
-            fill="black"
-            viewBox="0 0 36 36"
+          <i
+            id="userLogoNavbar"
+            className="far fa-user pointer"
+            style={{ color: "black" }}
           >
-            <path d="M0 12.116l2.053-1.897c2.401 1.162 3.924 2.045 6.622 3.969 5.073-5.757 8.426-8.678 14.657-12.555l.668 1.536c-5.139 4.484-8.902 9.479-14.321 19.198-3.343-3.936-5.574-6.446-9.679-10.251z" />
-          </svg>{" "}
+            <div id="welcomeEmailNavbar" className="d-flex">
+              <p className="mb-1 me-1" style={{ fontSize: "0.5rem" }}>
+                Welcome:
+              </p>
+              <p style={{ fontSize: "0.5rem" }}>{user.email}</p>{" "}
+            </div>
+          </i>
         </Nav.Link>
       ) : (
         <Nav.Link onClick={handleShow}>
