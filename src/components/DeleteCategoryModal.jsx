@@ -1,11 +1,31 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import axios from "axios";
 
-function DeleteCategoryModal({ categoryId, categoryName }) {
+function DeleteCategoryModal({ categoryId, categoryName, setCategories }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories`,
+        {
+          data: {
+            id: categoryId,
+          },
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      setCategories((prev) =>
+        prev.filter((category) => category.id !== categoryId)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -25,7 +45,13 @@ function DeleteCategoryModal({ categoryId, categoryName }) {
           erased.
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="dark" onClick={handleClose}>
+          <Button
+            variant="dark"
+            onClick={() => {
+              handleClose();
+              handleDelete();
+            }}
+          >
             Confirm
           </Button>
         </Modal.Footer>

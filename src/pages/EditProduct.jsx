@@ -17,7 +17,7 @@ function EditProduct() {
   const [variety, setVariety] = useState("");
   const [height, setHeight] = useState("");
   const [processCoff, setProcessCoff] = useState(""); //Tiene que ser distinto a process porque sino agarra el precess.env
-  const [rating, setRating] = useState("");
+  const [rating, setRating] = useState(0);
   const [accessoriesChar1, setAccessoriesChar1] = useState("");
   const [accessoriesChar2, setAccessoriesChar2] = useState("");
   const [accessoriesChar3, setAccessoriesChar3] = useState("");
@@ -30,7 +30,7 @@ function EditProduct() {
     const getProduct = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/${params.productId}`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/${params.productId}`,
           {
             headers: { "Content-Type": "application/json" },
           }
@@ -63,7 +63,7 @@ function EditProduct() {
     ev.preventDefault();
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/update`,
+        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
         {
           data: {
             id: params.productId,

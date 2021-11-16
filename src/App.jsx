@@ -21,9 +21,11 @@ import AdminProduct from "./components/AdminProduct";
 import AdminCategory from "./components/AdminCategory";
 import AdminOrder from "./components/AdminOrder";
 import AdminUser from "./components/AdminUser";
+import AddNewProduct from "./pages/AddNewProduct";
 
 import EditProduct from "./pages/EditProduct";
 import EditCategory from "./pages/EditCategory";
+import AddNewCategory from "./pages/AddNewCategory";
 
 function App() {
   return (
@@ -67,6 +69,9 @@ function App() {
             path="/admin/category/edit/:categoryId"
             element={<EditCategory />}
           />
+          <Route path="/admin/product/create" element={<AddNewProduct />} />
+
+          <Route path="/admin/category/create" element={<AddNewCategory />} />
         </Routes>
 
         <Footer />

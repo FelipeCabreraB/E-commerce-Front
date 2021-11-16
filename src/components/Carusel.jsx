@@ -9,12 +9,12 @@ import SwiperCore, {
   Controller,
   Thumbs,
 } from "swiper";
-
 import "swiper/swiper-bundle.css";
-
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 SwiperCore.use([Autoplay, Navigation, Pagination, Controller, Thumbs]);
 
@@ -52,6 +52,24 @@ const data = [
 function Carusel() {
   const navigationPrevRef = React.useRef(null);
   const navigationNextRef = React.useRef(null);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+
+  useEffect(() => {
+    const getFeaturedProducts = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_URL_BACKEND}/featured/products`,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        setFeaturedProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getFeaturedProducts();
+  }, []);
 
   return (
     <div>
@@ -72,18 +90,25 @@ function Carusel() {
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          {data.map((product) => (
+          {featuredProducts.map((product) => (
             <SwiperSlide key={product.id} className="slide">
               <div className="slide-content">
                 <div className="product-image">
-                  <img className="product-photo" src={product.image} alt="" />
+                  <img className="product-photo" src={product.picture} alt="" />
                 </div>
-                <div className="carusel-details">
-                  <h3 className="titleCarusel text-center">{product.name}</h3>
-                  <p className="text-center" id="priceCarusel">
-                    $ {product.price}
-                  </p>
-                </div>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to={`/product/${product.categoryId}/${product.productName}`}
+                >
+                  <div className="carusel-details">
+                    <h3 className="titleCarusel text-center">
+                      {product.productName}
+                    </h3>
+                    <p className="text-center" id="priceCarusel">
+                      $ {product.price}
+                    </p>
+                  </div>
+                </Link>
               </div>
             </SwiperSlide>
           ))}

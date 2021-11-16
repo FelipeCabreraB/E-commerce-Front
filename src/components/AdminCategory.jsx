@@ -33,9 +33,11 @@ function AdminCategory() {
         <Row>
           <Col sm={12} md={2}>
             <AdminMenu />
-            <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add Category
-            </Button>
+            <Link to="/admin/category/create">
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add a Category
+              </Button>
+            </Link>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>
@@ -76,6 +78,7 @@ function AdminCategory() {
                       <DeleteCategoryModal
                         categoryId={category.id}
                         categoryName={category.categoryName}
+                        setCategories={setCategories}
                       />
                     </td>
                   </tr>

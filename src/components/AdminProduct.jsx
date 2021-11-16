@@ -12,7 +12,7 @@ function AdminProduct() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getProducts = async (ev) => {
+    const getProducts = async () => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
@@ -27,15 +27,18 @@ function AdminProduct() {
     };
     getProducts();
   }, []);
+
   return (
     <div>
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
             <AdminMenu />
-            <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add a Product
-            </Button>
+            <Link to="/admin/product/create">
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add a Product
+              </Button>
+            </Link>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>
@@ -81,6 +84,7 @@ function AdminProduct() {
                       <DeleteProductModal
                         productId={product.id}
                         productName={product.productName}
+                        setProducts={setProducts}
                       />
                     </td>
                   </tr>
