@@ -24,6 +24,8 @@ import AdminUser from "./components/AdminUser";
 import AddNewProduct from "./pages/AddNewProduct";
 import EditProduct from "./pages/EditProduct";
 import EditUser from "./pages/EditUser";
+import EditCategory from "./pages/EditCategory";
+import AddNewCategory from "./pages/AddNewCategory";
 
 function App() {
   return (
@@ -63,8 +65,14 @@ function App() {
             path="/admin/product/edit/:productId"
             element={<EditProduct />}
           />
+          <Route
+            path="/admin/category/edit/:categoryId"
+            element={<EditCategory />}
+          />
           <Route path="/admin/product/create" element={<AddNewProduct />} />
           <Route path="/admin/users/edit/:userId" element={<EditUser />} />
+
+          <Route path="/admin/category/create" element={<AddNewCategory />} />
         </Routes>
 
         <Footer />

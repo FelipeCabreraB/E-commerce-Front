@@ -4,8 +4,10 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
+import { Link } from "react-router-dom";
+import DeleteCategoryModal from "./DeleteCategoryModal";
 
-function AdminProduct() {
+function AdminCategory() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -24,11 +26,18 @@ function AdminProduct() {
     };
     getcategories();
   }, []);
+
   return (
     <div>
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
+            <AdminMenu />
+            <Link to="/admin/category/create">
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add a Category
+              </Button>
+            </Link>
             <div className="sticky-top">
               <AdminMenu />
               <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
@@ -67,12 +76,16 @@ function AdminProduct() {
                     </td>
 
                     <td>
-                      <Button className="btn btn-warning me-2">
-                        <i class="far fa-edit"></i>
-                      </Button>
-                      <Button className="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                      </Button>
+                      <Link to={`/admin/category/edit/${category.id}`}>
+                        <Button className="btn btn-warning me-2">
+                          <i class="far fa-edit"></i>
+                        </Button>
+                      </Link>
+                      <DeleteCategoryModal
+                        categoryId={category.id}
+                        categoryName={category.categoryName}
+                        setCategories={setCategories}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -85,4 +98,4 @@ function AdminProduct() {
   );
 }
 
-export default AdminProduct;
+export default AdminCategory;
