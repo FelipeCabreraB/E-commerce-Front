@@ -74,11 +74,13 @@ function OffCanvasExample({ name, ...props }) {
             className="far fa-user pointer"
             style={{ color: "black" }}
           >
-            <div id="welcomeEmailNavbar" className="d-flex">
-              <p className="mb-1 me-1" style={{ fontSize: "0.5rem" }}>
+            <div id="welcomeEmailNavbar" className="d-flex border px-1">
+              <p className="mb-1 mt-1 me-1" style={{ fontSize: "0.5rem" }}>
                 Welcome:
               </p>
-              <p style={{ fontSize: "0.5rem" }}>{user.email}</p>{" "}
+              <p className="mb-1 mt-1" style={{ fontSize: "0.5rem" }}>
+                {user.email}
+              </p>{" "}
             </div>
           </i>
         </Nav.Link>
