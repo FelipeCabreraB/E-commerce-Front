@@ -11,12 +11,9 @@ function AdminPage() {
           {/* Menu */}
           <Col xs={12} md={2}>
             <div className="sticky-top">
-              <div className="sticky-top">
-                <AdminMenu />
-              </div>
+              <AdminMenu />
             </div>
           </Col>
-
           {/* Tables */}
           <Col xs={12} md={10}>
             <div className="text-center">

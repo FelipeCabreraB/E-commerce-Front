@@ -43,7 +43,6 @@ function AdminProduct() {
                   <th>#</th>
                   <th>Status Order</th>
                   <th>User Id</th>
-                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,15 +51,6 @@ function AdminProduct() {
                     <td>{order.id}</td>
                     <td>{order.statusOrder}</td>
                     <td>{order.userId}</td>
-
-                    <td className="text-center">
-                      <Button className="btn btn-warning me-2">
-                        <i class="far fa-edit"></i>
-                      </Button>
-                      <Button className="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                      </Button>
-                    </td>
                   </tr>
                 ))}
               </tbody>
