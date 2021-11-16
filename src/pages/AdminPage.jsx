@@ -6,8 +6,8 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 function AdminPage() {
   return (
     <div className="admin-page">
-      <Container>
-        <Row className="my-3">
+      <Container fluid className="py-3  ">
+        <Row>
           {/* Menu */}
           <Col xs={12} md={2}>
             <div className="sticky-top">

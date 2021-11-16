@@ -4,6 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "./AdminMenu";
+import { Link } from "react-router-dom";
 
 function AdminProduct() {
   const [users, setUsers] = useState([]);
@@ -24,6 +25,7 @@ function AdminProduct() {
     };
     getcategories();
   }, []);
+
   return (
     <div>
       <Container fluid className="py-3  ">
@@ -45,7 +47,9 @@ function AdminProduct() {
                   <th>Last Name</th>
                   <th>Role</th>
                   <th>Email</th>
-                  <th>Completed Orders</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+                  {/* <th>Completed Orders</th> */}
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -57,12 +61,15 @@ function AdminProduct() {
                     <td>{user.lastname}</td>
                     <td>{user.role}</td>
                     <td>{user.email}</td>
-                    <td>{user.completedOrders}</td>
-
+                    <td>{user.address}</td>
+                    <td>{user.phone}</td>
+                    {/* <td>{user.completedOrders}</td> */}
                     <td>
-                      <Button className="btn btn-warning me-2">
-                        <i class="far fa-edit"></i>
-                      </Button>
+                      <Link to={`/admin/users/edit/${user.id}`}>
+                        <Button className="btn btn-warning me-2">
+                          <i class="far fa-edit"></i>
+                        </Button>
+                      </Link>
                       <Button className="btn btn-danger">
                         <i class="far fa-trash-alt"></i>
                       </Button>
