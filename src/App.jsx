@@ -23,6 +23,7 @@ import AdminOrder from "./components/AdminOrder";
 import AdminUser from "./components/AdminUser";
 
 import EditProduct from "./pages/EditProduct";
+import EditCategory from "./pages/EditCategory";
 
 function App() {
   return (
@@ -61,6 +62,10 @@ function App() {
           <Route
             path="/admin/product/edit/:productId"
             element={<EditProduct />}
+          />
+          <Route
+            path="/admin/category/edit/:categoryId"
+            element={<EditCategory />}
           />
         </Routes>
 

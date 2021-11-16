@@ -4,8 +4,10 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
+import { Link } from "react-router-dom";
+import DeleteCategoryModal from "./DeleteCategoryModal";
 
-function AdminProduct() {
+function AdminCategory() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -24,6 +26,7 @@ function AdminProduct() {
     };
     getcategories();
   }, []);
+
   return (
     <div>
       <Container fluid className="py-3  ">
@@ -65,12 +68,15 @@ function AdminProduct() {
                     </td>
 
                     <td>
-                      <Button className="btn btn-warning me-2">
-                        <i class="far fa-edit"></i>
-                      </Button>
-                      <Button className="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                      </Button>
+                      <Link to={`/admin/category/edit/${category.id}`}>
+                        <Button className="btn btn-warning me-2">
+                          <i class="far fa-edit"></i>
+                        </Button>
+                      </Link>
+                      <DeleteCategoryModal
+                        categoryId={category.id}
+                        categoryName={category.categoryName}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -83,4 +89,4 @@ function AdminProduct() {
   );
 }
 
-export default AdminProduct;
+export default AdminCategory;
