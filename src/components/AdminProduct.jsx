@@ -5,6 +5,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
+import DeleteProductModal from "../components/DeleteProductModal";
 import { Link } from "react-router-dom";
 
 function AdminProduct() {
@@ -77,9 +78,10 @@ function AdminProduct() {
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>
-                      <Button className="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                      </Button>
+                      <DeleteProductModal
+                        productId={product.id}
+                        productName={product.productName}
+                      />
                     </td>
                   </tr>
                 ))}

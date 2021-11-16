@@ -6,11 +6,12 @@ import { useSelector } from "react-redux";
 
 function NavBar() {
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   return (
     <div style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
       <Navbar collapseOnSelect expand="lg" bg="white">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <Link
               style={{
                 textDecoration: "none",
@@ -26,7 +27,20 @@ function NavBar() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto ms-auto">
-              <Nav.Link href="#features">
+              {user.role === "admin" && (
+                <Nav.Link>
+                  <Link
+                    className="border p-3 bg-light"
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/admin/dashboard"
+                  >
+                    <strong>
+                      ADMIN <i class="fas fa-key"></i>
+                    </strong>
+                  </Link>
+                </Nav.Link>
+              )}
+              <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/about-this-project"
@@ -34,12 +48,12 @@ function NavBar() {
                   <strong>ABOUT THIS PROJECT</strong>
                 </Link>
               </Nav.Link>
-              <Nav.Link href="#features">
+              <Nav.Link>
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
                   <strong>SUBSCRIPTION</strong>
                 </Link>
               </Nav.Link>
-              <Nav.Link href="#features">
+              <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/coffee"
@@ -47,7 +61,7 @@ function NavBar() {
                   <strong>COFFEE</strong>
                 </Link>
               </Nav.Link>
-              <Nav.Link href="#features">
+              <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/accessories"
