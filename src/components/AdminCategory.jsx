@@ -38,6 +38,12 @@ function AdminCategory() {
                 Add a Category
               </Button>
             </Link>
+            <div className="sticky-top">
+              <AdminMenu />
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add Category
+              </Button>
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>

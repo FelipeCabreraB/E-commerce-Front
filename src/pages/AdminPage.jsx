@@ -10,7 +10,11 @@ function AdminPage() {
         <Row className="my-3">
           {/* Menu */}
           <Col xs={12} md={2}>
-            <AdminMenu />
+            <div className="sticky-top">
+              <div className="sticky-top">
+                <AdminMenu />
+              </div>
+            </div>
           </Col>
 
           {/* Tables */}

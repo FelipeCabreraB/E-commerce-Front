@@ -2,9 +2,11 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AdminMenu from "../components/AdminMenu";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 function AddNewProduct() {
+  const token = useSelector((state) => state.user.token);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
@@ -50,7 +52,10 @@ function AddNewProduct() {
             category,
             featured,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       if (response.data.success) {
@@ -69,7 +74,9 @@ function AddNewProduct() {
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
-            <AdminMenu />
+            <div className="sticky-top">
+              <AdminMenu />
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">Create new product</h3>

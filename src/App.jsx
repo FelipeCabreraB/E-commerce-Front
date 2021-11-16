@@ -22,7 +22,6 @@ import AdminCategory from "./components/AdminCategory";
 import AdminOrder from "./components/AdminOrder";
 import AdminUser from "./components/AdminUser";
 import AddNewProduct from "./pages/AddNewProduct";
-
 import EditProduct from "./pages/EditProduct";
 import EditCategory from "./pages/EditCategory";
 import AddNewCategory from "./pages/AddNewCategory";

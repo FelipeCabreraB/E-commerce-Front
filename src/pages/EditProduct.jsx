@@ -2,9 +2,11 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AdminMenu from "../components/AdminMenu";
 import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 function EditProduct() {
+  const token = useSelector((state) => state.user.token);
   const [product, setProduct] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -32,7 +34,10 @@ function EditProduct() {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/${params.productId}`,
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setProduct(response.data);
@@ -84,7 +89,10 @@ function EditProduct() {
             category,
             featured,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       if (response.data.success) {
@@ -103,7 +111,9 @@ function EditProduct() {
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
-            <AdminMenu />
+            <div className="sticky-top">
+              <AdminMenu />
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">
