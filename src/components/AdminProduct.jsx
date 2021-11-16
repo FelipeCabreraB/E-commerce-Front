@@ -7,9 +7,11 @@ import { useEffect, useState } from "react";
 import AdminMenu from "../components/AdminMenu";
 import DeleteProductModal from "../components/DeleteProductModal";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function AdminProduct() {
   const [products, setProducts] = useState([]);
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -17,7 +19,10 @@ function AdminProduct() {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setProducts(response.data);
@@ -33,12 +38,17 @@ function AdminProduct() {
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
-            <AdminMenu />
-            <Link to="/admin/product/create">
-              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-                Add a Product
-              </Button>
-            </Link>
+            <div className="sticky-top">
+              <AdminMenu />
+              <Link to="/admin/product/create">
+                <Button
+                  variant="dark"
+                  style={{ float: "right", margin: "2rem" }}
+                >
+                  Add a Product
+                </Button>
+              </Link>
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>

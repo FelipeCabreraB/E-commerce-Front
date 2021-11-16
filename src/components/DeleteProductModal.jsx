@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import axios from "axios";
 
 function DeleteProductModal({ productId, productName, setProducts }) {
+  const token = useSelector((state) => state.user.token);
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,7 +17,10 @@ function DeleteProductModal({ productId, productName, setProducts }) {
           data: {
             id: productId,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       setProducts((prev) => prev.filter((product) => product.id !== productId));

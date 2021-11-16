@@ -29,10 +29,12 @@ function AdminProduct() {
       <Container fluid className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
-            <AdminMenu />
-            <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-              Add a Order
-            </Button>
+            <div className="sticky-top">
+              <AdminMenu />
+              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
+                Add a Order
+              </Button>
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <Table striped bordered hover>
