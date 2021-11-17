@@ -1,23 +1,27 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
-//import MyAccountMenu from "./MyAccountMenu";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import DeleteProductModal from "../../components/Admin/DeleteProductModal";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Pagination from "react-bootstrap/Pagination";
+import PageItem from "react-bootstrap/PageItem";
+import { useParams } from "react-router";
 
 function AdminProduct() {
+  const params = useParams();
   const [products, setProducts] = useState([]);
   const token = useSelector((state) => state.user.token);
+  const [numberOfPages, setNumberOfPages] = useState(0);
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/${params.page}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -25,13 +29,28 @@ function AdminProduct() {
             },
           }
         );
-        setProducts(response.data);
+        setProducts(response.data.products);
+        setNumberOfPages(response.data.numberOfPages);
       } catch (error) {
         console.log(error);
       }
     };
     getProducts();
-  }, []);
+  }, [params.page]);
+
+  let items = [];
+  for (let number = 1; number <= numberOfPages; number++) {
+    items.push(
+      <Pagination.Item key={number}>
+        <Link
+          to={`/admin/products/${number}`}
+          style={{ textDecoration: "none" }}
+        >
+          {number}
+        </Link>
+      </Pagination.Item>
+    );
+  }
 
   return (
     <div>
@@ -103,6 +122,9 @@ function AdminProduct() {
             </Table>
           </Col>
         </Row>
+        <div className="w-100 d-flex justify-content-center">
+          <Pagination size="sm">{items}</Pagination>
+        </div>
       </Container>
     </div>
   );

@@ -14,7 +14,7 @@ function AdminMenu() {
           <Link to="/admin/dashboard">Dashboard</Link>
         </ListGroup.Item>
         <ListGroup.Item action>
-          <i class="bi bi-bag"></i> <Link to="/admin/products">Products</Link>
+          <i class="bi bi-bag"></i> <Link to="/admin/products/1">Products</Link>
         </ListGroup.Item>
         <ListGroup.Item action>
           {" "}

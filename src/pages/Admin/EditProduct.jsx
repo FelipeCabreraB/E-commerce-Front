@@ -32,7 +32,7 @@ function EditProduct() {
     const getProduct = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/${params.productId}`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/product/${params.productId}`,
           {
             headers: {
               "Content-Type": "application/json",
