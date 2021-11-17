@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 function AddNewUser() {
-  // const token = useSelector((state) => state.user.token);
+  const token = useSelector((state) => state.user.token);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
@@ -36,7 +36,7 @@ function AddNewUser() {
           },
           headers: {
             "Content-Type": "application/json",
-            // Authorization: "Bearer " + token,
+            Authorization: "Bearer " + token,
           },
         }
       );

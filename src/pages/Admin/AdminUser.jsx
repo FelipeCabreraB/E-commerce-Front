@@ -6,9 +6,11 @@ import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
 import DeleteUserModal from "../../components/Admin/DeleteUserModal";
+import { useSelector } from "react-redux";
 
 function AdminUser() {
   const [users, setUsers] = useState([]);
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     const getUsers = async (ev) => {
@@ -16,7 +18,10 @@ function AdminUser() {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/`,
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setUsers(response.data);
