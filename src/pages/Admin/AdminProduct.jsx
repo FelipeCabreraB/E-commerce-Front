@@ -8,7 +8,6 @@ import DeleteProductModal from "../../components/Admin/DeleteProductModal";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Pagination from "react-bootstrap/Pagination";
-import PageItem from "react-bootstrap/PageItem";
 import { useParams } from "react-router";
 
 function AdminProduct() {
@@ -41,12 +40,12 @@ function AdminProduct() {
   let items = [];
   for (let number = 1; number <= numberOfPages; number++) {
     items.push(
-      <Pagination.Item key={number}>
+      <Pagination.Item key={number} className="p-0">
         <Link
           to={`/admin/products/${number}`}
           style={{ textDecoration: "none" }}
         >
-          {number}
+          <div className="px-1 py-1">{number}</div>
         </Link>
       </Pagination.Item>
     );

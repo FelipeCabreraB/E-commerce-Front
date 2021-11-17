@@ -24,10 +24,12 @@ function EditUser() {
     const getUser = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/${params.userId}`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/user/${params.userId}`,
           {
-            headers: { "Content-Type": "application/json" },
-            Authorization: "Bearer " + token,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setUser(response.data);

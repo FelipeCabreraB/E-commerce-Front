@@ -7,16 +7,20 @@ import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
 import DeleteUserModal from "../../components/Admin/DeleteUserModal";
 import { useSelector } from "react-redux";
+import Pagination from "react-bootstrap/Pagination";
+import { useParams } from "react-router";
 
 function AdminUser() {
+  const params = useParams();
   const [users, setUsers] = useState([]);
   const token = useSelector((state) => state.user.token);
+  const [numberOfPages, setNumberOfPages] = useState(0);
 
   useEffect(() => {
     const getUsers = async (ev) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/${params.page}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -24,13 +28,28 @@ function AdminUser() {
             },
           }
         );
-        setUsers(response.data);
+        console.log(response.data.numberOfPages);
+        setUsers(response.data.users);
+        setNumberOfPages(response.data.numberOfPages);
       } catch (error) {
         console.log(error);
       }
     };
     getUsers();
-  }, []);
+  }, [params.page]);
+
+  let items = [];
+  for (let number = 1; number <= numberOfPages; number++) {
+    items.push(
+      <Pagination.Item key={number} className="p-0">
+        <Link to={`/admin/users/${number}`} style={{ textDecoration: "none" }}>
+          <div className="px-1 py-1">{number}</div>
+        </Link>
+      </Pagination.Item>
+    );
+  }
+
+  console.log(numberOfPages);
 
   return (
     <div>
@@ -92,6 +111,9 @@ function AdminUser() {
             </Table>
           </Col>
         </Row>
+        <div className="w-100 d-flex justify-content-center">
+          <Pagination size="sm">{items}</Pagination>
+        </div>
       </Container>
     </div>
   );

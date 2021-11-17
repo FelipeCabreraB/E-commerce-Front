@@ -38,7 +38,7 @@ function AdminMenu() {
           as="li"
           style={{ padding: "0.5rem 0rem 0.5rem" }}
         >
-          <i class="bi bi-people"></i> <Link to="/admin/users">Users</Link>
+          <i class="bi bi-people"></i> <Link to="/admin/users/1">Users</Link>
         </ListGroup.Item>
         <ListGroup.Item
           action
