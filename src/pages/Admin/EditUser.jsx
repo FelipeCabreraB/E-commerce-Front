@@ -61,7 +61,10 @@ function EditUser() {
             phone,
             role,
           },
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
         }
       );
       if (response.data.success) {
