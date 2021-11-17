@@ -26,6 +26,7 @@ import EditProduct from "./pages/Admin/EditProduct";
 import EditUser from "./pages/Admin/EditUser";
 import EditCategory from "./pages/Admin/EditCategory";
 import AddNewCategory from "./pages/Admin/AddNewCategory";
+import AddNewUser from "./pages/Admin/AddNewUser";
 
 function App() {
   return (
@@ -73,6 +74,7 @@ function App() {
           <Route path="/admin/users/edit/:userId" element={<EditUser />} />
 
           <Route path="/admin/category/create" element={<AddNewCategory />} />
+          <Route path="/admin/user/create" element={<AddNewUser />} />
         </Routes>
 
         <Footer />

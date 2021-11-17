@@ -5,12 +5,13 @@ import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
+import DeleteUserModal from "../../components/Admin/DeleteUserModal";
 
-function AdminProduct() {
+function AdminUser() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const getcategories = async (ev) => {
+    const getUsers = async (ev) => {
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/`,
@@ -23,7 +24,7 @@ function AdminProduct() {
         console.log(error);
       }
     };
-    getcategories();
+    getUsers();
   }, []);
 
   return (
@@ -33,9 +34,14 @@ function AdminProduct() {
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
-              <Button variant="dark" style={{ float: "right", margin: "2rem" }}>
-                Add a user
-              </Button>
+              <Link to="/admin/user/create">
+                <Button
+                  variant="dark"
+                  style={{ float: "right", margin: "2rem" }}
+                >
+                  Add a user
+                </Button>
+              </Link>
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
@@ -70,9 +76,12 @@ function AdminProduct() {
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>
-                      <Button className="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                      </Button>
+                      <DeleteUserModal
+                        userId={user.id}
+                        firstname={user.firstname}
+                        lastname={user.lastname}
+                        setUsers={setUsers}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -85,4 +94,4 @@ function AdminProduct() {
   );
 }
 
-export default AdminProduct;
+export default AdminUser;
