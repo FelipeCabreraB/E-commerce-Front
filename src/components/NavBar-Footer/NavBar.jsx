@@ -40,14 +40,7 @@ function NavBar() {
                   </Link>
                 </Nav.Link>
               )}
-              <Nav.Link>
-                <Link
-                  style={{ textDecoration: "none", color: "black" }}
-                  to="/about-this-project"
-                >
-                  <strong>ABOUT THIS PROJECT</strong>
-                </Link>
-              </Nav.Link>
+
               <Nav.Link>
                 <Link style={{ textDecoration: "none", color: "black" }} to="#">
                   <strong>SUBSCRIPTION</strong>

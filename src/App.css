@@ -70,3 +70,12 @@ body {
   left: -35px;
   top: 24px;
 }
+
+#fixed-button {
+  position: fixed;
+  left: -80px;
+  top: 30vh;
+  font-weight: bold !important;
+  border: 2px black !important;
+  transform: rotate(-90deg);
+}
