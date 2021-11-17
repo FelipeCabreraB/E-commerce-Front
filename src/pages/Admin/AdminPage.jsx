@@ -6,7 +6,7 @@ import { Bar, Line, Pie } from "react-chartjs-2";
 function AdminPage() {
   return (
     <div className="admin-page">
-      <Container fluid className="py-3  ">
+      <Container className="py-3  ">
         <Row>
           {/* Menu */}
           <Col xs={12} md={2}>
@@ -16,9 +16,11 @@ function AdminPage() {
           </Col>
           {/* Tables */}
           <Col xs={12} md={10}>
-            <div className="text-center">
-              <i class="fas fa-users fa-2x"></i>
-              <h2 className="py-3">Welcome to the Admin Dashboard </h2>
+            <div className="d-flex justify-content-between py-1">
+              <h3 className="">Admin Dashboard </h3>
+              <div className="">
+                <i class="fas fa-users fa-2x"></i>
+              </div>
             </div>
             <Row>
               <Col md={6}>

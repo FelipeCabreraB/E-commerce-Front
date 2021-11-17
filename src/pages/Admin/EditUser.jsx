@@ -1,10 +1,12 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Dropdown } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function EditUser() {
+  const token = useSelector((state) => state.user.token);
   const [user, setUser] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -15,6 +17,8 @@ function EditUser() {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [role, setRole] = useState("");
+  // const [roleType, setRoleType] = useState("Choose an option");
+  // const [selectRoleType, setSelectRoleType] = useState("");
 
   useEffect(() => {
     const getUser = async () => {
@@ -23,10 +27,11 @@ function EditUser() {
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/${params.userId}`,
           {
             headers: { "Content-Type": "application/json" },
+            Authorization: "Bearer " + token,
           }
         );
         setUser(response.data);
-        setFirstname(response.data.firstna);
+        setFirstname(response.data.firstname);
         setLastname(response.data.lastname);
         setEmail(response.data.email);
         setAddress(response.data.address);
@@ -43,7 +48,7 @@ function EditUser() {
     ev.preventDefault();
     try {
       const response = await axios.patch(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/update`,
+        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/`,
         {
           data: {
             id: params.userId,
@@ -100,15 +105,15 @@ function EditUser() {
               <label className="form-label mt-2" htmlFor="lastname">
                 Last name
               </label>
-              <textarea
+              <input
                 class="form-control"
+                type="text"
                 name="lastname"
                 id="lastname"
-                cols="60"
-                rows="5"
                 value={lastname}
                 onChange={(ev) => setLastname(ev.target.value)}
-              ></textarea>
+                required
+              ></input>
 
               <div>
                 <label className="form-label mt-2" htmlFor="email">
@@ -154,8 +159,38 @@ function EditUser() {
                   required
                 />
               </div>
-
               <div>
+                {/* <label className="form-label mt-2" htmlFor="phone">
+                  Phone
+                </label>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="light"
+                    id="dropdown-basic"
+                    className="rounded-0 border-dark my-3"
+                  >
+                    {roleType}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setRoleType("client");
+                        setRole({  });
+                      }}
+                    >
+                      Client
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      onClick={() => {
+                        setRoleType("admin");
+                        setRole({  });
+                      }}
+                    >
+                      Admin
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown> */}
                 <label className="form-label mt-2" htmlFor="role">
                   Role
                 </label>

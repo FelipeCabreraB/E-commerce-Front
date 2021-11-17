@@ -34,22 +34,20 @@ function AdminCategory() {
 
   return (
     <div>
-      <Container fluid className="py-3  ">
+      <Container className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
-              <Link to="/admin/category/create">
-                <Button
-                  variant="dark"
-                  style={{ float: "right", margin: "2rem" }}
-                >
-                  Add Category
-                </Button>
-              </Link>
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
+            <div className="d-flex justify-content-between py-1">
+              <h3>Categories </h3>
+              <Link to="/admin/category/create">
+                <Button variant="dark">Add Category</Button>
+              </Link>
+            </div>
             <Table striped bordered hover>
               <thead>
                 <tr>

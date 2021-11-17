@@ -8,29 +8,54 @@ function AdminMenu() {
 
   return (
     <div className="myAccount">
-      <ListGroup as="ul" className="dark " variant="flush dark  ">
-        <ListGroup.Item action>
+      <ListGroup as="ul" className="dark " variant="flush dark">
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+        >
           <i class="bi bi-house"></i>{" "}
           <Link to="/admin/dashboard">Dashboard</Link>
         </ListGroup.Item>
-        <ListGroup.Item action>
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+        >
           <i class="bi bi-bag"></i> <Link to="/admin/products/1">Products</Link>
         </ListGroup.Item>
-        <ListGroup.Item action>
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+        >
           {" "}
           <i class="bi bi-tag"></i>{" "}
           <Link to="/admin/categories">Categories</Link>
         </ListGroup.Item>
-        <ListGroup.Item action>
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+        >
           <i class="bi bi-people"></i> <Link to="/admin/users">Users</Link>
         </ListGroup.Item>
-        <ListGroup.Item action>
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+        >
           {" "}
           <i class="bi bi-card-checklist"></i>{" "}
           <Link to="/admin/orders">Orders</Link>
         </ListGroup.Item>
 
-        <ListGroup.Item as="li" onClick={() => dispatch({ type: "LOGOUT" })}>
+        <ListGroup.Item
+          action
+          as="li"
+          style={{ padding: "0.5rem 0rem 0.5rem" }}
+          onClick={() => dispatch({ type: "LOGOUT" })}
+        >
           <i class="bi bi-box-arrow-in-left"></i> <Link to="/">Logout</Link>
         </ListGroup.Item>
       </ListGroup>
