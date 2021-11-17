@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import AdminMenu from "../components/AdminMenu";
+import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useSelector } from "react-redux";

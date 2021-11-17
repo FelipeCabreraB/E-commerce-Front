@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Carusel from "../components/Carusel";
+import Header from "../../components/Home/Header";
+import Carusel from "../../components/Home/Carusel";
 
 function Home() {
   return (

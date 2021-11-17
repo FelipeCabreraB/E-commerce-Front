@@ -3,7 +3,7 @@ import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import AdminMenu from "./AdminMenu";
+import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
 
 function AdminProduct() {

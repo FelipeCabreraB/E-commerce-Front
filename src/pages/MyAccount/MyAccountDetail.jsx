@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import MyAccountMenu from "./MyAccountMenu";
+import MyAccountMenu from "../../components/MyAccount/MyAccountMenu";
 
 function MyAccountDetail() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
-import MyAccountOrder from "./MyAccountOrder";
+import MyAccountOrder from "../../pages/MyAccount/MyAccountOrder";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 

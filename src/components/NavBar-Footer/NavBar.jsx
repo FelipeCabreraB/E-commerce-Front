@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import RegisterLoginOffcanvas from "../components/RegisterLoginOffcanvas";
+import RegisterLoginOffcanvas from "../Home/RegisterLoginOffcanvas";
 import { useSelector } from "react-redux";
 
 function NavBar() {

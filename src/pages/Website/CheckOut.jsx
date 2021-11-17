@@ -1,6 +1,6 @@
 import { Row, Col } from "react-bootstrap";
-import AccordionCards from "../components/AccordionCards";
-import AccordionCheckOut from "../components/AccordionCheckOut";
+import AccordionCards from "../../components/Checkout/AccordionCards";
+import AccordionCheckOut from "../../components/Checkout/AccordionCheckOut";
 import { useSelector } from "react-redux";
 
 function CheckOut() {

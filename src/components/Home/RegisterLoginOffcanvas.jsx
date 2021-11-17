@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import MyAccountMenu from "./MyAccountMenu";
+import MyAccountMenu from "../MyAccount/MyAccountMenu";
 
 function OffCanvasExample({ name, ...props }) {
   const dispatch = useDispatch();

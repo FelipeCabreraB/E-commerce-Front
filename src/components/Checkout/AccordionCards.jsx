@@ -1,5 +1,4 @@
 import { Accordion } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 function AccordionCards() {
   return (

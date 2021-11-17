@@ -1,23 +1,22 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
-//import MyAccountMenu from "./MyAccountMenu";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import AdminMenu from "../components/AdminMenu";
-import DeleteProductModal from "../components/DeleteProductModal";
+import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
+import DeleteCategoryModal from "../../components/Admin/DeleteCategoryModal";
 import { useSelector } from "react-redux";
 
-function AdminProduct() {
-  const [products, setProducts] = useState([]);
+function AdminCategory() {
+  const [categories, setCategories] = useState([]);
   const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getcategories = async (ev) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -25,12 +24,12 @@ function AdminProduct() {
             },
           }
         );
-        setProducts(response.data);
+        setCategories(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    getProducts();
+    getcategories();
   }, []);
 
   return (
@@ -40,12 +39,12 @@ function AdminProduct() {
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
-              <Link to="/admin/product/create">
+              <Link to="/admin/category/create">
                 <Button
                   variant="dark"
                   style={{ float: "right", margin: "2rem" }}
                 >
-                  Add a Product
+                  Add Category
                 </Button>
               </Link>
             </div>
@@ -55,19 +54,18 @@ function AdminProduct() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Picture</th>
                   <th>Name</th>
-                  <th>Price</th>
-                  <th>Stock</th>
-                  <th>Featured</th>
-                  <th>Category</th>
+                  <th>Description</th>
+                  <th>Picture</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
-                  <tr key={product.id}>
-                    <td>{product.id}</td>
+                {categories.map((category) => (
+                  <tr key={category.id}>
+                    <td>{category.id}</td>
+                    <td>{category.categoryName}</td>
+                    <td>{category.description}</td>
                     <td>
                       <div
                         className="mb-3"
@@ -75,26 +73,22 @@ function AdminProduct() {
                       >
                         <img
                           className="img-fluid"
-                          src={product.picture}
+                          src={category.picture}
                           alt=""
                         />
                       </div>
                     </td>
-                    <td>{product.productName}</td>
-                    <td>{product.price}</td>
-                    <td>{product.stock}</td>
-                    <td>{product.featured}</td>
-                    <td>{product.categoryId}</td>
+
                     <td>
-                      <Link to={`/admin/product/edit/${product.id}`}>
+                      <Link to={`/admin/category/edit/${category.id}`}>
                         <Button className="btn btn-warning me-2">
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>
-                      <DeleteProductModal
-                        productId={product.id}
-                        productName={product.productName}
-                        setProducts={setProducts}
+                      <DeleteCategoryModal
+                        categoryId={category.id}
+                        categoryName={category.categoryName}
+                        setCategories={setCategories}
                       />
                     </td>
                   </tr>
@@ -108,4 +102,4 @@ function AdminProduct() {
   );
 }
 
-export default AdminProduct;
+export default AdminCategory;

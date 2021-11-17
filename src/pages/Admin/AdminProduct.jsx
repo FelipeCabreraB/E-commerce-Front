@@ -1,22 +1,23 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
+//import MyAccountMenu from "./MyAccountMenu";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import AdminMenu from "../components/AdminMenu";
+import AdminMenu from "../../components/Admin/AdminMenu";
+import DeleteProductModal from "../../components/Admin/DeleteProductModal";
 import { Link } from "react-router-dom";
-import DeleteCategoryModal from "./DeleteCategoryModal";
 import { useSelector } from "react-redux";
 
-function AdminCategory() {
-  const [categories, setCategories] = useState([]);
+function AdminProduct() {
+  const [products, setProducts] = useState([]);
   const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
-    const getcategories = async (ev) => {
+    const getProducts = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products/`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -24,12 +25,12 @@ function AdminCategory() {
             },
           }
         );
-        setCategories(response.data);
+        setProducts(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    getcategories();
+    getProducts();
   }, []);
 
   return (
@@ -39,12 +40,12 @@ function AdminCategory() {
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
-              <Link to="/admin/category/create">
+              <Link to="/admin/product/create">
                 <Button
                   variant="dark"
                   style={{ float: "right", margin: "2rem" }}
                 >
-                  Add Category
+                  Add a Product
                 </Button>
               </Link>
             </div>
@@ -54,18 +55,19 @@ function AdminCategory() {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Description</th>
                   <th>Picture</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Featured</th>
+                  <th>Category</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {categories.map((category) => (
-                  <tr key={category.id}>
-                    <td>{category.id}</td>
-                    <td>{category.categoryName}</td>
-                    <td>{category.description}</td>
+                {products.map((product) => (
+                  <tr key={product.id}>
+                    <td>{product.id}</td>
                     <td>
                       <div
                         className="mb-3"
@@ -73,22 +75,26 @@ function AdminCategory() {
                       >
                         <img
                           className="img-fluid"
-                          src={category.picture}
+                          src={product.picture}
                           alt=""
                         />
                       </div>
                     </td>
-
+                    <td>{product.productName}</td>
+                    <td>{product.price}</td>
+                    <td>{product.stock}</td>
+                    <td>{product.featured}</td>
+                    <td>{product.categoryId}</td>
                     <td>
-                      <Link to={`/admin/category/edit/${category.id}`}>
+                      <Link to={`/admin/product/edit/${product.id}`}>
                         <Button className="btn btn-warning me-2">
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>
-                      <DeleteCategoryModal
-                        categoryId={category.id}
-                        categoryName={category.categoryName}
-                        setCategories={setCategories}
+                      <DeleteProductModal
+                        productId={product.id}
+                        productName={product.productName}
+                        setProducts={setProducts}
                       />
                     </td>
                   </tr>
@@ -102,4 +108,4 @@ function AdminCategory() {
   );
 }
 
-export default AdminCategory;
+export default AdminProduct;
