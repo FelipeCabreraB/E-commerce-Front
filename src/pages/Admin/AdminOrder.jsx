@@ -34,13 +34,13 @@ function AdminProduct() {
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
-            <div className="d-flex justify-content-between py-1">
+            <div className="d-flex justify-content-between py-1 mb-1">
               <h3 className="">Orders </h3>
               <div className="">
                 <Button variant="dark">Add an Order</Button>
               </div>
             </div>
-            <Table striped bordered hover>
+            <Table striped bordered hover className="text-center align-middle">
               <thead>
                 <tr>
                   <th>#</th>

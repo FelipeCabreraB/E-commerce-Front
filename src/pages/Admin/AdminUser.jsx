@@ -42,13 +42,13 @@ function AdminUser() {
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
-            <div className="d-flex justify-content-between py-1">
+            <div className="d-flex justify-content-between py-1 mb-1">
               <h3>Users </h3>
               <Link to="/admin/user/create">
                 <Button variant="dark">Add a user</Button>
               </Link>
             </div>
-            <Table striped bordered hover>
+            <Table striped bordered hover className="text-center align-middle">
               <thead>
                 <tr>
                   <th>#</th>

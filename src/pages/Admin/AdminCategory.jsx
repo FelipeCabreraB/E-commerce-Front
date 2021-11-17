@@ -42,7 +42,7 @@ function AdminCategory() {
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
-            <div className="d-flex justify-content-between py-1">
+            <div className="d-flex justify-content-between py-1 mb-1">
               <h3>Categories </h3>
               <Link to="/admin/category/create">
                 <Button variant="dark">Add Category</Button>

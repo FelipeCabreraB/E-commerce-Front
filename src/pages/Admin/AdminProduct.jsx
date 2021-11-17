@@ -54,23 +54,23 @@ function AdminProduct() {
 
   return (
     <div>
-      <Container fluid className="py-3  ">
+      <Container className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
-              <Link to="/admin/product/create">
-                <Button
-                  variant="dark"
-                  style={{ float: "right", margin: "2rem" }}
-                >
-                  Add a Product
-                </Button>
-              </Link>
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
-            <Table striped bordered hover>
+            <div className="d-flex justify-content-between py-1 mb-1">
+              <h3 className="">Products </h3>
+              <div className="">
+                <Link to="/admin/product/create">
+                  <Button variant="dark">Add a Product</Button>
+                </Link>
+              </div>
+            </div>
+            <Table striped bordered hover className="text-center align-middle">
               <thead>
                 <tr>
                   <th>#</th>
@@ -88,11 +88,9 @@ function AdminProduct() {
                   <tr key={product.id}>
                     <td>{product.id}</td>
                     <td>
-                      <div
-                        className="mb-3"
-                        style={{ width: "80px", height: "80px" }}
-                      >
+                      <div className="">
                         <img
+                          style={{ width: "40px", height: "55px" }}
                           className="img-fluid"
                           src={product.picture}
                           alt=""
@@ -104,7 +102,7 @@ function AdminProduct() {
                     <td>{product.stock}</td>
                     <td>{product.featured}</td>
                     <td>{product.categoryId}</td>
-                    <td>
+                    <td className="text-center align-middle">
                       <Link to={`/admin/product/edit/${product.id}`}>
                         <Button className="btn btn-warning me-2">
                           <i class="far fa-edit"></i>
