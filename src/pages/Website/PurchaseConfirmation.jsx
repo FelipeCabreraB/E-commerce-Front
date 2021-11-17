@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function PurchaseConfirmation() {
   return (
-    <div className="purchase-confirmation">
+    <div className="purchase-confirmation mb-5">
       <div className="container">
         <div className="text-center mt-4 mb-4 py-4">
           <i class="fas fa-shopping-bag fa-2x"></i>

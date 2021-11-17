@@ -2,6 +2,7 @@ import { Row, Col } from "react-bootstrap";
 import AccordionCards from "../../components/Checkout/AccordionCards";
 import AccordionCheckOut from "../../components/Checkout/AccordionCheckOut";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
@@ -274,18 +275,19 @@ function CheckOut() {
                   >
                     * Required fields
                   </p>
-
-                  <button
-                    type="button"
-                    style={{
-                      backgroundColor: "black",
-                      color: "white",
-                      fontSize: "0.65rem",
-                    }}
-                    className="btn rounded-pill px-5 py-2 w-100 mt-3"
-                  >
-                    <strong>CONFIRM</strong>
-                  </button>
+                  <Link to="/purchase-confirmation">
+                    <button
+                      type="button"
+                      style={{
+                        backgroundColor: "black",
+                        color: "white",
+                        fontSize: "0.65rem",
+                      }}
+                      className="btn rounded-pill px-5 py-2 w-100 mt-3"
+                    >
+                      <strong>CONFIRM</strong>
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>
