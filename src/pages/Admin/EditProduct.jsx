@@ -358,7 +358,7 @@ function EditProduct() {
               <div class="form-text">
                 Category 1: Coffee - Category 2: Accessories
               </div>
-              <label className="form-label mt-2 me-3 mt-2" htmlFor="featured">
+              <label className="form-label mt-2 me-3" htmlFor="featured">
                 Featured:
               </label>
               <input

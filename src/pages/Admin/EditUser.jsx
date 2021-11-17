@@ -89,7 +89,8 @@ function EditUser() {
               <strong>{user.lastname}</strong>)
             </h3>
             <form
-              className="border px-5 pb-5 pt-3"
+              className="border px-5 pt-3"
+              style={{ paddingBottom: "100px" }}
               onSubmit={(ev) => handleUpdate(ev)}
             >
               <label className="form-label mt-2" htmlFor="firstname">
