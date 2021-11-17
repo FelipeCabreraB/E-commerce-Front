@@ -9,7 +9,7 @@ import LostPassword from "./pages/Website/LostPassword";
 import CheckOut from "./pages/Website/CheckOut";
 import NavBar from "./components/NavBar-Footer/NavBar";
 import Footer from "./components/NavBar-Footer/Footer";
-import MyAccount from "./components/MyAccount/MyAccount";
+import MyAccount from "./pages/MyAccount/MyAccount";
 import MyAccountOrder from "./pages/MyAccount/MyAccountOrder";
 import MyAccountDetail from "./pages/MyAccount/MyAccountDetail";
 import MyAccountAddress from "./pages/MyAccount/MyAccountAddress";

@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col, Container, ListGroup } from "react-bootstrap";
-import MyAccountOrder from "../../pages/MyAccount/MyAccountOrder";
+import MyAccountOrder from "./MyAccountOrder";
 import { Link } from "react-router-dom";
-import MyAccountMenu from "./MyAccountMenu";
+import MyAccountMenu from "../../components/MyAccount/MyAccountMenu";
 
 function MyAccount() {
   return (
