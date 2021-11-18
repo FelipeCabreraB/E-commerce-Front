@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Website/Home";
 import Cart from "./pages/Website/Cart";
 import Accessories from "./pages/Website/Accessories";
@@ -33,49 +33,52 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/coffee" element={<Coffee />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/product/1/:productName" element={<DetailedProduct />} />
+        <Switch>
+          <Route path="/" component={<Home />} />
+          <Route path="/accessories" component={<Accessories />} />
+          <Route path="/coffee" component={<Coffee />} />
+          <Route path="/cart" component={<Cart />} />
+          <Route
+            path="/product/1/:productName"
+            component={<DetailedProduct />}
+          />
           <Route
             path="/product/2/:productName"
-            element={<DetailedProductAcc />}
+            component={<DetailedProductAcc />}
           />
-          <Route path="/lost-password" element={<LostPassword />} />
-          <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/my-account" element={<MyAccount />} />
-          <Route path="/my-account/orders" element={<MyAccountOrder />} />
-          <Route path="/my-account/address" element={<MyAccountAddress />} />
+          <Route path="/lost-password" component={<LostPassword />} />
+          <Route path="/checkout" component={<CheckOut />} />
+          <Route path="/my-account" component={<MyAccount />} />
+          <Route path="/my-account/orders" component={<MyAccountOrder />} />
+          <Route path="/my-account/address" component={<MyAccountAddress />} />
           <Route
             path="/my-account/account-details"
-            element={<MyAccountDetail />}
+            component={<MyAccountDetail />}
           />
           <Route
             path="/purchase-confirmation"
-            element={<PurchaseConfirmation />}
+            component={<PurchaseConfirmation />}
           />
-          <Route path="/about-this-project" element={<AboutThisProject />} />
-          <Route path="/admin/dashboard" element={<AdminPage />} />
-          <Route path="/admin/products/:page" element={<AdminProduct />} />
-          <Route path="/admin/categories" element={<AdminCategory />} />
-          <Route path="/admin/orders" element={<AdminOrder />} />
-          <Route path="/admin/users/:page" element={<AdminUser />} />
+          <Route path="/about-this-project" component={<AboutThisProject />} />
+          <Route path="/admin/dashboard" component={<AdminPage />} />
+          <Route path="/admin/products/:page" component={<AdminProduct />} />
+          <Route path="/admin/categories" component={<AdminCategory />} />
+          <Route path="/admin/orders" component={<AdminOrder />} />
+          <Route path="/admin/users/:page" component={<AdminUser />} />
           <Route
             path="/admin/product/edit/:productId"
-            element={<EditProduct />}
+            component={<EditProduct />}
           />
           <Route
             path="/admin/category/edit/:categoryId"
-            element={<EditCategory />}
+            component={<EditCategory />}
           />
-          <Route path="/admin/product/create" element={<AddNewProduct />} />
-          <Route path="/admin/users/edit/:userId" element={<EditUser />} />
+          <Route path="/admin/product/create" component={<AddNewProduct />} />
+          <Route path="/admin/users/edit/:userId" component={<EditUser />} />
 
-          <Route path="/admin/category/create" element={<AddNewCategory />} />
-          <Route path="/admin/user/create" element={<AddNewUser />} />
-        </Routes>
+          <Route path="/admin/category/create" component={<AddNewCategory />} />
+          <Route path="/admin/user/create" component={<AddNewUser />} />
+        </Switch>
 
         <Footer />
       </BrowserRouter>
