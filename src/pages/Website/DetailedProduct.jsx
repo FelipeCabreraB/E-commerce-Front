@@ -281,6 +281,7 @@ function DetailedProduct() {
                                   picture: product.picture,
                                   grindingType: grindingType,
                                   stock: product.stock,
+                                  id: product.id,
                                 },
                               });
                           }

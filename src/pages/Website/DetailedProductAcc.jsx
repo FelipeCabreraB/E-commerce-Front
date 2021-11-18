@@ -181,6 +181,7 @@ function DetailedProductAcc() {
                             price: product.price,
                             picture: product.picture,
                             stock: product.stock,
+                            id: product.id,
                           },
                         });
                     }
