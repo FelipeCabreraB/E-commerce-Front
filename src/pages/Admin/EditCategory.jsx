@@ -67,8 +67,6 @@ function EditCategory() {
     }
   };
 
-  console.log(categoryName);
-
   return (
     <div>
       <Container fluid className="py-3  ">

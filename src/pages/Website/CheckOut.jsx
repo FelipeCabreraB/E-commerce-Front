@@ -3,10 +3,30 @@ import AccordionCards from "../../components/Checkout/AccordionCards";
 import AccordionCheckOut from "../../components/Checkout/AccordionCheckOut";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
+
+  const handleCreateOrder = async (ev) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_URL_BACKEND}/orders`,
+        data: {
+          userId: user.id,
+          cart: cart,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + user.token,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -221,6 +241,7 @@ function CheckOut() {
                     type="text"
                     id="cardNumber"
                     name="cardNumber"
+                    required
                   />
                   <label
                     className="form-label mt-3"
@@ -234,6 +255,7 @@ function CheckOut() {
                     type="text"
                     id="NameOnCard"
                     name="NameOnCard"
+                    required
                   />
                   <Row>
                     <Col sm={6}>
@@ -250,6 +272,7 @@ function CheckOut() {
                         type="text"
                         id="expiryDate"
                         name="expiryDate"
+                        required
                       />
                     </Col>
                     <Col sm={6}>
@@ -266,6 +289,7 @@ function CheckOut() {
                         type="text"
                         id="securityCode"
                         name="securityCode"
+                        required
                       />
                     </Col>
                   </Row>
@@ -277,13 +301,14 @@ function CheckOut() {
                   </p>
                   <Link to="/purchase-confirmation">
                     <button
-                      type="button"
+                      type="submit"
                       style={{
                         backgroundColor: "black",
                         color: "white",
                         fontSize: "0.65rem",
                       }}
                       className="btn rounded-pill px-5 py-2 w-100 mt-3"
+                      onClick={() => handleCreateOrder()}
                     >
                       <strong>CONFIRM</strong>
                     </button>
