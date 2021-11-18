@@ -19,13 +19,15 @@ function EditCategory() {
   useEffect(() => {
     const getCategory = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/${params.categoryId}`,
-          {
-            headers: { "Content-Type": "application/json" },
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories/${params.categoryId}`,
+          headers: {
+            "Content-Type": "application/json",
             Authorization: "Bearer " + token,
-          }
-        );
+          },
+        });
+
         setCategory(response.data);
         setCategoryName(response.data.categoryName);
         setDescription(response.data.description);
@@ -40,18 +42,20 @@ function EditCategory() {
   const handleUpdate = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.patch(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories`,
-        {
-          data: {
-            id: params.categoryId,
-            categoryName,
-            description,
-            picture,
-          },
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      const response = await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories`,
+        data: {
+          id: params.categoryId,
+          categoryName,
+          description,
+          picture,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
       if (response.data.success) {
         setSuccessMessage(response.data.success);
       }

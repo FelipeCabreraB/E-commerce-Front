@@ -49,24 +49,24 @@ function EditUser() {
   const handleUpdate = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.patch(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users/`,
-        {
-          data: {
-            id: params.userId,
-            firstname,
-            lastname,
-            email,
-            address,
-            phone,
-            role,
-          },
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const response = await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users`,
+        data: {
+          id: params.userId,
+          firstname,
+          lastname,
+          email,
+          address,
+          phone,
+          role,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+
       if (response.data.success) {
         setSuccessMessage(response.data.success);
       }
@@ -218,11 +218,11 @@ function EditUser() {
               >
                 Confirm changes
               </Button>
-              <p className="text-success text-center">
+              <p className="text-success text-center mt-3">
                 {" "}
                 <strong>{successMessage}</strong>{" "}
               </p>
-              <p className="text-danger text-center">
+              <p className="text-danger text-center mt-3">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
               </p>

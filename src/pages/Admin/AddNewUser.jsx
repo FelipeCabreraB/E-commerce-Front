@@ -21,25 +21,24 @@ function AddNewUser() {
   const handleUpdate = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users`,
-        {
-          data: {
-            id: params.userId,
-            firstname,
-            lastname,
-            email,
-            address,
-            phone,
-            role,
-            password,
-          },
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const response = await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/users`,
+        data: {
+          id: params.userId,
+          firstname,
+          lastname,
+          email,
+          address,
+          phone,
+          role,
+          password,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
       if (response.data.success) {
         setSuccessMessage(response.data.success);
       }

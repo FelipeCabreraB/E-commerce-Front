@@ -67,34 +67,33 @@ function EditProduct() {
   const handleUpdate = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios.patch(
-        `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
-        {
-          data: {
-            id: params.productId,
-            productName,
-            description,
-            origin,
-            farm,
-            notes,
-            variety,
-            height,
-            process: processCoff,
-            rating,
-            accessoriesChar1,
-            accessoriesChar2,
-            accessoriesChar3,
-            price,
-            stock,
-            category,
-            featured,
-          },
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + token,
-          },
-        }
-      );
+      const response = await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
+        data: {
+          id: params.productId,
+          productName,
+          description,
+          origin,
+          farm,
+          notes,
+          variety,
+          height,
+          process: processCoff,
+          rating,
+          accessoriesChar1,
+          accessoriesChar2,
+          accessoriesChar3,
+          price,
+          stock,
+          category,
+          featured,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
       if (response.data.success) {
         setSuccessMessage(response.data.success);
       }
