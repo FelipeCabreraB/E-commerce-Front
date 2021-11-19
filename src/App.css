@@ -1,3 +1,8 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font-family: "Red Hat Display", sans-serif;
 }
@@ -10,7 +15,7 @@ body {
   color: white;
   background-color: #222222;
   padding-top: 3 rem;
-  bottom: 0;
+
   width: 100%;
 }
 

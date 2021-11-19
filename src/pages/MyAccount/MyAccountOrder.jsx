@@ -48,8 +48,8 @@ function MyAccountOrder() {
   console.log(orders);
 
   return (
-    <div>
-      <Container className="py-3  ">
+    <div className="mb-5 pb-5">
+      <Container className="py-3 mb-3">
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
