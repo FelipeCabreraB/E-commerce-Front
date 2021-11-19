@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
@@ -8,13 +8,12 @@ import { useSelector } from "react-redux";
 function AddNewCategory() {
   const token = useSelector((state) => state.user.token);
 
-  const [category, setCategory] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
-  const [picture, setPicture] = useState("");
+//  const [picture, setPicture] = useState("");
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
@@ -26,7 +25,7 @@ function AddNewCategory() {
           id: params.categoryId,
           categoryName,
           description,
-          picture,
+        //  picture,
         },
         headers: {
           "Content-Type": "application/json",

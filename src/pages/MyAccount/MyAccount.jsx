@@ -1,7 +1,5 @@
 import React from "react";
-import { Row, Col, Container, ListGroup } from "react-bootstrap";
-import MyAccountOrder from "./MyAccountOrder";
-import { Link } from "react-router-dom";
+import { Row, Col, Container } from "react-bootstrap";
 import MyAccountMenu from "../../components/MyAccount/MyAccountMenu";
 
 function MyAccount() {

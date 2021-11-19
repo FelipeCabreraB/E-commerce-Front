@@ -11,6 +11,7 @@ function CheckOut() {
 
   const handleCreateOrder = async (ev) => {
     try {
+      // eslint-disable-next-line
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_URL_BACKEND}/orders`,

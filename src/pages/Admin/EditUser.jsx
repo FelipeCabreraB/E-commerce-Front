@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button, Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
@@ -44,7 +44,7 @@ function EditUser() {
       }
     };
     getUser();
-  }, []);
+  }, [params.userId, token]);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();

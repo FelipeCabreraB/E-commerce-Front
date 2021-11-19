@@ -30,7 +30,7 @@ function AdminCategory() {
       }
     };
     getcategories();
-  }, []);
+  }, [token]);
 
   return (
     <div>

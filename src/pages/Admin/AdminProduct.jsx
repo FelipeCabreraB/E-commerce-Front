@@ -35,7 +35,7 @@ function AdminProduct() {
       }
     };
     getProducts();
-  }, [params.page]);
+  }, [params.page, token]);
 
   let items = [];
   for (let number = 1; number <= numberOfPages; number++) {

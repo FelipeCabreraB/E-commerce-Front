@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
-import { Container, Dropdown, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -30,7 +30,7 @@ function DetailedProductAcc() {
       }
     };
     getProduct();
-  }, []);
+  }, [params.productName]);
 
   return (
     <>
@@ -171,6 +171,7 @@ function DetailedProductAcc() {
 
                 <Button
                   onClick={() => {
+                    // eslint-disable-next-line
                     {
                       count !== 0 &&
                         dispatch({
@@ -188,6 +189,7 @@ function DetailedProductAcc() {
 
                     setCount(0);
                     setCounterMessage("");
+                    // eslint-disable-next-line
                     {
                       count !== 0 &&
                         setAddToCartMessage("Product added to cart correctly.");

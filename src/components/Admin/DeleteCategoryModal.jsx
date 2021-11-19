@@ -12,6 +12,7 @@ function DeleteCategoryModal({ categoryId, categoryName, setCategories }) {
 
   const handleDelete = async () => {
     try {
+      // eslint-disable-next-line
       const response = await axios.delete(
         `${process.env.REACT_APP_URL_ADMIN_BACKEND}/categories`,
         {

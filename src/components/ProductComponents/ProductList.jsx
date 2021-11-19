@@ -23,7 +23,7 @@ function ProductList({ categoryId }) {
       }
     };
     getProducts();
-  }, []);
+  }, [categoryId]);
 
   return (
     <div clasName="mb-5">

@@ -37,7 +37,7 @@ function EditCategory() {
       }
     };
     getCategory();
-  }, []);
+  }, [params.categoryId, token]);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();

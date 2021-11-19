@@ -62,7 +62,7 @@ function EditProduct() {
       }
     };
     getProduct();
-  }, []);
+  }, [params.productId, token]);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();

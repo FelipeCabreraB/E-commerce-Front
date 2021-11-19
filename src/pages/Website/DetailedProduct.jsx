@@ -31,7 +31,7 @@ function DetailedProduct() {
       }
     };
     getProduct();
-  }, []);
+  }, [params.productName,]);
 
   return (
     <>
@@ -270,33 +270,35 @@ function DetailedProduct() {
                   onClick={
                     grindingType !== "Choose an option"
                       ? () => {
-                          {
-                            count !== 0 &&
-                              dispatch({
-                                type: "ADD_ITEM",
-                                payload: {
-                                  quantity: count,
-                                  productName: product.productName,
-                                  price: product.price,
-                                  picture: product.picture,
-                                  grindingType: grindingType,
-                                  stock: product.stock,
-                                  id: product.id,
-                                },
-                              });
-                          }
-
-                          setCount(0);
-                          setCounterMessage("");
-                          {
-                            count !== 0 &&
-                              setAddToCartMessage(
-                                "Product added to cart correctly."
-                              );
-                          }
-                          setSelectGrindingType("");
-                          setGrindingType("Choose an option");
+                        // eslint-disable-next-line
+                        {
+                          count !== 0 &&
+                            dispatch({
+                              type: "ADD_ITEM",
+                              payload: {
+                                quantity: count,
+                                productName: product.productName,
+                                price: product.price,
+                                picture: product.picture,
+                                grindingType: grindingType,
+                                stock: product.stock,
+                                id: product.id,
+                              },
+                            });
                         }
+
+                        setCount(0);
+                        setCounterMessage("");
+                        // eslint-disable-next-line
+                        {
+                          count !== 0 &&
+                            setAddToCartMessage(
+                              "Product added to cart correctly."
+                            );
+                        }
+                        setSelectGrindingType("");
+                        setGrindingType("Choose an option");
+                      }
                       : () => {
                           count !== 0 &&
                             setSelectGrindingType(

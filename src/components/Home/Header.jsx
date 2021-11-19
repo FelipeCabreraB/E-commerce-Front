@@ -1,9 +1,9 @@
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 import VideoCulto from "../../videos/Culto-Web-v1-optimizado.mp4";
 import "./Header.css";
 
 function Header() {
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   return (
     <div>

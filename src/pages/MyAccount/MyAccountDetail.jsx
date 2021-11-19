@@ -40,7 +40,7 @@ function MyAccountDetail() {
       }
     };
     getUser();
-  }, []);
+  }, [params.userId, token]);
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();

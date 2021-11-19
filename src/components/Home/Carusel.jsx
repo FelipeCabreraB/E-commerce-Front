@@ -18,40 +18,7 @@ import axios from "axios";
 
 SwiperCore.use([Autoplay, Navigation, Pagination, Controller, Thumbs]);
 
-const data = [
-  {
-    id: 1,
-    name: "Sabanera",
-    price: "550",
-    image:
-      "https://cultocafe.uy/wp-content/uploads/2020/03/DSC09435-600x750.jpg",
-  },
-  {
-    id: 2,
-    name: "Mamba Negra",
-    price: "750",
-    image:
-      "https://cultocafe.uy/wp-content/uploads/2020/03/DSC09429-600x750.jpg",
-  },
-  {
-    id: 3,
-    name: "Naja",
-    price: "650",
-    image:
-      "https://cultocafe.uy/wp-content/uploads/2020/03/DSC09428-600x750.jpg",
-  },
-  {
-    id: 4,
-    name: "Cascabel",
-    price: "500",
-    image:
-      "https://cultocafe.uy/wp-content/uploads/2020/03/DSC09427-600x750.jpg",
-  },
-];
-
 function Carusel() {
-  const navigationPrevRef = React.useRef(null);
-  const navigationNextRef = React.useRef(null);
   const [featuredProducts, setFeaturedProducts] = useState([]);
 
   useEffect(() => {

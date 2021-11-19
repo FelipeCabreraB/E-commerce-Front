@@ -4,20 +4,12 @@ import MyAccountMenu from "../../components/MyAccount/MyAccountMenu";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { Button, Table } from "react-bootstrap";
-import { getOverlappingDaysInIntervals } from "date-fns/esm";
+import { Table } from "react-bootstrap";
 
 function MyAccountOrder() {
+ 
   const token = useSelector((state) => state.user.token);
-  const [productsOrder, setProductsOrder] = useState([]);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const params = useParams();
-  const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [grindingType, setgrindingType] = useState("");
-  const [productId, setProductId] = useState(0);
+ 
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -32,19 +24,14 @@ function MyAccountOrder() {
             Authorization: "Bearer " + token,
           },
         });
-        // setProductsOrder(response.data.productsOrder);
-        setProductId(response.data.productId);
-        setPrice(response.data.price);
-        setQuantity(response.data.quantity);
-        setgrindingType(response.data.grindingType);
-        setProductId(response.data.productId);
+       
         setOrders(response.data);
       } catch (error) {
         console.log(error);
       }
     };
     getOrders();
-  }, []);
+  }, [token]);
   console.log(orders);
 
   return (
