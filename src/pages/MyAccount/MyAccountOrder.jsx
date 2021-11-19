@@ -66,6 +66,7 @@ function MyAccountOrder() {
                 <tr>
                   <th>#</th>
                   <th>Status</th>
+                  <th>Date</th>
                   <th>Total products</th>
                   <th>Total Price</th>
                 </tr>
@@ -75,6 +76,13 @@ function MyAccountOrder() {
                   <tr key={order.id}>
                     <td>{orders.indexOf(order) + 1}</td>
                     <td>{order.orderStatus}</td>
+                    <td>
+                      {new Intl.DateTimeFormat("en-GB", {
+                        month: "long",
+                        day: "2-digit",
+                        year: "numeric",
+                      }).format(new Date(order.createdAt))}
+                    </td>
                     <td>{order.quantity}</td>
                     <td>${order.totalPrice}</td>
                   </tr>
