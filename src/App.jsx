@@ -34,50 +34,47 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Switch>
-          <Route path="/" component={<Home />} />
-          <Route path="/accessories" component={<Accessories />} />
-          <Route path="/coffee" component={<Coffee />} />
-          <Route path="/cart" component={<Cart />} />
-          <Route
-            path="/product/1/:productName"
-            component={<DetailedProduct />}
-          />
+          <Route path="/" component={Home} exact />
+          <Route path="/accessories" component={Accessories} />
+          <Route path="/coffee" component={Coffee} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/product/1/:productName" component={DetailedProduct} />
           <Route
             path="/product/2/:productName"
-            component={<DetailedProductAcc />}
+            component={DetailedProductAcc}
           />
-          <Route path="/lost-password" component={<LostPassword />} />
-          <Route path="/checkout" component={<CheckOut />} />
-          <Route path="/my-account" component={<MyAccount />} />
-          <Route path="/my-account/orders" component={<MyAccountOrder />} />
-          <Route path="/my-account/address" component={<MyAccountAddress />} />
+          <Route path="/lost-password" component={LostPassword} />
+          <Route path="/checkout" component={CheckOut} />
+          <Route path="/my-account" component={MyAccount} exact />
+          <Route path="/my-account/orders" component={MyAccountOrder} />
+          <Route path="/my-account/address" component={MyAccountAddress} />
           <Route
             path="/my-account/account-details"
-            component={<MyAccountDetail />}
+            component={MyAccountDetail}
           />
           <Route
             path="/purchase-confirmation"
-            component={<PurchaseConfirmation />}
+            component={PurchaseConfirmation}
           />
-          <Route path="/about-this-project" component={<AboutThisProject />} />
-          <Route path="/admin/dashboard" component={<AdminPage />} />
-          <Route path="/admin/products/:page" component={<AdminProduct />} />
-          <Route path="/admin/categories" component={<AdminCategory />} />
-          <Route path="/admin/orders" component={<AdminOrder />} />
-          <Route path="/admin/users/:page" component={<AdminUser />} />
+          <Route path="/about-this-project" component={AboutThisProject} />
+          <Route path="/admin/dashboard" component={AdminPage} />
+          <Route path="/admin/products/:page" component={AdminProduct} />
+          <Route path="/admin/categories" component={AdminCategory} />
+          <Route path="/admin/orders" component={AdminOrder} />
+          <Route path="/admin/users/:page" component={AdminUser} />
           <Route
             path="/admin/product/edit/:productId"
-            component={<EditProduct />}
+            component={EditProduct}
           />
           <Route
             path="/admin/category/edit/:categoryId"
-            component={<EditCategory />}
+            component={EditCategory}
           />
-          <Route path="/admin/product/create" component={<AddNewProduct />} />
-          <Route path="/admin/users/edit/:userId" component={<EditUser />} />
+          <Route path="/admin/product/create" component={AddNewProduct} />
+          <Route path="/admin/users/edit/:userId" component={EditUser} />
 
-          <Route path="/admin/category/create" component={<AddNewCategory />} />
-          <Route path="/admin/user/create" component={<AddNewUser />} />
+          <Route path="/admin/category/create" component={AddNewCategory} />
+          <Route path="/admin/user/create" component={AddNewUser} />
         </Switch>
 
         <Footer />
