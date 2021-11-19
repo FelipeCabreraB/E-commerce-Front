@@ -12,6 +12,7 @@ function EditCategory() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
+
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
   const [picture, setPicture] = useState("");
