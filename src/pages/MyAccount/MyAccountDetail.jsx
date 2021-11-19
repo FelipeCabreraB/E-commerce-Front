@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 function MyAccountDetail() {
   const token = useSelector((state) => state.user.token);
-  const [user, setUser] = useState({});
+
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
@@ -16,6 +16,8 @@ function MyAccountDetail() {
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
     const getUser = async () => {
@@ -29,7 +31,6 @@ function MyAccountDetail() {
             },
           }
         );
-        setUser(response.data);
         setFirstname(response.data.firstname);
         setLastname(response.data.lastname);
         setEmail(response.data.email);
@@ -44,27 +45,59 @@ function MyAccountDetail() {
   const handleUpdate = async (ev) => {
     ev.preventDefault();
     try {
-      const response = await axios({
-        method: "patch",
-        url: `${process.env.REACT_APP_URL_BACKEND}/users`,
-        data: {
-          id: params.userId,
-          firstname,
-          lastname,
-          email,
-          phone,
-        },
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      });
-
-      if (response.data.success) {
-        setSuccessMessage(response.data.success);
-      }
-      if (response.data.error) {
-        setErrorMessage(response.data.error);
+      if (newPassword !== "" && newPassword === confirmPassword) {
+        const response = await axios({
+          method: "patch",
+          url: `${process.env.REACT_APP_URL_BACKEND}/users`,
+          data: {
+            id: params.userId,
+            firstname,
+            lastname,
+            email,
+            phone,
+            newPassword,
+          },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        });
+        if (response.data.success) {
+          setSuccessMessage(response.data.success);
+          setErrorMessage("");
+        }
+        if (response.data.error) {
+          setErrorMessage(response.data.error);
+        }
+      } else if (
+        newPassword !== "" &&
+        confirmPassword !== "" &&
+        newPassword !== confirmPassword
+      ) {
+        setErrorMessage("Please verify that the two passwords match");
+      } else {
+        const response = await axios({
+          method: "patch",
+          url: `${process.env.REACT_APP_URL_BACKEND}/users`,
+          data: {
+            id: params.userId,
+            firstname,
+            lastname,
+            email,
+            phone,
+          },
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
+          },
+        });
+        if (response.data.success) {
+          setSuccessMessage(response.data.success);
+          setErrorMessage("");
+        }
+        if (response.data.error) {
+          setErrorMessage(response.data.error);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -149,6 +182,40 @@ function MyAccountDetail() {
                 value={email}
                 onChange={(ev) => setEmail(ev.target.value)}
                 required
+              />
+              <p className="mt-4 mb-0">
+                {" "}
+                <strong>Do you want to change your password?</strong>
+              </p>
+              <label
+                className="form-label mt-3"
+                htmlFor="newPassword"
+                style={{ fontSize: "0.85rem" }}
+              >
+                New password *
+              </label>
+              <input
+                className="form-control"
+                type="password"
+                id="newPassword"
+                name="newPassword"
+                value={newPassword}
+                onChange={(ev) => setNewPassword(ev.target.value)}
+              />
+              <label
+                className="form-label mt-3"
+                htmlFor="confirmPassword"
+                style={{ fontSize: "0.85rem" }}
+              >
+                Confirm new password *
+              </label>
+              <input
+                className="form-control"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(ev) => setConfirmPassword(ev.target.value)}
               />
 
               <button

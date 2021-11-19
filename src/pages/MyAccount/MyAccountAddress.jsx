@@ -8,11 +8,9 @@ import { useSelector } from "react-redux";
 
 function MyAccountAdress() {
   const token = useSelector((state) => state.user.token);
-  const [user, setUser] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
-  const [fullname, setFullname] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -31,8 +29,6 @@ function MyAccountAdress() {
             },
           }
         );
-        setUser(response.data);
-        setFullname(response.data.firstname + response.data.lastname);
         setFirstname(response.data.firstname);
         setLastname(response.data.lastname);
         setEmail(response.data.email);
@@ -88,18 +84,34 @@ function MyAccountAdress() {
             <form className="mt-3" onSubmit={(ev) => handleUpdate(ev)}>
               <label
                 className="form-label"
-                htmlFor="fullname"
+                htmlFor="firstname"
                 style={{ fontSize: "0.85rem" }}
               >
-                Full name *
+                First name *
               </label>
               <input
                 className="form-control"
                 type="text"
-                id="fullname"
-                name="fullname"
-                value={firstname + " " + lastname}
-                onChange={(ev) => setFullname(ev.target.value)}
+                id="firstname"
+                name="firstname"
+                value={firstname}
+                onChange={(ev) => setFirstname(ev.target.value)}
+                required
+              />
+              <label
+                className="form-label"
+                htmlFor="lastname"
+                style={{ fontSize: "0.85rem" }}
+              >
+                Last name *
+              </label>
+              <input
+                className="form-control"
+                type="text"
+                id="lastname"
+                name="lastname"
+                value={lastname}
+                onChange={(ev) => setLastname(ev.target.value)}
                 required
               />
               <label
