@@ -61,6 +61,9 @@ function cartReducer(cart = [], action) {
     case "LOGOUT":
       return [];
 
+    case "CHECKOUT":
+      return [];
+
     default:
       return cart;
   }

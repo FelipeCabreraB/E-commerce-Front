@@ -1,13 +1,14 @@
 import { Row, Col } from "react-bootstrap";
 import AccordionCards from "../../components/Checkout/AccordionCards";
 import AccordionCheckOut from "../../components/Checkout/AccordionCheckOut";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const handleCreateOrder = async (ev) => {
     try {
@@ -309,7 +310,12 @@ function CheckOut() {
                         fontSize: "0.65rem",
                       }}
                       className="btn rounded-pill px-5 py-2 w-100 mt-3"
-                      onClick={() => handleCreateOrder()}
+                      onClick={() => {
+                        handleCreateOrder();
+                        dispatch({
+                          type: "CHECKOUT",
+                        });
+                      }}
                     >
                       <strong>CONFIRM</strong>
                     </button>
