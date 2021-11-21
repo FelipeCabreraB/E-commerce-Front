@@ -7,9 +7,9 @@ import { useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
 
 function MyAccountOrder() {
- 
   const token = useSelector((state) => state.user.token);
- 
+  const handleClose = () => "";
+
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function MyAccountOrder() {
             Authorization: "Bearer " + token,
           },
         });
-       
+
         setOrders(response.data);
       } catch (error) {
         console.log(error);
@@ -40,7 +40,7 @@ function MyAccountOrder() {
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
-              <MyAccountMenu />
+              <MyAccountMenu handleClose={handleClose} />
             </div>
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>

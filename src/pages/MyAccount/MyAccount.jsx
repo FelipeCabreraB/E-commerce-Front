@@ -3,12 +3,13 @@ import { Row, Col, Container } from "react-bootstrap";
 import MyAccountMenu from "../../components/MyAccount/MyAccountMenu";
 
 function MyAccount() {
+  const handleClose = () => "";
   return (
     <div>
       <Container className="py-5">
         <Row>
           <Col sm={3}>
-            <MyAccountMenu />
+            <MyAccountMenu handleClose={handleClose} />
           </Col>
           <Col sm={9}>
             <p>Hi USER, welcome to Culto community!</p>

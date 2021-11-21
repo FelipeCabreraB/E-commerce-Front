@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function MyAccountDetail() {
   const token = useSelector((state) => state.user.token);
+  const handleClose = () => "";
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -109,7 +110,7 @@ function MyAccountDetail() {
       <Container className="py-5">
         <Row>
           <Col sm={3}>
-            <MyAccountMenu />
+            <MyAccountMenu handleClose={handleClose} />
           </Col>
           <Col className="myAccountResponsive" sm={9}>
             <h3>

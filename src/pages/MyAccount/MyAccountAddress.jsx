@@ -16,6 +16,7 @@ function MyAccountAdress() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const handleClose = () => "";
 
   useEffect(() => {
     const getUser = async () => {
@@ -77,7 +78,7 @@ function MyAccountAdress() {
       <Container className="py-5">
         <Row>
           <Col sm={3}>
-            <MyAccountMenu />
+            <MyAccountMenu handleClose={handleClose} />
           </Col>
           <Col className="myAccountResponsive" sm={9}>
             <h3>BILLING ADDRESS</h3>
