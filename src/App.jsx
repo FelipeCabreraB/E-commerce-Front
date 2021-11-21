@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import Home from "./pages/Website/Home";
 import Cart from "./pages/Website/Cart";
 import Accessories from "./pages/Website/Accessories";
@@ -27,56 +27,74 @@ import EditUser from "./pages/Admin/EditUser";
 import EditCategory from "./pages/Admin/EditCategory";
 import AddNewCategory from "./pages/Admin/AddNewCategory";
 import AddNewUser from "./pages/Admin/AddNewUser";
+import ScrollToTop from "./components/ScrollToTop";
+import PublicRoute from "./components/PublicRoute";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <NavBar />
         <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/accessories" component={Accessories} />
-          <Route path="/coffee" component={Coffee} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/product/1/:productName" component={DetailedProduct} />
-          <Route
+          <PublicRoute path="/" component={Home} exact />
+          <PublicRoute path="/accessories" component={Accessories} />
+          <PublicRoute path="/coffee" component={Coffee} />
+          <PublicRoute path="/cart" component={Cart} />
+          <PublicRoute
+            path="/product/1/:productName"
+            component={DetailedProduct}
+          />
+          <PublicRoute
             path="/product/2/:productName"
             component={DetailedProductAcc}
           />
-          <Route path="/lost-password" component={LostPassword} />
-          <Route path="/checkout" component={CheckOut} />
-          <Route path="/my-account" component={MyAccount} exact />
-          <Route path="/my-account/orders" component={MyAccountOrder} />
-          <Route path="/my-account/address" component={MyAccountAddress} />
-          <Route
+          <PublicRoute path="/lost-password" component={LostPassword} />
+          <PublicRoute path="/checkout" component={CheckOut} />
+          <PublicRoute path="/my-account" component={MyAccount} exact />
+          <PublicRoute path="/my-account/orders" component={MyAccountOrder} />
+          <PublicRoute
+            path="/my-account/address"
+            component={MyAccountAddress}
+          />
+          <PublicRoute
             path="/my-account/account-details"
             component={MyAccountDetail}
           />
-          <Route
+          <PublicRoute
             path="/purchase-confirmation"
             component={PurchaseConfirmation}
           />
-          <Route path="/about-this-project" component={AboutThisProject} />
-          <Route path="/admin/dashboard" component={AdminPage} />
-          <Route path="/admin/products/:page" component={AdminProduct} />
-          <Route path="/admin/categories" component={AdminCategory} />
-          <Route path="/admin/orders" component={AdminOrder} />
-          <Route path="/admin/users/:page" component={AdminUser} />
-          <Route
+          <PublicRoute
+            path="/about-this-project"
+            component={AboutThisProject}
+          />
+          <PrivateRoute path="/admin/dashboard" component={AdminPage} />
+          <PrivateRoute path="/admin/products/:page" component={AdminProduct} />
+          <PrivateRoute path="/admin/categories" component={AdminCategory} />
+          <PrivateRoute path="/admin/orders" component={AdminOrder} />
+          <PrivateRoute path="/admin/users/:page" component={AdminUser} />
+          <PrivateRoute
             path="/admin/product/edit/:productId"
             component={EditProduct}
           />
-          <Route
+          <PrivateRoute
             path="/admin/category/edit/:categoryId"
             component={EditCategory}
           />
-          <Route path="/admin/product/create" component={AddNewProduct} />
-          <Route path="/admin/users/edit/:userId" component={EditUser} />
+          <PrivateRoute
+            path="/admin/product/create"
+            component={AddNewProduct}
+          />
+          <PrivateRoute path="/admin/users/edit/:userId" component={EditUser} />
 
-          <Route path="/admin/category/create" component={AddNewCategory} />
-          <Route path="/admin/user/create" component={AddNewUser} />
+          <PrivateRoute
+            path="/admin/category/create"
+            component={AddNewCategory}
+          />
+          <PrivateRoute path="/admin/user/create" component={AddNewUser} />
         </Switch>
-
         <Footer />
       </BrowserRouter>
     </div>
