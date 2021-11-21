@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
-import { Button, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
+import ChangeStatusOrderModal from "../../components/Admin/ChangeStatusOrderModal";
 
 function AdminProduct() {
   const [orders, setOrders] = useState([]);
+  const [launch, setLaunch] = useState(false);
 
   useEffect(() => {
     const getorders = async (ev) => {
@@ -23,7 +25,8 @@ function AdminProduct() {
       }
     };
     getorders();
-  }, []);
+  }, [launch]);
+
   return (
     <div>
       <Container className="py-3  ">
@@ -36,14 +39,12 @@ function AdminProduct() {
           <Col className="myAccountResponsive" sm={12} md={10}>
             <div className="d-flex justify-content-between py-1 mb-1">
               <h3 className="">Orders </h3>
-              <div className="">
-                <Button variant="dark">Add an Order</Button>
-              </div>
             </div>
             <Table striped bordered hover className="text-center align-middle">
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Date</th>
                   <th>Status Order</th>
                   <th>User Id</th>
                 </tr>
@@ -52,7 +53,22 @@ function AdminProduct() {
                 {orders.map((order) => (
                   <tr key={order.id}>
                     <td>{order.id}</td>
-                    <td>{order.statusOrder}</td>
+                    <td>
+                      {new Intl.DateTimeFormat("en-GB", {
+                        month: "long",
+                        day: "2-digit",
+                        year: "numeric",
+                      }).format(new Date(order.createdAt))}
+                    </td>
+                    <td className="d-flex justify-content-between">
+                      Actual status: <strong>{order.statusOrder}</strong>
+                      <ChangeStatusOrderModal
+                        userId={order.userId}
+                        orderId={order.id}
+                        setLaunch={setLaunch}
+                        launch={launch}
+                      />
+                    </td>
                     <td>{order.userId}</td>
                   </tr>
                 ))}

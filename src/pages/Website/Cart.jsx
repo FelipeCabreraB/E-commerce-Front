@@ -1,6 +1,7 @@
 import { Col, Container, Row, Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { Accordion } from "react-bootstrap";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -123,15 +124,45 @@ function Cart() {
                 </tbody>
               </Table>
               <div className="d-flex justify-content-between">
-                <p>
-                  {" "}
-                  <i class="bi bi-ticket-perferated"></i> Enter your promotional
-                  code
-                </p>
-                <p>
-                  {" "}
-                  <i class="fas fa-less-than"></i> Return to shop
-                </p>
+                <Accordion flush>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header className="mt-2 py-0 ms-2">
+                      <i className="bi bi-ticket-perferated me-2"></i> Enter
+                      your promotional code
+                    </Accordion.Header>
+                    <Accordion.Body>
+                      <div className="border p-4" style={{ maxWidth: "350px" }}>
+                        <p style={{ fontSize: "0.75rem" }}>
+                          If you have a discount coupon code, please enter it in
+                          the field below
+                        </p>
+                        <form className="d-flex">
+                          <input
+                            type="text"
+                            className="form-control"
+                            style={{ maxWidth: "300px" }}
+                          />
+                          <button
+                            type="button"
+                            style={{
+                              backgroundColor: "black",
+                              color: "white",
+                              fontSize: "0.65rem",
+                            }}
+                            className="btn rounded-pill px-3 py-2 ms-4"
+                          >
+                            <strong>ACTIVATE CODE</strong>
+                          </button>
+                        </form>
+                      </div>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+                <Link style={{ textDecoration: "none", color: "black" }} to="/">
+                  <p className="mt-4 py-0 align-self-center">
+                    <i class="fas fa-less-than"></i> Return to home
+                  </p>
+                </Link>
               </div>
             </Col>
 

@@ -3,21 +3,33 @@ import { ListGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-function MyAccount() {
+function MyAccount({ handleClose }) {
   const dispatch = useDispatch();
   return (
     <div className="myAccount">
       <ListGroup as="ul" className="dark" variant="flush dark">
         <ListGroup.Item as="li">
-          <Link to="/my-account/orders">Orders</Link>
+          <Link to="/my-account/orders" onClick={() => handleClose()}>
+            Orders
+          </Link>
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <Link to="/my-account/account-details">Account details</Link>
+          <Link to="/my-account/account-details" onClick={() => handleClose()}>
+            Account details
+          </Link>
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <Link to="/my-account/address">Address</Link>
+          <Link to="/my-account/address" onClick={() => handleClose()}>
+            Address
+          </Link>
         </ListGroup.Item>
-        <ListGroup.Item as="li" onClick={() => dispatch({ type: "LOGOUT" })}>
+        <ListGroup.Item
+          as="li"
+          onClick={() => {
+            dispatch({ type: "LOGOUT" });
+            handleClose();
+          }}
+        >
           <Link to="/">Logout</Link>
         </ListGroup.Item>
       </ListGroup>

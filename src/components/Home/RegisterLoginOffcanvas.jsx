@@ -125,7 +125,7 @@ function OffCanvasExample({ name, ...props }) {
         <Offcanvas.Body>
           {user.token ? (
             <div className="px-3">
-              <MyAccountMenu />
+              <MyAccountMenu handleClose={handleClose} />
             </div>
           ) : (
             <Tab.Container id="left-tabs-example" defaultActiveKey="first">

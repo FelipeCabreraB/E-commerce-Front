@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="main-footer">
+    <footer className="main-footer sticky-footer">
       <div className="container">
         <div className="row pt-5 mt-3">
           <div className="col-md-3">
@@ -48,8 +48,13 @@ function Footer() {
                 placeholder="Email"
                 aria-label="Search"
               />
-              <i class="far fa-paper-plane"></i>
-              {/* <i className="fas fa-search" aria-hidden="true"></i> */}
+              <button
+                type="button"
+                className="btn btn-outline-secondary"
+                style={{ outline: "none", boxShadow: "none" }}
+              >
+                <i class="far fa-paper-plane"></i>
+              </button>
             </form>
           </div>
         </div>

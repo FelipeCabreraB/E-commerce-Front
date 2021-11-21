@@ -4,10 +4,20 @@ import AccordionCheckOut from "../../components/Checkout/AccordionCheckOut";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
 
 function CheckOut() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
+  const [loginMessage, setLoginMessage] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [cardExpiryDate, setCardExpiryDate] = useState("");
+  const [cardSecurityCode, setCardSecurityCode] = useState("");
   const dispatch = useDispatch();
 
   const handleCreateOrder = async (ev) => {
@@ -80,53 +90,64 @@ function CheckOut() {
                 htmlFor="fullname"
                 style={{ fontSize: "0.85rem" }}
               >
-                Full name *
+                Full name <span className="text-danger">*</span>
               </label>
               <input
                 className="form-control"
                 type="text"
                 id="fullname"
                 name="fullname"
+                value={fullName}
+                onChange={(ev) => setFullName(ev.target.value)}
               />
               <label
                 className="form-label mt-3"
                 htmlFor="phone"
                 style={{ fontSize: "0.85rem" }}
               >
-                Phone number *
+                Phone number <span className="text-danger">*</span>
               </label>
               <input
                 className="form-control"
                 type="text"
                 id="phone"
                 name="phone"
+                value={phone}
+                onChange={(ev) => setPhone(ev.target.value)}
               />
               <label
                 className="form-label mt-3"
                 htmlFor="email"
                 style={{ fontSize: "0.85rem" }}
               >
-                Email address *
+                Email address <span className="text-danger">*</span>
               </label>
               <input
                 className="form-control"
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(ev) => setEmail(ev.target.value)}
               />
               <label
                 className="form-label mt-3"
                 htmlFor="deliveryAdress"
                 style={{ fontSize: "0.85rem" }}
               >
-                Delivery address *
+                Delivery address <span className="text-danger">*</span>
               </label>
               <input
                 className="form-control"
                 type="text"
                 id="deliveryAdress"
                 name="deliveryAdress"
+                value={deliveryAddress}
+                onChange={(ev) => setDeliveryAddress(ev.target.value)}
               />
+              <p className="text-danger mt-2" style={{ fontSize: "0.7rem" }}>
+                * Required fields
+              </p>
               <input
                 type="checkbox"
                 id="newsletter"
@@ -243,6 +264,8 @@ function CheckOut() {
                     type="text"
                     id="cardNumber"
                     name="cardNumber"
+                    value={cardNumber}
+                    onChange={(ev) => setCardNumber(ev.target.value)}
                     required
                   />
                   <label
@@ -257,6 +280,8 @@ function CheckOut() {
                     type="text"
                     id="NameOnCard"
                     name="NameOnCard"
+                    value={cardName}
+                    onChange={(ev) => setCardName(ev.target.value)}
                     required
                   />
                   <Row>
@@ -274,6 +299,8 @@ function CheckOut() {
                         type="text"
                         id="expiryDate"
                         name="expiryDate"
+                        value={cardExpiryDate}
+                        onChange={(ev) => setCardExpiryDate(ev.target.value)}
                         required
                       />
                     </Col>
@@ -291,6 +318,8 @@ function CheckOut() {
                         type="text"
                         id="securityCode"
                         name="securityCode"
+                        value={cardSecurityCode}
+                        onChange={(ev) => setCardSecurityCode(ev.target.value)}
                         required
                       />
                     </Col>
@@ -301,7 +330,37 @@ function CheckOut() {
                   >
                     * Required fields
                   </p>
-                  <Link to="/purchase-confirmation">
+
+                  {user.token &&
+                  fullName !== "" &&
+                  phone !== "" &&
+                  email !== "" &&
+                  deliveryAddress !== "" &&
+                  cardNumber !== "" &&
+                  cardName !== "" &&
+                  cardExpiryDate !== "" &&
+                  cardSecurityCode !== "" ? (
+                    <Link to="/purchase-confirmation">
+                      <button
+                        type="submit"
+                        style={{
+                          backgroundColor: "black",
+                          color: "white",
+                          fontSize: "0.65rem",
+                        }}
+                        className="btn rounded-pill px-5 py-2 w-100 mt-3"
+                        onClick={() => {
+                          handleCreateOrder();
+                          dispatch({
+                            type: "CHECKOUT",
+                          });
+                          setLoginMessage("");
+                        }}
+                      >
+                        <strong>CONFIRM</strong>
+                      </button>
+                    </Link>
+                  ) : (
                     <button
                       type="submit"
                       style={{
@@ -311,16 +370,16 @@ function CheckOut() {
                       }}
                       className="btn rounded-pill px-5 py-2 w-100 mt-3"
                       onClick={() => {
-                        handleCreateOrder();
-                        dispatch({
-                          type: "CHECKOUT",
-                        });
+                        setLoginMessage(
+                          "Please login or register, and check all required fields are completed."
+                        );
                       }}
                     >
                       <strong>CONFIRM</strong>
                     </button>
-                  </Link>
+                  )}
                 </form>
+                <p className="text-danger mt-3">{loginMessage}</p>
               </div>
             </div>
           </Col>
