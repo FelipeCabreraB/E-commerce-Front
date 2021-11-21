@@ -12,6 +12,8 @@ function cartReducer(cart = [], action) {
         return cart.map((product) => {
           if (product.productName !== action.payload.productName)
             return product;
+          if (product.grindingType !== action.payload.grindingType)
+            return product;
           return {
             ...product,
             quantity: product.quantity + action.payload.quantity,
