@@ -83,7 +83,7 @@ function NavBar() {
                       <div
                         style={{
                           color: "white",
-                          backgroundColor: "rgb(108,117,125)",
+                          backgroundColor: "black",
                           borderRadius: "50%",
                           fontWeight: "bolder",
                           width: "17px",

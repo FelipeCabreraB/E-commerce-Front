@@ -74,20 +74,14 @@ function OffCanvasExample({ name, ...props }) {
             className="far fa-user pointer"
             style={{ color: "black" }}
           >
-            <div id="welcomeEmailNavbar" className="d-flex px-1">
-              <p style={{ fontSize: "0.5rem", letterSpacing: "1px" }}>
-                {user.email}
-              </p>{" "}
+            <div id="welcomeEmailNavbar" className="numberOfCart text-center">
+              <i class="fas fa-check-circle"></i>
             </div>
           </i>
         </Nav.Link>
       ) : (
         <Nav.Link onClick={handleShow}>
-          {" "}
-          <i
-            className="far fa-user pointer"
-            style={{ color: "black" }}
-          ></i>{" "}
+          <i className="far fa-user pointer" style={{ color: "black" }}></i>{" "}
         </Nav.Link>
       )}
 
@@ -113,13 +107,14 @@ function OffCanvasExample({ name, ...props }) {
           </div>
         </div>
 
-        <Offcanvas.Header className="d-flex justify-content-center">
+        <Offcanvas.Header className="d-flex flex-column justify-content-center">
           <Offcanvas.Title>
             <div className="text-center mt-4">
               <i className="far fa-user pointer"></i>
             </div>
             <div>MY ACCOUNT</div>
           </Offcanvas.Title>
+          <p>{user.email}</p>
         </Offcanvas.Header>
 
         <Offcanvas.Body>
