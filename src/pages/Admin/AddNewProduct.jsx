@@ -80,6 +80,7 @@ function AddNewProduct() {
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">Create new product</h3>
             <form
+              enctype="multipart/form-data"
               className="border px-5 pb-5 pt-3"
               onSubmit={(ev) => handleUpdate(ev)}
             >

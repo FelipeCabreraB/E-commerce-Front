@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -12,7 +13,19 @@ function Footer() {
             <p>hola@cultocafe.uy</p>
             <p>T: 094 787 478</p>
             <p>
-              <i class="bi bi-instagram"></i> <i class="bi bi-facebook"></i>
+              <a
+                className="me-1"
+                href="https://www.instagram.com/culto.uy/"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/culto.uy/"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <i class="bi bi-facebook"></i>{" "}
+              </a>
             </p>
             <p>Privacy policy</p>
           </div>
@@ -35,9 +48,25 @@ function Footer() {
             <p>
               <strong>Store</strong>
             </p>
-            <p>SUBSCRIPTIONS</p>
-            <p>COFFEE</p>
-            <p>ACCESSORIES</p>
+
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/coffee"
+            >
+              <p>SUBSCRIPTIONS</p>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/coffee"
+            >
+              <p>COFFEE</p>
+            </Link>
+            <Link
+              style={{ textDecoration: "none", color: "white" }}
+              to="/accessories"
+            >
+              <p>ACCESSORIES</p>
+            </Link>
           </div>
           <div className="col-md-3">
             <p>CHECK OUR NEWSLETTER</p>

@@ -13,7 +13,7 @@ function AddNewCategory() {
   const params = useParams();
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
-//  const [picture, setPicture] = useState("");
+  //  const [picture, setPicture] = useState("");
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
@@ -25,7 +25,7 @@ function AddNewCategory() {
           id: params.categoryId,
           categoryName,
           description,
-        //  picture,
+          //  picture,
         },
         headers: {
           "Content-Type": "application/json",

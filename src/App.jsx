@@ -16,6 +16,7 @@ import MyAccountAddress from "./pages/MyAccount/MyAccountAddress";
 import PurchaseConfirmation from "./pages/Website/PurchaseConfirmation";
 import DetailedProductAcc from "./pages/Website/DetailedProductAcc";
 import AboutThisProject from "./pages/Website/AboutThisProject";
+import NoMatch from "./pages/Website/NoMatch";
 import AdminPage from "./pages/Admin/AdminPage";
 import AdminProduct from "./pages/Admin/AdminProduct";
 import AdminCategory from "./pages/Admin/AdminCategory";
@@ -94,6 +95,7 @@ function App() {
             component={AddNewCategory}
           />
           <PrivateRoute path="/admin/user/create" component={AddNewUser} />
+          <PublicRoute component={NoMatch} />
         </Switch>
         <Footer />
       </BrowserRouter>
