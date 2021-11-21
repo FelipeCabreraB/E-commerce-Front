@@ -5,10 +5,12 @@ import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import ChangeStatusOrderModal from "../../components/Admin/ChangeStatusOrderModal";
+import { useSelector } from "react-redux";
 
 function AdminProduct() {
   const [orders, setOrders] = useState([]);
   const [launch, setLaunch] = useState(false);
+  const token = useSelector((state) => state.user.token);
 
   useEffect(() => {
     const getorders = async (ev) => {
@@ -16,7 +18,10 @@ function AdminProduct() {
         const response = await axios.get(
           `${process.env.REACT_APP_URL_ADMIN_BACKEND}/orders/`,
           {
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+            },
           }
         );
         setOrders(response.data);
@@ -25,7 +30,7 @@ function AdminProduct() {
       }
     };
     getorders();
-  }, [launch]);
+  }, [launch, token]);
 
   return (
     <div>
