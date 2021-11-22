@@ -70,7 +70,7 @@ function EditCategory() {
 
   return (
     <div>
-      <Container fluid className="py-3  ">
+      <Container className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
             <AdminMenu />

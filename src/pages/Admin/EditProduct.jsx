@@ -107,14 +107,14 @@ function EditProduct() {
 
   return (
     <div>
-      <Container fluid className="py-3  ">
+      <Container className="py-3  ">
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
               <AdminMenu />
             </div>
           </Col>
-          <Col className="myAccountResponsive" sm={12} md={10}>
+          <Col className="myAccountResponsive  " sm={12} md={10}>
             <h3 className="my-3">
               Edit product (Id: <strong>{product.id}</strong>, Name:{" "}
               <strong>{product.productName}</strong>, Category:
@@ -123,6 +123,7 @@ function EditProduct() {
             <form
               className="border px-5 pb-5 pt-3"
               onSubmit={(ev) => handleUpdate(ev)}
+              // style={{ maxWidth: "35vw" }}
             >
               <label className="form-label mt-2" htmlFor="productName">
                 Product Name
@@ -132,6 +133,7 @@ function EditProduct() {
                 type="text"
                 id="productName"
                 name="productName"
+                size="50"
                 value={productName}
                 onChange={(ev) => setProductName(ev.target.value)}
                 required
