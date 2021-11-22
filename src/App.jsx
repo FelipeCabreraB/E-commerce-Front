@@ -31,12 +31,14 @@ import AddNewUser from "./pages/Admin/AddNewUser";
 import ScrollToTop from "./components/ScrollToTop";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
+import FixedButton from "./components/Home/FixedButton";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
+        <FixedButton />
         <NavBar />
         <Switch>
           <PublicRoute path="/" component={Home} exact />

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
@@ -61,58 +61,67 @@ function AddNewUser() {
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">Create new user</h3>
-            <form
+            <Form
               className="border px-5 pb-5 pt-3"
               onSubmit={(ev) => handleUpdate(ev)}
             >
-              <label className="form-label mt-2" htmlFor="firstname">
-                First Name
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="firstname"
-                name="firstname"
-                value={firstname}
-                onChange={(ev) => setFirstname(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="lastname">
-                Last Name
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                name="lastname"
-                id="lastname"
-                value={lastname}
-                onChange={(ev) => setLastname(ev.target.value)}
-              ></input>
-
-              <label className="form-label mt-2" htmlFor="email">
-                Email
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="password">
-                Password
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="password"
-                name="password"
-                value={password}
-                onChange={(ev) => setPassword(ev.target.value)}
-              />
-
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="firstname">
+                    First Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="firstname"
+                    name="firstname"
+                    value={firstname}
+                    onChange={(ev) => setFirstname(ev.target.value)}
+                    required
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="lastname">
+                    Last Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    name="lastname"
+                    id="lastname"
+                    value={lastname}
+                    onChange={(ev) => setLastname(ev.target.value)}
+                  ></input>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(ev) => setEmail(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="password">
+                    Password
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="password"
+                    name="password"
+                    value={password}
+                    onChange={(ev) => setPassword(ev.target.value)}
+                  />
+                </Col>
+              </Row>
               <label className="form-label mt-2" htmlFor="address">
                 Address
               </label>
@@ -125,29 +134,34 @@ function AddNewUser() {
                 onChange={(ev) => setAddress(ev.target.value)}
               />
 
-              <label className="form-label mt-2" htmlFor="phone">
-                Phone
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="phone"
-                name="phone"
-                value={phone}
-                onChange={(ev) => setPhone(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="role">
-                Role
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="role"
-                name="role"
-                value={role}
-                onChange={(ev) => setRole(ev.target.value)}
-              />
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="phone">
+                    Phone
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(ev) => setPhone(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="role">
+                    Role
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="role"
+                    name="role"
+                    value={role}
+                    onChange={(ev) => setRole(ev.target.value)}
+                  />
+                </Col>
+              </Row>
               <Button
                 type="submit"
                 variant="dark"
@@ -163,7 +177,7 @@ function AddNewUser() {
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
               </p>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>
