@@ -1,7 +1,7 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
@@ -9,7 +9,7 @@ function AddNewProduct() {
   const token = useSelector((state) => state.user.token);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const params = useParams();
+  // const params = useParams();
   const [productName, setProductName] = useState("");
   const [description, setDescription] = useState("");
   const [origin, setOrigin] = useState("");
@@ -27,33 +27,36 @@ function AddNewProduct() {
   const [category, setCategory] = useState(0);
   const [featured, setFeatured] = useState(false);
 
-  const handleUpdate = async (ev) => {
+  const handleAddProduct = async (ev) => {
     ev.preventDefault();
+    const formData = new FormData(ev.target);
+    console.log(formData);
     try {
       const response = await axios({
         method: "post",
         url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
-        data: {
-          id: params.productId,
-          productName,
-          description,
-          origin,
-          farm,
-          notes,
-          variety,
-          height,
-          process: processCoff,
-          rating,
-          accessoriesChar1,
-          accessoriesChar2,
-          accessoriesChar3,
-          price,
-          stock,
-          category,
-          featured,
-        },
+        data: formData,
+        // data: {
+        //   id: params.productId,
+        //   productName,
+        //   description,
+        //   origin,
+        //   farm,
+        //   notes,
+        //   variety,
+        //   height,
+        //   process: processCoff,
+        //   rating,
+        //   accessoriesChar1,
+        //   accessoriesChar2,
+        //   accessoriesChar3,
+        //   price,
+        //   stock,
+        //   category,
+        //   featured,
+        // },
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: "Bearer " + token,
         },
       });
@@ -80,9 +83,9 @@ function AddNewProduct() {
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">Create new product</h3>
             <form
-              enctype="multipart/form-data"
+              id="add-product-form"
               className="border px-5 pb-5 pt-3"
-              onSubmit={(ev) => handleUpdate(ev)}
+              onSubmit={handleAddProduct}
             >
               <label className="form-label mt-2" htmlFor="productName">
                 Product Name
