@@ -1,6 +1,7 @@
-import React from "react";
+import { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   FaReact,
   FaCss3Alt,
@@ -23,6 +24,23 @@ import Capture_screen1 from "../../Capture_screen1.JPG";
 import Capture_screen2 from "../../Capture_screen2.JPG";
 
 function AboutThisProject() {
+  const [resetMessage, setResetMessage] = useState("");
+  const handleResetDatabase = async (ev) => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_URL_BACKEND}/database`,
+        data: {},
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setResetMessage(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const styleLinkedin = { color: "black" };
   return (
     <div className="about-this-project">
@@ -219,7 +237,10 @@ function AboutThisProject() {
               <p>Password: 123456</p>
             </Col>
             <Col className="mt-3">
-              <Button variant="dark">Reset Database</Button>
+              <Button variant="dark" onClick={() => handleResetDatabase()}>
+                Reset Database
+              </Button>
+              <p className="text-success mt-2">{resetMessage}</p>
             </Col>
             <Col>
               <p>Email: admin@admin.com</p>
