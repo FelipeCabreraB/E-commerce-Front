@@ -131,39 +131,34 @@ function AboutThisProject() {
                 <li>
                   <FaHtml5 /> HTML5
                 </li>
+                <li>
+                  <FaNodeJs /> Node.js
+                </li>
               </ul>
             </Col>
             <Col>
               <ul style={{ listStyle: "none" }}>
-                <li>
-                  <FaNodeJs /> Node.js
-                </li>
                 <li>
                   <SiRedux /> Redux
                 </li>
                 <li>
                   <SiExpress /> Express
                 </li>
-              </ul>
-            </Col>
-            <Col>
-              <ul style={{ listStyle: "none" }}>
                 <li>
                   <SiPostgresql /> Postgres
                 </li>
                 <li>
                   <SiMysql /> MySQL
                 </li>
-
-                <li>
-                  <SiSequelize /> Sequelize
-                </li>
               </ul>
             </Col>
             <Col>
               <ul style={{ listStyle: "none" }}>
                 <li>
-                  <FaBootstrap /> React Bootstrap
+                  <SiSequelize /> Sequelize
+                </li>
+                <li>
+                  <FaBootstrap /> Bootstrap
                 </li>
                 <li>
                   <SiVercel /> Vercel
@@ -175,7 +170,7 @@ function AboutThisProject() {
             </Col>
           </Row>
         </div>
-        <div className="mt-4 mb-4 py-4">
+        <div className="my-5 py-4">
           <Row className="text-center">
             <Col className="d-flex align-items-center " md={5}>
               <p>
