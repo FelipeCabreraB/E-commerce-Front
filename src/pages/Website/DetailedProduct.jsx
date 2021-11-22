@@ -49,7 +49,10 @@ function DetailedProduct() {
               <Col xs={12} md={6}>
                 <div className="img-hover-zoom">
                   <img
-                    src={product.picture}
+                    src={
+                      "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                      product.picture
+                    }
                     alt={product.productName}
                     className="img-fluid"
                   />

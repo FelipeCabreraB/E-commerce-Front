@@ -61,7 +61,14 @@ function Carusel() {
             <SwiperSlide key={product.id} className="slide">
               <div className="slide-content">
                 <div className="product-image">
-                  <img className="product-photo" src={product.picture} alt="" />
+                  <img
+                    className="product-photo"
+                    src={
+                      "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                      product.picture
+                    }
+                    alt=""
+                  />
                 </div>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}

@@ -12,7 +12,10 @@ function ProductDetails({ product }) {
         <div className="product-details">
           <img
             className="mt-5 img-fluid"
-            src={product.picture}
+            src={
+              "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+              product.picture
+            }
             alt={product.productName}
           />
           <h3 className="productName mt-3">{product.productName}</h3>

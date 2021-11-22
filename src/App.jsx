@@ -92,7 +92,7 @@ function App() {
             path="/admin/product/create"
             component={AddNewProduct}
           />
-          <PrivateRoute path="/admin/users/edit/:userId" component={EditUser} />
+          <PrivateRoute path="/admin/user/edit/:userId" component={EditUser} />
 
           <PrivateRoute
             path="/admin/category/create"

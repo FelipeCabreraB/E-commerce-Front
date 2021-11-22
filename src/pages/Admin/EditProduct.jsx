@@ -66,11 +66,13 @@ function EditProduct() {
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
+    const formData = new FormData(ev.target);
     try {
       const response = await axios({
         method: "patch",
         url: `${process.env.REACT_APP_URL_ADMIN_BACKEND}/products`,
-        data: {
+        data: formData,
+        /*  data: {
           id: params.productId,
           productName,
           description,
@@ -88,9 +90,9 @@ function EditProduct() {
           stock,
           category,
           featured,
-        },
+        }, */
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
           Authorization: "Bearer " + token,
         },
       });
@@ -120,11 +122,8 @@ function EditProduct() {
               <strong>{product.productName}</strong>, Category:
               <strong>{product.categoryId}</strong>)
             </h3>
-            <form
-              className="border px-5 pb-5 pt-3"
-              onSubmit={(ev) => handleUpdate(ev)}
-              // style={{ maxWidth: "35vw" }}
-            >
+            <form className="border px-5 pb-5 pt-3" onSubmit={handleUpdate}>
+              <input type="hidden" name="id" id="id" value={product.id} />
               <label className="form-label mt-2" htmlFor="productName">
                 Product Name
               </label>
