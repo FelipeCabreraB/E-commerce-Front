@@ -1,4 +1,5 @@
 //import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import VideoCulto from "../../videos/Culto-Web-v1-optimizado.mp4";
 import "./Header.css";
 
@@ -25,18 +26,23 @@ function Header() {
           </strong>
         </h5>
         <div className="text-center" id="header-button-container">
-          <button
-            type="button"
-            style={{
-              backgroundColor: "white",
-              color: "black",
-              fontSize: "15px",
-            }}
-            className="btn rounded-pill mt-5 px-5 py-2"
-            id="header-button-id"
+          <Link
+            style={{ textDecoration: "none", color: "white" }}
+            to="/subscription"
           >
-            <strong>SUBSCRIBE</strong>
-          </button>
+            <button
+              type="button"
+              style={{
+                backgroundColor: "white",
+                color: "black",
+                fontSize: "15px",
+              }}
+              className="btn rounded-pill mt-5 px-5 py-2"
+              id="header-button-id"
+            >
+              <strong>SUBSCRIBE</strong>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

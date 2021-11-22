@@ -39,7 +39,7 @@ function DetailedProduct() {
       <div className="detailed-product">
         {product.length < 1 ? (
           <div className="container text-center mb-5">
-            <div style={{ marginBottom: "80px", marginTop: "50px" }}>
+            <div style={{ marginBottom: "150px", marginTop: "150px" }}>
               <Spinner animation="border" />
             </div>
           </div>

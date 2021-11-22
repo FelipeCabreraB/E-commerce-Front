@@ -51,7 +51,7 @@ function Footer() {
 
             <Link
               style={{ textDecoration: "none", color: "white" }}
-              to="/coffee"
+              to="/subscription"
             >
               <p>SUBSCRIPTIONS</p>
             </Link>
