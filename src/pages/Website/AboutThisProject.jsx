@@ -1,6 +1,7 @@
-import React from "react";
+import { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
   FaReact,
   FaCss3Alt,
@@ -23,11 +24,28 @@ import Capture_screen1 from "../../Capture_screen1.JPG";
 import Capture_screen2 from "../../Capture_screen2.JPG";
 
 function AboutThisProject() {
+  const [resetMessage, setResetMessage] = useState("");
+  const handleResetDatabase = async (ev) => {
+    try {
+      const response = await axios({
+        method: "get",
+        url: `${process.env.REACT_APP_URL_BACKEND}/database`,
+        data: {},
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setResetMessage(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const styleLinkedin = { color: "black" };
   return (
     <div className="about-this-project">
-      <div className="container ">
-        <div className="mt-4 mb-4 py-4">
+      <div className=" ">
+        <div className="mt-4 mb-4 py-4 container">
           <h3 className="pb-3 text-center">ABOUT THIS PROJECT</h3>
           <p>
             Culto is our final project, an E-Commerce website which is built
@@ -60,117 +78,65 @@ function AboutThisProject() {
             The images and design of this project were collected from the Culto
             Café page and used only for educational purposes
           </p>
-          {/* <Row>
-            <Col xs={12} md={6}>
-              <p></p>
-              <p>
-                <strong>Team: </strong> Jonathan Boublil, Felipe Cabrera,
-                Ignacio Nin
-              </p>
-              <p>
-                <strong>Technologies and tools used: </strong>{" "}
-              </p>
-              <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>React.js</li>
-                <li>mySQL and Sequelize</li>
-                <li>Node.js</li>
-                <li>Express</li>
-                <li>JWT</li>
-                <li>JSON</li>
-                <li>React Boostrap</li>
-                <li>Bcryptjs</li>
-                <li>Axios</li>
-                <li>Vercel - Deployment</li>
-                <li>Supabase - Cloud Storage</li>
-              </ul>
-            </Col>
-            <Col xs={12} md={6}>
-              <p className="my-3">
-                {" "}
-                <strong> Note: </strong>
-                The objective of this project is to simulate an e-commerce page
-                where most of the normal functionalities work with the exception
-                of making purchases since this is not a real bussiness. <br />{" "}
-                Among those functionalities are:
-              </p>
-              {/* ESPECIFICAR QUE USAMOS COMO MODELO LA PAGINA DE CULTO CAFE??? */}
-          {/* <ul>
-                <li>
-                  A database with the list of products, users, orders and
-                  categories
-                </li>
-                <li>
-                  Register, Login, and keep the information of your data and
-                  orders in your account (AGREGAMOS RESETEO DE CONTRASEÑA???)
-                </li>
-                <li>
-                  An administrator account that allows to do CRUD of products,
-                  categories and administrators (to access that account go to
-                  the following link and log in with the user .........)
-                </li>
-                <li>
-                  Functional cart that automatically adds and sums the selected
-                  products
-                </li>
-              </ul>
-            </Col>
-          </Row> */}{" "}
         </div>
-        <div className="middle-part mt-4 mb-4 py-4">
-          <h3 className="pb-3 text-center">TECHNOLOGIES USED</h3>
-          <Row>
-            <Col>
-              <ul style={{ listStyle: "none" }}>
-                <li>
-                  <FaReact /> React.js
-                </li>
-                <li>
-                  <FaCss3Alt /> CSS3
-                </li>
-                <li>
-                  <FaHtml5 /> HTML5
-                </li>
-                <li>
-                  <FaNodeJs /> Node.js
-                </li>
-              </ul>
-            </Col>
-            <Col>
-              <ul style={{ listStyle: "none" }}>
-                <li>
-                  <SiRedux /> Redux
-                </li>
-                <li>
-                  <SiExpress /> Express
-                </li>
-                <li>
-                  <SiPostgresql /> Postgres
-                </li>
-                <li>
-                  <SiMysql /> MySQL
-                </li>
-              </ul>
-            </Col>
-            <Col>
-              <ul style={{ listStyle: "none" }}>
-                <li>
-                  <SiSequelize /> Sequelize
-                </li>
-                <li>
-                  <FaBootstrap /> Bootstrap
-                </li>
-                <li>
-                  <SiVercel /> Vercel
-                </li>
-                <li>
-                  <SiSupabase /> Supabase
-                </li>
-              </ul>
-            </Col>
-          </Row>
+        <div className="middle-part">
+          <div className=" container mt-4 mb-4 py-4">
+            <h3 className="py-4 my-2 text-center">TECHNOLOGIES USED</h3>
+            <div className="">
+              <Row>
+                <Col>
+                  <ul className="py-2" style={{ listStyle: "none" }}>
+                    <li className="py-2">
+                      <FaReact /> React.js
+                    </li>
+                    <li className="py-2">
+                      <FaCss3Alt /> CSS3
+                    </li>
+                    <li className="py-2">
+                      <FaHtml5 /> HTML5
+                    </li>
+                    <li className="py-2">
+                      <FaNodeJs /> Node.js
+                    </li>
+                  </ul>
+                </Col>
+                <Col>
+                  <ul style={{ listStyle: "none" }}>
+                    <li className="py-2">
+                      <SiRedux /> Redux
+                    </li>
+                    <li className="py-2">
+                      <SiExpress /> Express
+                    </li>
+                    <li className="py-2">
+                      <SiPostgresql /> Postgres
+                    </li>
+                    <li className="py-2">
+                      <SiMysql /> MySQL
+                    </li>
+                  </ul>
+                </Col>
+                <Col>
+                  <ul style={{ listStyle: "none" }}>
+                    <li className="py-2">
+                      <SiSequelize /> Sequelize
+                    </li>
+                    <li className="py-2">
+                      <FaBootstrap /> Bootstrap
+                    </li>
+                    <li className="py-2">
+                      <SiVercel /> Vercel
+                    </li>
+                    <li>
+                      <SiSupabase /> Supabase
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+            </div>
+          </div>
         </div>
-        <div className="my-5 py-4">
+        <div className="my-5 py-4 container">
           <Row className="text-center">
             <Col className="d-flex align-items-center " md={5}>
               <p>
@@ -211,24 +177,29 @@ function AboutThisProject() {
             </Col>
           </Row>
         </div>
-        <div className="mt-4 mb-4 py-4 text-center">
-          <h5>USE THIS CREDENTIALS TO LOG IN: </h5>
-          <Row className="m-3">
-            <Col>
-              <p>Email: user@user.com</p>
-              <p>Password: 123456</p>
-            </Col>
-            <Col className="mt-3">
-              <Button variant="dark">Reset Database</Button>
-            </Col>
-            <Col>
-              <p>Email: admin@admin.com</p>
-              <p>Password: 123456</p>
-            </Col>
-          </Row>
+        <div className="credentials">
+          <div className="mt-4 mb-4 py-4 text-center container">
+            <h5 className="my-4">USE THIS CREDENTIALS TO LOG IN: </h5>
+            <Row className="m-3">
+              <Col>
+                <p>Email: user@user.com</p>
+                <p>Password: 123456</p>
+              </Col>
+              <Col className="mt-3">
+                <Button variant="light" onClick={() => handleResetDatabase()}>
+                  Reset Database
+                </Button>
+                <p className="text-success mt-2">{resetMessage}</p>
+              </Col>
+              <Col>
+                <p>Email: admin@admin.com</p>
+                <p>Password: 123456</p>
+              </Col>
+            </Row>
+          </div>
         </div>
-        <div className="mt-4 mb-4 py-4">
-          <h3 className="pb-3 text-center">TEAM</h3>
+        <div className="mt-4 mb-4 py-4 container">
+          <h3 className="py-4 text-center">TEAM</h3>
           <Row>
             <Col className="text-center">
               <img

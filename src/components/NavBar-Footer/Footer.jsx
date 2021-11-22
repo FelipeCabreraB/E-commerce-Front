@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="main-footer sticky-footer">
+    <footer className="main-footer footer">
       <div className="container">
         <div className="row pt-5 mt-3">
           <div className="col-md-3">

@@ -10,8 +10,9 @@ body {
   color: white;
   background-color: #222222;
   padding-top: 3 rem;
-
   width: 100%;
+  /* margin-top: auto;
+  position: absolute; */
 }
 
 .img-cart {
@@ -91,4 +92,20 @@ body {
   width: 5rem;
   height: 6px;
   border-radius: 1rem;
+}
+
+.middle-part {
+  color: white;
+  background-color: #222222;
+  padding-top: 3 rem;
+
+  width: 100%;
+}
+
+.credentials {
+  color: white;
+  background-color: #222222;
+  padding-top: 3 rem;
+
+  width: 100%;
 }
