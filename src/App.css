@@ -80,3 +80,15 @@ body {
   border: 2px black !important;
   transform: rotate(-90deg);
 }
+
+.recieve {
+  font-size: 20px;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+.custom-separator {
+  width: 5rem;
+  height: 6px;
+  border-radius: 1rem;
+}

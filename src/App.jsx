@@ -16,6 +16,7 @@ import MyAccountAddress from "./pages/MyAccount/MyAccountAddress";
 import PurchaseConfirmation from "./pages/Website/PurchaseConfirmation";
 import DetailedProductAcc from "./pages/Website/DetailedProductAcc";
 import AboutThisProject from "./pages/Website/AboutThisProject";
+import Subscription from "./pages/Website/Subscription";
 import NoMatch from "./pages/Website/NoMatch";
 import AdminPage from "./pages/Admin/AdminPage";
 import AdminProduct from "./pages/Admin/AdminProduct";
@@ -71,6 +72,7 @@ function App() {
             path="/about-this-project"
             component={AboutThisProject}
           />
+          <PublicRoute path="/subscription" component={Subscription} />
           <PrivateRoute path="/admin/dashboard" component={AdminPage} />
           <PrivateRoute path="/admin/products/:page" component={AdminProduct} />
           <PrivateRoute path="/admin/categories" component={AdminCategory} />

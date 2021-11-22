@@ -42,7 +42,10 @@ function NavBar() {
               )}
 
               <Nav.Link>
-                <Link style={{ textDecoration: "none", color: "black" }} to="#">
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/subscription"
+                >
                   <strong>SUBSCRIPTION</strong>
                 </Link>
               </Nav.Link>
