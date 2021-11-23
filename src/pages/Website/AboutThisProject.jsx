@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import {
   FaReact,
@@ -80,28 +79,28 @@ function AboutThisProject() {
           </p>
         </div>
         <div className="middle-part">
-          <div className=" container mt-4 mb-4 py-4">
+          <div className=" container mt-4 mb-4 py-4 text-center">
             <h3 className="py-4 my-2 text-center">TECHNOLOGIES USED</h3>
             <div className="">
-              <Row>
+              <Row className="gx-0">
                 <Col>
                   <ul className="py-2" style={{ listStyle: "none" }}>
-                    <li className="py-2">
+                    <li className="py-2 ms-3">
                       <FaReact /> React.js
                     </li>
-                    <li className="py-2">
+                    <li className="py-2 ms-3">
                       <FaCss3Alt /> CSS3
                     </li>
-                    <li className="py-2">
+                    <li className="py-2 ms-3">
                       <FaHtml5 /> HTML5
                     </li>
-                    <li className="py-2">
+                    <li className="py-2 ms-3">
                       <FaNodeJs /> Node.js
                     </li>
                   </ul>
                 </Col>
                 <Col>
-                  <ul style={{ listStyle: "none" }}>
+                  <ul className="py-2" style={{ listStyle: "none" }}>
                     <li className="py-2">
                       <SiRedux /> Redux
                     </li>
@@ -117,7 +116,7 @@ function AboutThisProject() {
                   </ul>
                 </Col>
                 <Col>
-                  <ul style={{ listStyle: "none" }}>
+                  <ul className="py-2" style={{ listStyle: "none" }}>
                     <li className="py-2">
                       <SiSequelize /> Sequelize
                     </li>
@@ -127,7 +126,7 @@ function AboutThisProject() {
                     <li className="py-2">
                       <SiVercel /> Vercel
                     </li>
-                    <li>
+                    <li className="py-2">
                       <SiSupabase /> Supabase
                     </li>
                   </ul>
@@ -212,13 +211,20 @@ function AboutThisProject() {
                 <strong>Jonathan Boublil</strong>
               </p>
               <p>Full Stack Developer</p>
-              <Link to="https://www.linkedin.com/in/jonathan-boublil/">
+              <a
+                href="https://www.linkedin.com/in/jonathan-boublil/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <FaLinkedin style={styleLinkedin} />
-              </Link>
-              {"   "}
-              <Link to="https://github.com/jonathanb88">
+              </a>
+              <a
+                href="https://github.com/jonathanb88"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <FaGithub style={styleLinkedin} />
-              </Link>
+              </a>
             </Col>
             <Col className="text-center">
               <img
@@ -231,13 +237,22 @@ function AboutThisProject() {
                 <strong>Felipe Cabrera</strong>
               </p>
               <p>Full Stack Developer</p>
-              <Link to="https://www.linkedin.com/in/felipe-cabrera-bonino/">
+              <a
+                href="https://www.linkedin.com/in/felipe-cabrera-bonino/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {" "}
                 <FaLinkedin style={styleLinkedin} />
-              </Link>
+              </a>
               {"   "}
-              <Link to="https://github.com/FelipeCabreraB">
+              <a
+                href="https://github.com/FelipeCabreraB"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <FaGithub style={styleLinkedin} />
-              </Link>
+              </a>
             </Col>
             <Col className="text-center">
               <img
@@ -250,13 +265,20 @@ function AboutThisProject() {
                 <strong>Ignacio Nin</strong>
               </p>
               <p>Full Stack Developer</p>
-              <Link to="https://www.linkedin.com/in/ignacionin/">
+              <a
+                href="https://www.linkedin.com/in/ignacionin/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <FaLinkedin style={styleLinkedin} />
-              </Link>
-              {"   "}
-              <Link to="https://github.com/ignacionin">
+              </a>
+              <a
+                href="https://github.com/ignacionin"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 <FaGithub style={styleLinkedin} />
-              </Link>
+              </a>
             </Col>
           </Row>
         </div>

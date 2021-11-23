@@ -210,7 +210,7 @@ function AddNewProduct() {
               <Row>
                 <Col>
                   <label className="form-label mt-2" htmlFor="accessoriesChar1">
-                    Accessories Charactiristic 1
+                    Accessories features 1
                   </label>
                   <input
                     className="form-control"
@@ -223,7 +223,7 @@ function AddNewProduct() {
                 </Col>
                 <Col>
                   <label className="form-label mt-2" htmlFor="accessoriesChar2">
-                    Accessories Charactiristic 2
+                    Accessories features 2
                   </label>
                   <input
                     className="form-control"
@@ -236,7 +236,7 @@ function AddNewProduct() {
                 </Col>
                 <Col>
                   <label className="form-label mt-2" htmlFor="accessoriesChar3">
-                    Accessories Charactiristic 3
+                    Accessories features 3
                   </label>
                   <input
                     className="form-control"
