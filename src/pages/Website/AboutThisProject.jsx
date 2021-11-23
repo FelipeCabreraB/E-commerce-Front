@@ -202,7 +202,7 @@ function AboutThisProject() {
           <Row>
             <Col className="text-center">
               <img
-                className="img-thumbnail rounded-circle"
+                className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
                 src="https://media-exp1.licdn.com/dms/image/C5103AQFIDI16-RugSg/profile-displayphoto-shrink_400_400/0/1562091332774?e=1643241600&v=beta&t=eOhkSRLXxwllBxTJfiu2X0F42OCObURyHsJhET_thT0"
                 alt=""
@@ -228,7 +228,7 @@ function AboutThisProject() {
             </Col>
             <Col className="text-center">
               <img
-                className="img-thumbnail rounded-circle"
+                className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
                 src="https://media-exp1.licdn.com/dms/image/C4E03AQHHHmEEq7QhRw/profile-displayphoto-shrink_400_400/0/1517612030695?e=1643241600&v=beta&t=SH5ZReSMpfdACKqGPxJoYltEryy7xMDt4QtyqSgixoA"
                 alt=""
@@ -256,7 +256,7 @@ function AboutThisProject() {
             </Col>
             <Col className="text-center">
               <img
-                className="img-thumbnail rounded-circle"
+                className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
                 src="https://media-exp1.licdn.com/dms/image/C5603AQEHCKfHmnPefQ/profile-displayphoto-shrink_400_400/0/1516842180500?e=1643241600&v=beta&t=GWltYmraJysAWDx2Cp3FXccDaP6itOImhZ1Wf6YG90A"
                 alt=""

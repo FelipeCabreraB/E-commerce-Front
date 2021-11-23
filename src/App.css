@@ -109,3 +109,13 @@ body {
 
   width: 100%;
 }
+
+.img-profile {
+  transition: transform 250ms;
+  border-radius: 5px;
+}
+
+.img-profile:hover {
+  transform: translateY(-10px);
+  transform: scale(1.1);
+}
