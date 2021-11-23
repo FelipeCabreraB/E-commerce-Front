@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import Accordion from "react-bootstrap/Accordion";
 
 function Subscription() {
   return (
@@ -160,6 +161,59 @@ function Subscription() {
                 </Button>
               </div>
             </div>
+          </Col>
+          <h2 className="text-center my-5">Frequently Asked Questions</h2>
+          <Col xs={12} md={8} className="mx-auto mb-5">
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>
+                  What payment methods do you work with?
+                </Accordion.Header>
+                <Accordion.Body>
+                  We accept all major credit and debit cards through Mercado
+                  Pago.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="1">
+                <Accordion.Header>
+                  How do I change my subscription plan?
+                </Accordion.Header>
+                <Accordion.Body>
+                  You can change to a new plan after the first month of the
+                  current selection has elapsed. You let us know and we will
+                  make the change.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="2">
+                <Accordion.Header>
+                  Can I unsubscribe at any time?
+                </Accordion.Header>
+                <Accordion.Body>
+                  Yes! You just have to wait for the first month to elapse from
+                  the start of your subscription. The only way to successfully
+                  unsubscribe is to let us know and we will unsubscribe you.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="3">
+                <Accordion.Header>
+                  I don't have a mill, can you send it to me already ground?
+                </Accordion.Header>
+                <Accordion.Body>
+                  Yes, of course. Choose your type of grind at check out and we
+                  will send it to you ground according to your needs.
+                </Accordion.Body>
+              </Accordion.Item>
+              <Accordion.Item eventKey="4">
+                <Accordion.Header>
+                  ¿Cómo funcionan las entregas?
+                </Accordion.Header>
+                <Accordion.Body>
+                  We deliver from Monday to Friday between 16:00 to 21:00 hs. If
+                  you need us to deliver it in a particular time slot or you
+                  need to change your delivery day, we can coordinate it.
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </Col>
         </Row>
       </Container>
