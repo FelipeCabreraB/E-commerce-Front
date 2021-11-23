@@ -64,7 +64,7 @@ function DetailedProduct() {
                 </h2>
                 {product.stock < 1 && (
                   <h4 className="text-danger">
-                    <strong>Out of stock for the moment.</strong>
+                    <strong>Out of stock at the moment.</strong>
                   </h4>
                 )}
                 <h4 className="my-4">
