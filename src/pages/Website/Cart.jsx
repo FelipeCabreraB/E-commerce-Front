@@ -14,118 +14,131 @@ function Cart() {
           <Row>
             {/* Table of products in cart */}
             <Col xs={12} md={7} className="pt-4">
-              <Table hover className="table-borderless">
-                <thead style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}>
-                  <tr>
-                    <th>PRODUCT</th>
-                    <th className="text-center">PRICE</th>
-                    <th className="text-center">QUANTITY</th>
-                    <th className="text-center">SUBTOTAL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.map((product) => (
+              {cart.length < 1 ? (
+                <div className="text-center my-4 border shadow">
+                  <h3 className="my-5 mx-3">
+                    ¡Hey your cart is empty &#128546;! Go back to our shop and
+                    check all our fabulous products! &#128170;&#127996;
+                  </h3>
+                </div>
+              ) : (
+                <Table hover className="table-borderless">
+                  <thead
+                    style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}
+                  >
                     <tr>
-                      <td>
-                        <div>
-                          <Row>
-                            <Col>
-                              <img
-                                src={
-                                  "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
-                                  product.picture
-                                }
-                                alt=""
-                                className="img-fluid img-cart"
-                              />
-                            </Col>
-                            <Col>
-                              <p>
-                                <strong>{product.productName}</strong>
-                              </p>
-                              {product.grindingType && (
-                                <p
-                                  className="text-muted"
-                                  style={{ fontSize: "0.85rem" }}
-                                >
-                                  Grinding type: {product.grindingType}
+                      <th>PRODUCT</th>
+                      <th className="text-center">PRICE</th>
+                      <th className="text-center">QUANTITY</th>
+                      <th className="text-center">SUBTOTAL</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {cart.map((product) => (
+                      <tr>
+                        <td>
+                          <div>
+                            <Row>
+                              <Col>
+                                <img
+                                  src={
+                                    "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                                    product.picture
+                                  }
+                                  alt=""
+                                  className="img-fluid img-cart"
+                                />
+                              </Col>
+                              <Col>
+                                <p>
+                                  <strong>{product.productName}</strong>
                                 </p>
-                              )}
-                              <p
-                                className="pointer"
+                                {product.grindingType && (
+                                  <p
+                                    className="text-muted"
+                                    style={{ fontSize: "0.85rem" }}
+                                  >
+                                    Grinding type: {product.grindingType}
+                                  </p>
+                                )}
+                                <p
+                                  className="pointer"
+                                  onClick={() =>
+                                    dispatch({
+                                      type: "REMOVE_ITEM",
+                                      payload: {
+                                        productName: product.productName,
+                                        grindingType: product.grindingType,
+                                      },
+                                    })
+                                  }
+                                >
+                                  Remove
+                                </p>
+                              </Col>
+                            </Row>
+                          </div>
+                        </td>
+                        <td className="text-center">$ {product.price}</td>
+                        <td className="text-center">
+                          {" "}
+                          <div className="align-self-center text-center me-3">
+                            <div
+                              className="input-group mb-3 align-self-center text-center"
+                              style={{ minWidth: "88px" }}
+                            >
+                              <button
+                                className="btn btn-outline-secondary btn-block px-1"
+                                style={{ outline: "none", boxShadow: "none" }}
+                                type="button"
                                 onClick={() =>
                                   dispatch({
-                                    type: "REMOVE_ITEM",
+                                    type: "REMOVE_ONE_QUANTITY",
                                     payload: {
                                       productName: product.productName,
+                                      quantity: product.quantity,
                                       grindingType: product.grindingType,
                                     },
                                   })
                                 }
                               >
-                                Remove
-                              </p>
-                            </Col>
-                          </Row>
-                        </div>
-                      </td>
-                      <td className="text-center">$ {product.price}</td>
-                      <td className="text-center">
-                        {" "}
-                        <div className="align-self-center text-center me-3">
-                          <div
-                            className="input-group mb-3 align-self-center text-center"
-                            style={{ minWidth: "88px" }}
-                          >
-                            <button
-                              className="btn btn-outline-secondary btn-block px-1"
-                              style={{ outline: "none", boxShadow: "none" }}
-                              type="button"
-                              onClick={() =>
-                                dispatch({
-                                  type: "REMOVE_ONE_QUANTITY",
-                                  payload: {
-                                    productName: product.productName,
-                                    quantity: product.quantity,
-                                    grindingType: product.grindingType,
-                                  },
-                                })
-                              }
-                            >
-                              <i class="fas fa-minus"></i>
-                            </button>
-                            <input
-                              type="text"
-                              className="text-center form-control"
-                              style={{ maxWidth: "41px", minWidth: "41px" }}
-                              value={product.quantity}
-                            />
-                            <button
-                              className="btn btn-outline-secondary px-1"
-                              style={{ outline: "none", boxShadow: "none" }}
-                              type="button"
-                              onClick={() =>
-                                dispatch({
-                                  type: "ADD_ONE_QUANTITY",
-                                  payload: {
-                                    productName: product.productName,
-                                    quantity: product.quantity,
-                                    grindingType: product.grindingType,
-                                    stock: product.stock,
-                                  },
-                                })
-                              }
-                            >
-                              <i class="fas fa-plus"></i>
-                            </button>
+                                <i class="fas fa-minus"></i>
+                              </button>
+                              <input
+                                type="text"
+                                className="text-center form-control"
+                                style={{ maxWidth: "41px", minWidth: "41px" }}
+                                value={product.quantity}
+                              />
+                              <button
+                                className="btn btn-outline-secondary px-1"
+                                style={{ outline: "none", boxShadow: "none" }}
+                                type="button"
+                                onClick={() =>
+                                  dispatch({
+                                    type: "ADD_ONE_QUANTITY",
+                                    payload: {
+                                      productName: product.productName,
+                                      quantity: product.quantity,
+                                      grindingType: product.grindingType,
+                                      stock: product.stock,
+                                    },
+                                  })
+                                }
+                              >
+                                <i class="fas fa-plus"></i>
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>$ {product.price * product.quantity}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
+                        </td>
+                        <td>$ {product.price * product.quantity}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              )}
+
               <div className="d-flex justify-content-between">
                 <Accordion flush>
                   <Accordion.Item eventKey="0">
