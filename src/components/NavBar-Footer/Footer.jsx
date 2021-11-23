@@ -5,7 +5,7 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 function Footer() {
   const popover = (
     <Tooltip id="overlay-example">
-      Sorry, this modality is out of the scope for this project
+      Sorry, this modality is outside the scope of this project
     </Tooltip>
   );
 
