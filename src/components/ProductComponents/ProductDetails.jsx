@@ -23,12 +23,9 @@ function ProductDetails({ product }) {
             >
               <h3 className="productName mt-3">{product.productName}</h3>
             </Link>
-            <div style={{ position: "relative" }}>
-              {" "}
-              <h3 id="outOfStock">Out of stock</h3>{" "}
-            </div>
           </div>
-          <p className="productPrice">$ {product.price}</p>
+          <p className="productPrice mb-0">$ {product.price}</p>
+          <h3 className="text-danger">Out of stock</h3>{" "}
           <Link
             to={`/product/${product.categoryId}/${product.productName}`}
             className="productChoose"
