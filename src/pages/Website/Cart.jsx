@@ -31,7 +31,10 @@ function Cart() {
                           <Row>
                             <Col>
                               <img
-                                src={product.picture}
+                                src={
+                                  "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                                  product.picture
+                                }
                                 alt=""
                                 className="img-fluid img-cart"
                               />

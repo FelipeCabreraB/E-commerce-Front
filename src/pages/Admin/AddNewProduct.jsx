@@ -1,9 +1,10 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 // import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function AddNewProduct() {
   const token = useSelector((state) => state.user.token);
@@ -30,7 +31,7 @@ function AddNewProduct() {
   const handleAddProduct = async (ev) => {
     ev.preventDefault();
     const formData = new FormData(ev.target);
-    console.log(formData);
+
     try {
       const response = await axios({
         method: "post",
@@ -82,7 +83,7 @@ function AddNewProduct() {
           </Col>
           <Col className="myAccountResponsive" sm={12} md={10}>
             <h3 className="my-3">Create new product</h3>
-            <form
+            <Form
               id="add-product-form"
               className="border px-5 pb-5 pt-3"
               onSubmit={handleAddProduct}
@@ -107,131 +108,146 @@ function AddNewProduct() {
                 name="description"
                 id="description"
                 cols="60"
-                rows="5"
+                rows="3"
                 value={description}
                 onChange={(ev) => setDescription(ev.target.value)}
               ></textarea>
-
-              <label className="form-label mt-2" htmlFor="origin">
-                Origin
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="origin"
-                name="origin"
-                value={origin}
-                onChange={(ev) => setOrigin(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="farm">
-                Farm
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="farm"
-                name="farm"
-                value={farm}
-                onChange={(ev) => setFarm(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="notes">
-                Notes
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="notes"
-                name="notes"
-                value={notes}
-                onChange={(ev) => setNotes(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="variety">
-                Variety
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="variety"
-                name="variety"
-                value={variety}
-                onChange={(ev) => setVariety(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="height">
-                Height
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="height"
-                name="height"
-                value={height}
-                onChange={(ev) => setHeight(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="process">
-                Process
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="process"
-                name="process"
-                value={processCoff}
-                onChange={(ev) => setProcessCoff(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="rating">
-                Rating
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="rating"
-                name="rating"
-                value={rating}
-                onChange={(ev) => setRating(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="accessoriesChar1">
-                Accessories Charactiristic 1
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar1"
-                name="accessoriesChar1"
-                value={accessoriesChar1}
-                onChange={(ev) => setAccessoriesChar1(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="accessoriesChar2">
-                Accessories Charactiristic 2
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar2"
-                name="accessoriesChar2"
-                value={accessoriesChar2}
-                onChange={(ev) => setAccessoriesChar2(ev.target.value)}
-              />
-
-              <label className="form-label mt-2" htmlFor="accessoriesChar3">
-                Accessories Charactiristic 3
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="accessoriesChar3"
-                name="accessoriesChar3"
-                value={accessoriesChar3}
-                onChange={(ev) => setAccessoriesChar3(ev.target.value)}
-              />
-
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="origin">
+                    Origin
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="origin"
+                    name="origin"
+                    value={origin}
+                    onChange={(ev) => setOrigin(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="farm">
+                    Farm
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="farm"
+                    name="farm"
+                    value={farm}
+                    onChange={(ev) => setFarm(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="notes">
+                    Notes
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="notes"
+                    name="notes"
+                    value={notes}
+                    onChange={(ev) => setNotes(ev.target.value)}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="variety">
+                    Variety
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="variety"
+                    name="variety"
+                    value={variety}
+                    onChange={(ev) => setVariety(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="height">
+                    Height
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="height"
+                    name="height"
+                    value={height}
+                    onChange={(ev) => setHeight(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="process">
+                    Process
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="process"
+                    name="process"
+                    value={processCoff}
+                    onChange={(ev) => setProcessCoff(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="rating">
+                    Rating
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="rating"
+                    name="rating"
+                    value={rating}
+                    onChange={(ev) => setRating(ev.target.value)}
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar1">
+                    Accessories Charactiristic 1
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar1"
+                    name="accessoriesChar1"
+                    value={accessoriesChar1}
+                    onChange={(ev) => setAccessoriesChar1(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar2">
+                    Accessories Charactiristic 2
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar2"
+                    name="accessoriesChar2"
+                    value={accessoriesChar2}
+                    onChange={(ev) => setAccessoriesChar2(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="accessoriesChar3">
+                    Accessories Charactiristic 3
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="accessoriesChar3"
+                    name="accessoriesChar3"
+                    value={accessoriesChar3}
+                    onChange={(ev) => setAccessoriesChar3(ev.target.value)}
+                  />
+                </Col>
+              </Row>
               <label className="form-label mt-2" htmlFor="picture">
                 Change picture
               </label>
@@ -244,43 +260,51 @@ function AddNewProduct() {
               <div class="form-text">
                 Accepted formats: .jpg, .jpeg, .svg, .png
               </div>
-              <label className="form-label mt-2" htmlFor="price">
-                Price ($)
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="price"
-                name="price"
-                value={price}
-                onChange={(ev) => setPrice(ev.target.value)}
-              />
-              <label className="form-label mt-2" htmlFor="stock">
-                Stock
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="stock"
-                name="stock"
-                value={stock}
-                onChange={(ev) => setStock(ev.target.value)}
-              />
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="price">
+                    Price ($)
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="price"
+                    name="price"
+                    value={price}
+                    onChange={(ev) => setPrice(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="stock">
+                    Stock
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    value={stock}
+                    onChange={(ev) => setStock(ev.target.value)}
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="category">
+                    Category
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="category"
+                    name="category"
+                    value={category}
+                    onChange={(ev) => setCategory(ev.target.value)}
+                  />
+                </Col>
 
-              <label className="form-label mt-2" htmlFor="category">
-                Category
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="category"
-                name="category"
-                value={category}
-                onChange={(ev) => setCategory(ev.target.value)}
-              />
-              <div class="form-text">
-                Category 1: Coffee - Category 2: Accessories
-              </div>
+                <div class="form-text">
+                  Category 1: Coffee - Category 2: Accessories
+                </div>
+              </Row>
               <label className="form-label mt-2 me-3 mt-2" htmlFor="featured">
                 Featured:
               </label>
@@ -298,15 +322,28 @@ function AddNewProduct() {
               >
                 Confirm create
               </Button>
-              <p className="text-success text-center">
-                {" "}
-                <strong>{successMessage}</strong>{" "}
-              </p>
+              {successMessage !== "" && (
+                <div>
+                  <p className="text-success text-center">
+                    {" "}
+                    <strong>{successMessage}</strong>{" "}
+                  </p>
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/admin/products/1"
+                  >
+                    <p className="mt-4 py-0 align-self-center">
+                      <i class="fas fa-less-than"></i> Return
+                    </p>
+                  </Link>
+                </div>
+              )}
+
               <p className="text-danger text-center">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
               </p>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>

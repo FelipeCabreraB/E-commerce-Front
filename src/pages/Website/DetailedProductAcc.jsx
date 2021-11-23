@@ -38,7 +38,7 @@ function DetailedProductAcc() {
       <div className="detailed-product">
         {product.length < 1 ? (
           <div className="container text-center mb-5">
-            <div style={{ marginBottom: "80px", marginTop: "50px" }}>
+            <div style={{ marginBottom: "150px", marginTop: "150px" }}>
               <Spinner animation="border" />
             </div>
           </div>
@@ -48,7 +48,10 @@ function DetailedProductAcc() {
               <Col xs={12} md={6}>
                 <div className="img-hover-zoom">
                   <img
-                    src={product.picture}
+                    src={
+                      "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                      product.picture
+                    }
                     alt={product.productName}
                     className="img-fluid"
                   />

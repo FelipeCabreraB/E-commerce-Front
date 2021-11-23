@@ -91,7 +91,10 @@ function AdminProduct() {
                         <img
                           style={{ width: "40px", height: "55px" }}
                           className="img-fluid"
-                          src={product.picture}
+                          src={
+                            "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                            product.picture
+                          }
                           alt=""
                         />
                       </div>

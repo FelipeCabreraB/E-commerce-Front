@@ -28,7 +28,7 @@ function AdminUser() {
             },
           }
         );
-        console.log(response.data.numberOfPages);
+
         setUsers(response.data.users);
         setNumberOfPages(response.data.numberOfPages);
       } catch (error) {
@@ -48,8 +48,6 @@ function AdminUser() {
       </Pagination.Item>
     );
   }
-
-  console.log(numberOfPages);
 
   return (
     <div>
@@ -93,7 +91,7 @@ function AdminUser() {
                     <td>{user.phone}</td>
                     {/* <td>{user.completedOrders}</td> */}
                     <td>
-                      <Link to={`/admin/users/edit/${user.id}`}>
+                      <Link to={`/admin/user/edit/${user.id}`}>
                         <Button className="btn btn-warning me-2">
                           <i class="far fa-edit"></i>
                         </Button>

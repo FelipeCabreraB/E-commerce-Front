@@ -71,7 +71,10 @@ function AdminCategory() {
                       >
                         <img
                           className="img-fluid"
-                          src={category.picture}
+                          src={
+                            "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                            category.picture
+                          }
                           alt=""
                         />
                       </div>
