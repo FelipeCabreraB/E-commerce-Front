@@ -17,8 +17,8 @@ function Cart() {
               {cart.length < 1 ? (
                 <div className="text-center my-4 border shadow">
                   <h3 className="my-5 mx-3">
-                    ¡Hey your cart is empty &#128546;! Go back to our shop and
-                    check all our fabulous products! &#128170;&#127996;
+                    ¡Hey your cart is empty! ¡Go back to our shop and check all
+                    our fabulous products!
                   </h3>
                 </div>
               ) : (
