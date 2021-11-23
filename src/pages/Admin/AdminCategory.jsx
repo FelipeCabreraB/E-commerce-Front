@@ -54,7 +54,7 @@ function AdminCategory() {
                   <th>#</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th>Picture</th>
+
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -64,25 +64,10 @@ function AdminCategory() {
                     <td>{category.id}</td>
                     <td>{category.categoryName}</td>
                     <td>{category.description}</td>
-                    <td>
-                      <div
-                        className="mb-3"
-                        style={{ width: "80px", height: "80px" }}
-                      >
-                        <img
-                          className="img-fluid"
-                          src={
-                            "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
-                            category.picture
-                          }
-                          alt=""
-                        />
-                      </div>
-                    </td>
 
                     <td>
                       <Link to={`/admin/category/edit/${category.id}`}>
-                        <Button className="btn btn-warning me-2">
+                        <Button className="btn btn-light btn-outline-dark me-2">
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>

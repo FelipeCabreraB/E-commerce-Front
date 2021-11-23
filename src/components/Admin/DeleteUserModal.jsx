@@ -32,7 +32,7 @@ function DeleteUserModal({ userId, firstname, lastname, setUsers }) {
 
   return (
     <>
-      <Button className="btn btn-danger" onClick={handleShow}>
+      <Button className="btn btn-dark" onClick={handleShow}>
         <i class="far fa-trash-alt"></i>
       </Button>
 

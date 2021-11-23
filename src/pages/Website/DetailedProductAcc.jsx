@@ -5,6 +5,8 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { Spinner } from "react-bootstrap";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function DetailedProductAcc() {
   const cart = useSelector((state) => state.cart);
@@ -14,6 +16,19 @@ function DetailedProductAcc() {
   const params = useParams();
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
+  const notify = () =>
+    toast.success(
+      `Accessory: ${product.productName} x ${count} -- Successfully added to cart`,
+      {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
 
   useEffect(() => {
     const getProduct = async (ev) => {
@@ -35,6 +50,17 @@ function DetailedProductAcc() {
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="detailed-product">
         {product.length < 1 ? (
           <div className="container text-center mb-5">
@@ -201,7 +227,7 @@ function DetailedProductAcc() {
                             },
                           });
                       }
-
+                      notify();
                       setCount(0);
                       setCounterMessage("");
                       // eslint-disable-next-line
