@@ -17,7 +17,7 @@ function DetailedProductAcc() {
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   const notify = () =>
-    toast(
+    toast.success(
       `Accessory: ${product.productName} x ${count} -- Successfully added to cart`,
       {
         position: "top-right",
