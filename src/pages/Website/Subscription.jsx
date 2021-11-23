@@ -204,9 +204,7 @@ function Subscription() {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey="4">
-                <Accordion.Header>
-                  ¿Cómo funcionan las entregas?
-                </Accordion.Header>
+                <Accordion.Header>How do deliveries work? </Accordion.Header>
                 <Accordion.Body>
                   We deliver from Monday to Friday between 16:00 to 21:00 hs. If
                   you need us to deliver it in a particular time slot or you
