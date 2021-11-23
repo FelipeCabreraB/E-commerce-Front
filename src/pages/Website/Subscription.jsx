@@ -1,8 +1,23 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 
 function Subscription() {
+  // const [show, setShow] = useState(false);
+  // const target = useRef(null);
+  const popover = (
+    <Tooltip id="overlay-example">
+      Sorry, this modality is out of the scope for this project
+    </Tooltip>
+  );
+
   return (
     <div className="bg-light my-0">
       <div className="pt-5 mb-5">
@@ -48,13 +63,20 @@ function Subscription() {
               </ul>
               <br />
               <div className="text-center mt-3">
-                <Button
-                  className="mt-4 rounded-pill px-5 py-2 "
-                  variant="dark"
-                  size="lg"
+                <OverlayTrigger
+                  trigger="click"
+                  rootClose
+                  placement="top"
+                  overlay={popover}
                 >
-                  Subscribe
-                </Button>
+                  <Button
+                    className="mt-4 rounded-pill px-5 py-2 "
+                    variant="dark"
+                    size="lg"
+                  >
+                    Subscribe
+                  </Button>
+                </OverlayTrigger>
               </div>
             </div>
           </Col>
@@ -100,13 +122,20 @@ function Subscription() {
                 </li>
               </ul>
               <div className="text-center mt-3">
-                <Button
-                  className="mt-4 rounded-pill px-5 py-2 "
-                  variant="dark"
-                  size="lg"
+                <OverlayTrigger
+                  trigger="click"
+                  rootClose
+                  placement="top"
+                  overlay={popover}
                 >
-                  Subscribe
-                </Button>
+                  <Button
+                    className="mt-4 rounded-pill px-5 py-2 "
+                    variant="dark"
+                    size="lg"
+                  >
+                    Subscribe
+                  </Button>
+                </OverlayTrigger>
               </div>
             </div>
           </Col>
@@ -152,13 +181,20 @@ function Subscription() {
                 </li>
               </ul>
               <div className="text-center mt-3">
-                <Button
-                  className="mt-4 rounded-pill px-5 py-2 "
-                  variant="dark"
-                  size="lg"
+                <OverlayTrigger
+                  trigger="click"
+                  rootClose
+                  placement="top"
+                  overlay={popover}
                 >
-                  Subscribe
-                </Button>
+                  <Button
+                    className="mt-4 rounded-pill px-5 py-2 "
+                    variant="dark"
+                    size="lg"
+                  >
+                    Subscribe
+                  </Button>
+                </OverlayTrigger>
               </div>
             </div>
           </Col>

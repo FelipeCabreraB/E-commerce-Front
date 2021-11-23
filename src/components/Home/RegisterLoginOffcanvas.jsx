@@ -75,7 +75,7 @@ function OffCanvasExample({ name, ...props }) {
             style={{ color: "black" }}
           >
             <div id="welcomeEmailNavbar" className="numberOfCart text-center">
-              <i class="fas fa-check-circle"></i>
+              <i class="fas fa-check"></i>
             </div>
           </i>
         </Nav.Link>

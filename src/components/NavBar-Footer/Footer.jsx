@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 function Footer() {
+  const popover = (
+    <Tooltip id="overlay-example">
+      Sorry, this modality is out of the scope for this project
+    </Tooltip>
+  );
+
   return (
     <footer className="main-footer footer">
       <div className="container">
@@ -77,13 +84,20 @@ function Footer() {
                 placeholder="Email"
                 aria-label="Search"
               />
-              <button
-                type="button"
-                className="btn btn-outline-secondary"
-                style={{ outline: "none", boxShadow: "none" }}
+              <OverlayTrigger
+                trigger="click"
+                rootClose
+                placement="bottom"
+                overlay={popover}
               >
-                <i class="far fa-paper-plane"></i>
-              </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  style={{ outline: "none", boxShadow: "none" }}
+                >
+                  <i class="far fa-paper-plane"></i>
+                </button>
+              </OverlayTrigger>
             </form>
           </div>
         </div>
