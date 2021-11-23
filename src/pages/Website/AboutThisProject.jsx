@@ -40,7 +40,8 @@ function AboutThisProject() {
     }
   };
 
-  const styleLinkedin = { color: "black" };
+  const styleLinkedin = { color: "black", fontSize: "1.5em" };
+
   return (
     <div className="about-this-project">
       <div className=" ">
@@ -148,7 +149,7 @@ function AboutThisProject() {
             </Col>
             <Col md={7} className="img-fluid">
               <img
-                className="shadow"
+                className="shadow img-screenCapture"
                 src={Capture_screen1}
                 alt=""
                 style={{ maxWidth: "34rem" }}
@@ -158,7 +159,7 @@ function AboutThisProject() {
           <Row className="mt-3 pt-2">
             <Col md={7} className="img-fluid">
               <img
-                className="shadow"
+                className="shadow img-screenCapture"
                 src={Capture_screen2}
                 alt=""
                 style={{ maxWidth: "34rem" }}
@@ -215,6 +216,7 @@ function AboutThisProject() {
                 href="https://www.linkedin.com/in/jonathan-boublil/"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1"
               >
                 <FaLinkedin style={styleLinkedin} />
               </a>
@@ -222,6 +224,7 @@ function AboutThisProject() {
                 href="https://github.com/jonathanb88"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1"
               >
                 <FaGithub style={styleLinkedin} />
               </a>
@@ -241,15 +244,17 @@ function AboutThisProject() {
                 href="https://www.linkedin.com/in/felipe-cabrera-bonino/"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1"
               >
                 {" "}
                 <FaLinkedin style={styleLinkedin} />
               </a>
-              {"   "}
+              {"     "}
               <a
                 href="https://github.com/FelipeCabreraB"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1"
               >
                 <FaGithub style={styleLinkedin} />
               </a>
@@ -269,6 +274,7 @@ function AboutThisProject() {
                 href="https://www.linkedin.com/in/ignacionin/"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1 linkedin"
               >
                 <FaLinkedin style={styleLinkedin} />
               </a>
@@ -276,6 +282,7 @@ function AboutThisProject() {
                 href="https://github.com/ignacionin"
                 target="_blank"
                 rel="noreferrer noopener"
+                className="px-1"
               >
                 <FaGithub style={styleLinkedin} />
               </a>

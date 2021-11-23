@@ -119,3 +119,17 @@ body {
   transform: translateY(-10px);
   transform: scale(1.1);
 }
+
+.img-screenCapture {
+  transition: transform 250ms;
+  border-radius: 5px;
+}
+
+.img-screenCapture:hover {
+  transform: translateY(-10px);
+  transform: scale(1.1);
+}
+
+.linkedin:hover {
+  color: blue;
+}
