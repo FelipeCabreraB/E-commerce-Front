@@ -4,6 +4,7 @@ import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function EditUser() {
   const token = useSelector((state) => state.user.token);
@@ -229,10 +230,22 @@ function EditUser() {
               >
                 Confirm changes
               </Button>
-              <p className="text-success text-center mt-3">
-                {" "}
-                <strong>{successMessage}</strong>{" "}
-              </p>
+              {successMessage !== "" && (
+                <div>
+                  <p className="text-success text-center">
+                    {" "}
+                    <strong>{successMessage}</strong>{" "}
+                  </p>
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/admin/users/1"
+                  >
+                    <p className="mt-4 py-0 align-self-center">
+                      <i class="fas fa-less-than"></i> Return
+                    </p>
+                  </Link>
+                </div>
+              )}
               <p className="text-danger text-center mt-3">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
