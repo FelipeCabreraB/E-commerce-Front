@@ -4,6 +4,7 @@ import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function EditProduct() {
   const token = useSelector((state) => state.user.token);
@@ -386,10 +387,23 @@ function EditProduct() {
               >
                 Confirm changes
               </Button>
-              <p className="text-success text-center">
-                {" "}
-                <strong>{successMessage}</strong>{" "}
-              </p>
+              {successMessage !== "" && (
+                <div>
+                  <p className="text-success text-center">
+                    {" "}
+                    <strong>{successMessage}</strong>{" "}
+                  </p>
+                  <Link
+                    style={{ textDecoration: "none", color: "black" }}
+                    to="/admin/products/1"
+                  >
+                    <p className="mt-4 py-0 align-self-center">
+                      <i class="fas fa-less-than"></i> Return
+                    </p>
+                  </Link>
+                </div>
+              )}
+
               <p className="text-danger text-center">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}

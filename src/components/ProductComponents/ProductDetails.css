@@ -38,9 +38,3 @@
   font-family: "Red Hat Display", sans-serif;
   text-decoration: none;
 }
-#outOfStock {
-  position: absolute;
-  bottom: 300px;
-  right: 130px;
-  color: white;
-}
