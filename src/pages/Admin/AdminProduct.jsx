@@ -106,7 +106,7 @@ function AdminProduct() {
                     <td>{product.categoryId}</td>
                     <td className="text-center align-middle">
                       <Link to={`/admin/product/edit/${product.id}`}>
-                        <Button className="btn btn-warning me-2">
+                        <Button className="btn btn-light btn-outline-dark me-2">
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>

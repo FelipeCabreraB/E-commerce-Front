@@ -92,7 +92,7 @@ function AdminUser() {
                     {/* <td>{user.completedOrders}</td> */}
                     <td>
                       <Link to={`/admin/user/edit/${user.id}`}>
-                        <Button className="btn btn-warning me-2">
+                        <Button className="btn btn-light btn-outline-dark me-2">
                           <i class="far fa-edit"></i>
                         </Button>
                       </Link>
