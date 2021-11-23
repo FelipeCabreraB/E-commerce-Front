@@ -3,6 +3,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import RegisterLoginOffcanvas from "../Home/RegisterLoginOffcanvas";
 import { useSelector } from "react-redux";
+import SearchBar from "./SearchBar";
 
 function NavBar() {
   const cart = useSelector((state) => state.cart);
@@ -30,8 +31,12 @@ function NavBar() {
               {user.role === "admin" && (
                 <Nav.Link>
                   <Link
-                    className="border p-3 bg-light"
-                    style={{ textDecoration: "none", color: "black" }}
+                    className="p-3"
+                    style={{
+                      textDecoration: "none",
+                      color: "black",
+                      borderRight: "1px solid gray",
+                    }}
                     to="/admin/dashboard"
                   >
                     <strong>
@@ -68,9 +73,7 @@ function NavBar() {
             </Nav>
             <Nav>
               <RegisterLoginOffcanvas />
-              <Nav.Link>
-                <i class="fas fa-search" style={{ color: "black" }}></i>
-              </Nav.Link>
+              <SearchBar />
               <Nav.Link>
                 <Link
                   style={{ textDecoration: "none", color: "black" }}

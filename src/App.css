@@ -1,5 +1,7 @@
 body {
   font-family: "Red Hat Display", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .pointer:hover {
@@ -132,4 +134,8 @@ body {
 
 .linkedin:hover {
   color: blue;
+}
+
+#searchedProducts:hover {
+  background-color: rgb(241, 241, 241);
 }

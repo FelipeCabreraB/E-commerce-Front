@@ -15,8 +15,8 @@ function Cart() {
             {/* Table of products in cart */}
             <Col xs={12} md={7} className="pt-4">
               {cart.length < 1 ? (
-                <div className="text-center my-4 border shadow">
-                  <h3 className="my-5 mx-3">
+                <div className="text-center my-4 mx-5 border shadow">
+                  <h3 className="my-5 mx-5">
                     ¡Hey your cart is empty! ¡Go back to our shop and check all
                     our fabulous products!
                   </h3>
