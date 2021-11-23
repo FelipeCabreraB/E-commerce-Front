@@ -1,4 +1,4 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { useParams } from "react-router";
@@ -122,7 +122,7 @@ function EditProduct() {
               <strong>{product.productName}</strong>, Category:
               <strong>{product.categoryId}</strong>)
             </h3>
-            <form className="border px-5 pb-5 pt-3" onSubmit={handleUpdate}>
+            <Form className="border px-5 pb-5 pt-3" onSubmit={handleUpdate}>
               <input type="hidden" name="id" id="id" value={product.id} />
               <label className="form-label mt-2" htmlFor="productName">
                 Product Name
@@ -145,7 +145,7 @@ function EditProduct() {
                 name="description"
                 id="description"
                 cols="60"
-                rows="5"
+                rows="4"
                 value={description}
                 onChange={(ev) => setDescription(ev.target.value)}
               ></textarea>
@@ -306,58 +306,69 @@ function EditProduct() {
                   />
                 </div>
               )}
-              <label className="form-label mt-2" htmlFor="picture">
-                Change picture
-              </label>
-              <input
-                id="picture"
-                name="picture"
-                type="file"
-                class="form-control"
-              />
-              <div class="form-text">
-                Accepted formats: .jpg, .jpeg, .svg, .png
-              </div>
-              <label className="form-label mt-2" htmlFor="price">
-                Price ($)
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="price"
-                name="price"
-                value={price}
-                onChange={(ev) => setPrice(ev.target.value)}
-                required
-              />
-              <label className="form-label mt-2" htmlFor="stock">
-                Stock
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="stock"
-                name="stock"
-                value={stock}
-                onChange={(ev) => setStock(ev.target.value)}
-                required
-              />
-
-              <label className="form-label mt-2" htmlFor="category">
-                Category
-              </label>
-              <input
-                className="form-control"
-                type="number"
-                id="category"
-                name="category"
-                value={category}
-                onChange={(ev) => setCategory(ev.target.value)}
-                required
-              />
-              <div class="form-text">
-                Category 1: Coffee - Category 2: Accessories
-              </div>
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="picture">
+                    Change picture
+                  </label>
+                  <input
+                    id="picture"
+                    name="picture"
+                    type="file"
+                    class="form-control"
+                  />
+                  <div class="form-text">
+                    Accepted formats: .jpg, .jpeg, .svg, .png
+                  </div>
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="price">
+                    Price ($)
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="price"
+                    name="price"
+                    value={price}
+                    onChange={(ev) => setPrice(ev.target.value)}
+                    required
+                  />
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="stock">
+                    Stock
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="stock"
+                    name="stock"
+                    value={stock}
+                    onChange={(ev) => setStock(ev.target.value)}
+                    required
+                  />
+                </Col>
+                <Col>
+                  <label className="form-label mt-2" htmlFor="category">
+                    Category
+                  </label>
+                  <input
+                    className="form-control"
+                    type="number"
+                    id="category"
+                    name="category"
+                    value={category}
+                    onChange={(ev) => setCategory(ev.target.value)}
+                    required
+                  />
+                  <div class="form-text">
+                    Category 1: Coffee - Category 2: Accessories
+                  </div>
+                </Col>
+              </Row>
               <label className="form-label mt-2 me-3" htmlFor="featured">
                 Featured:
               </label>
@@ -383,7 +394,7 @@ function EditProduct() {
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
               </p>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Container>
