@@ -56,7 +56,7 @@ function EditProduct() {
         setAccessoriesChar3(response.data.accessoriesChar3);
         setPrice(response.data.price);
         setStock(response.data.stock);
-        setCategory(response.data.categoryId);
+        setCategory(Number(response.data.categoryId));
         setFeatured(response.data.featured);
       } catch (error) {
         console.log(error);
@@ -110,7 +110,7 @@ function EditProduct() {
 
   return (
     <div>
-      <Container className="py-3  ">
+      <Container className="py-3">
         <Row>
           <Col sm={12} md={2}>
             <div className="sticky-top">
@@ -150,163 +150,212 @@ function EditProduct() {
                 value={description}
                 onChange={(ev) => setDescription(ev.target.value)}
               ></textarea>
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="origin">
-                    Origin
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="origin"
-                    name="origin"
-                    value={origin}
-                    onChange={(ev) => setOrigin(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="farm">
-                    Farm
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="farm"
-                    name="farm"
-                    value={farm}
-                    onChange={(ev) => setFarm(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="notes">
-                    Notes
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="notes"
-                    name="notes"
-                    value={notes}
-                    onChange={(ev) => setNotes(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="variety">
-                    Variety
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="variety"
-                    name="variety"
-                    value={variety}
-                    onChange={(ev) => setVariety(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="height">
-                    Height
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="height"
-                    name="height"
-                    value={height}
-                    onChange={(ev) => setHeight(ev.target.value)}
-                    required
-                  />{" "}
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="process">
-                    Process
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="process"
-                    name="process"
-                    value={processCoff}
-                    onChange={(ev) => setProcessCoff(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 1 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="rating">
-                    Rating
-                  </label>
-                  <input
-                    className="form-control"
-                    type="number"
-                    id="rating"
-                    name="rating"
-                    value={rating}
-                    onChange={(ev) => setRating(ev.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              {product.categoryId === 2 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="accessoriesChar1">
-                    Accessories Charactiristic 1
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="accessoriesChar1"
-                    name="accessoriesChar1"
-                    value={accessoriesChar1}
-                    onChange={(ev) => setAccessoriesChar1(ev.target.value)}
-                  />
-                </div>
-              )}
-              {product.categoryId === 2 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="accessoriesChar2">
-                    Accessories Charactiristic 2
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="accessoriesChar2"
-                    name="accessoriesChar2"
-                    value={accessoriesChar2}
-                    onChange={(ev) => setAccessoriesChar2(ev.target.value)}
-                  />
-                </div>
-              )}
-              {product.categoryId === 2 && (
-                <div>
-                  <label className="form-label mt-2" htmlFor="accessoriesChar3">
-                    Accessories Charactiristic 3
-                  </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="accessoriesChar3"
-                    name="accessoriesChar3"
-                    value={accessoriesChar3}
-                    onChange={(ev) => setAccessoriesChar3(ev.target.value)}
-                  />
-                </div>
-              )}
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="origin">
+                      Origin
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="origin"
+                      name="origin"
+                      value={origin}
+                      onChange={(ev) => setOrigin(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="farm">
+                      Farm
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="farm"
+                      name="farm"
+                      value={farm}
+                      onChange={(ev) => setFarm(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="notes">
+                      Notes
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="notes"
+                      name="notes"
+                      value={notes}
+                      onChange={(ev) => setNotes(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="variety">
+                      Variety
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="variety"
+                      name="variety"
+                      value={variety}
+                      onChange={(ev) => setVariety(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="height">
+                      Height
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="height"
+                      name="height"
+                      value={height}
+                      onChange={(ev) => setHeight(ev.target.value)}
+                      required
+                    />{" "}
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="process">
+                      Process
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="process"
+                      name="process"
+                      value={processCoff}
+                      onChange={(ev) => setProcessCoff(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 1 && (
+                  <div>
+                    <label className="form-label mt-2" htmlFor="rating">
+                      Rating
+                    </label>
+                    <input
+                      className="form-control"
+                      type="number"
+                      id="rating"
+                      name="rating"
+                      value={rating}
+                      onChange={(ev) => setRating(ev.target.value)}
+                      required
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 2 && (
+                  <div>
+                    <label
+                      className="form-label mt-2"
+                      htmlFor="accessoriesChar1"
+                    >
+                      Accessories Charactiristic 1
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="accessoriesChar1"
+                      name="accessoriesChar1"
+                      value={accessoriesChar1}
+                      onChange={(ev) => setAccessoriesChar1(ev.target.value)}
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 2 && (
+                  <div>
+                    <label
+                      className="form-label mt-2"
+                      htmlFor="accessoriesChar2"
+                    >
+                      Accessories Charactiristic 2
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="accessoriesChar2"
+                      name="accessoriesChar2"
+                      value={accessoriesChar2}
+                      onChange={(ev) => setAccessoriesChar2(ev.target.value)}
+                    />
+                  </div>
+                )
+              }
+
+              {
+                // eslint-disable-next-line
+                product.categoryId == 2 && (
+                  <div>
+                    <label
+                      className="form-label mt-2"
+                      htmlFor="accessoriesChar3"
+                    >
+                      Accessories Charactiristic 3
+                    </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="accessoriesChar3"
+                      name="accessoriesChar3"
+                      value={accessoriesChar3}
+                      onChange={(ev) => setAccessoriesChar3(ev.target.value)}
+                    />
+                  </div>
+                )
+              }
               <Row>
                 <Col>
                   <label className="form-label mt-2" htmlFor="picture">
@@ -403,7 +452,6 @@ function EditProduct() {
                   </Link>
                 </div>
               )}
-
               <p className="text-danger text-center">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
