@@ -6,17 +6,22 @@ import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import ChangeStatusOrderModal from "../../components/Admin/ChangeStatusOrderModal";
 import { useSelector } from "react-redux";
+import Pagination from "react-bootstrap/Pagination";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 function AdminProduct() {
+  const params = useParams();
   const [orders, setOrders] = useState([]);
   const [launch, setLaunch] = useState(false);
   const token = useSelector((state) => state.user.token);
+  const [numberOfPages, setNumberOfPages] = useState(0);
 
   useEffect(() => {
     const getorders = async (ev) => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/orders/`,
+          `${process.env.REACT_APP_URL_ADMIN_BACKEND}/orders/${params.page}`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -24,13 +29,25 @@ function AdminProduct() {
             },
           }
         );
-        setOrders(response.data);
+        setOrders(response.data.orders);
+        setNumberOfPages(response.data.numberOfPages);
       } catch (error) {
         console.log(error);
       }
     };
     getorders();
-  }, [launch, token]);
+  }, [launch, token, params.page]);
+
+  let items = [];
+  for (let number = 1; number <= numberOfPages; number++) {
+    items.push(
+      <Pagination.Item key={number} className="p-0">
+        <Link to={`/admin/orders/${number}`} style={{ textDecoration: "none" }}>
+          <div className="px-1 py-1">{number}</div>
+        </Link>
+      </Pagination.Item>
+    );
+  }
 
   return (
     <div>
@@ -81,6 +98,9 @@ function AdminProduct() {
             </Table>
           </Col>
         </Row>
+        <div className="w-100 d-flex justify-content-center">
+          <Pagination size="sm">{items}</Pagination>
+        </div>
       </Container>
     </div>
   );
