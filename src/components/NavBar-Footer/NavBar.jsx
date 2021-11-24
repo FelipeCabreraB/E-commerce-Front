@@ -5,7 +5,7 @@ import RegisterLoginOffcanvas from "../Home/RegisterLoginOffcanvas";
 import { useSelector } from "react-redux";
 import SearchBar from "./SearchBar";
 
-function NavBar() {
+function NavBar({ setHideButton }) {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
   return (
@@ -21,6 +21,7 @@ function NavBar() {
                 letterSpacing: "4px",
               }}
               to="/"
+              onClick={() => setHideButton(false)}
             >
               <strong>CULTO</strong>
             </Link>
@@ -38,6 +39,7 @@ function NavBar() {
                       borderRight: "1px solid gray",
                     }}
                     to="/admin/dashboard"
+                    onClick={() => setHideButton(false)}
                   >
                     <strong>
                       ADMIN <i class="fas fa-key"></i>
@@ -58,6 +60,7 @@ function NavBar() {
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/coffee"
+                  onClick={() => setHideButton(false)}
                 >
                   <strong>COFFEE</strong>
                 </Link>
@@ -66,6 +69,7 @@ function NavBar() {
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/accessories"
+                  onClick={() => setHideButton(false)}
                 >
                   <strong>ACCESSORIES</strong>
                 </Link>
@@ -78,6 +82,7 @@ function NavBar() {
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/cart"
+                  onClick={() => setHideButton(false)}
                 >
                   {cart.reduce((acc, value) => acc + value.quantity, 0) !==
                   0 ? (

@@ -33,14 +33,17 @@ import ScrollToTop from "./components/ScrollToTop";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoute from "./components/PrivateRoute";
 import FixedButton from "./components/Home/FixedButton";
+import { useState } from "react";
 
 function App() {
+  const [hideButton, setHideButton] = useState(false);
+
   return (
     <div className="App">
       <BrowserRouter>
         <ScrollToTop />
-        <FixedButton />
-        <NavBar />
+        <FixedButton hideButton={hideButton} setHideButton={setHideButton} />
+        <NavBar setHideButton={setHideButton} />
         <Switch>
           <PublicRoute path="/" component={Home} exact />
           <PublicRoute path="/accessories" component={Accessories} />
