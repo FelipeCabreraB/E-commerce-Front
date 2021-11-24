@@ -12,7 +12,7 @@ import Accordion from "react-bootstrap/Accordion";
 function Subscription() {
   const popover = (
     <Tooltip id="overlay-example">
-      Sorry, this modality is outside the scope of this project
+      Sorry, this feature is outside the scope of this project
     </Tooltip>
   );
 

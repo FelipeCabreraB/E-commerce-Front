@@ -132,8 +132,20 @@ body {
   transform: scale(1.1);
 }
 
+.linkedin {
+  color: black;
+}
+
 .linkedin:hover {
-  color: blue;
+  color: #0e76a8;
+}
+
+.github {
+  color: black;
+}
+
+.github:hover {
+  color: #6e5494;
 }
 
 #searchedProducts:hover {

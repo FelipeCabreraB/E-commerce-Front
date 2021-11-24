@@ -7,8 +7,6 @@ import {
   FaHtml5,
   FaNodeJs,
   FaBootstrap,
-  FaLinkedin,
-  FaGithub,
 } from "react-icons/fa";
 import {
   SiRedux,
@@ -40,8 +38,6 @@ function AboutThisProject() {
     }
   };
 
-  const styleLinkedin = { color: "black", fontSize: "1.5em" };
-
   return (
     <div className="about-this-project">
       <div className=" ">
@@ -68,7 +64,7 @@ function AboutThisProject() {
             <li>The third part consist in a REST API.</li>
           </ul>
           <p>
-            <strong>The process</strong>
+            <strong>The process: </strong>
             The process consisted of 3 work weeks that includes approximately
             450 man hours. We used the agile methodology, testing the
             application and modifying our goals based on the data collected.
@@ -137,7 +133,7 @@ function AboutThisProject() {
           </div>
         </div>
         <div className="my-5 py-4 container">
-          <Row className="text-center">
+          <Row className="text-center mb-3">
             <Col className="d-flex align-items-center " md={5}>
               <p>
                 <strong>The user can go through the page very easily! </strong>{" "}
@@ -156,7 +152,7 @@ function AboutThisProject() {
               />
             </Col>
           </Row>
-          <Row className="mt-3 pt-2">
+          <Row className="mt-4 pt-4">
             <Col md={7} className="img-fluid">
               <img
                 className="shadow img-screenCapture"
@@ -216,17 +212,17 @@ function AboutThisProject() {
                 href="https://www.linkedin.com/in/jonathan-boublil/"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="px-1"
+                className="px-1 linkedin"
               >
-                <FaLinkedin style={styleLinkedin} />
+                <i class="fab fa-linkedin fa-2x"></i>
               </a>
               <a
                 href="https://github.com/jonathanb88"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="px-1"
+                className="px-1 github"
               >
-                <FaGithub style={styleLinkedin} />
+                <i class="fab fa-github fa-2x"></i>
               </a>
             </Col>
             <Col className="text-center">
@@ -244,19 +240,19 @@ function AboutThisProject() {
                 href="https://www.linkedin.com/in/felipe-cabrera-bonino/"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="px-1"
+                className="px-1 linkedin"
               >
                 {" "}
-                <FaLinkedin style={styleLinkedin} />
+                <i class="fab fa-linkedin fa-2x"></i>
               </a>
               {"     "}
               <a
                 href="https://github.com/FelipeCabreraB"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="px-1"
+                className="px-1 github"
               >
-                <FaGithub style={styleLinkedin} />
+                <i class="fab fa-github fa-2x"></i>
               </a>
             </Col>
             <Col className="text-center">
@@ -276,15 +272,15 @@ function AboutThisProject() {
                 rel="noreferrer noopener"
                 className="px-1 linkedin"
               >
-                <FaLinkedin style={styleLinkedin} />
+                <i class="fab fa-linkedin fa-2x"></i>
               </a>
               <a
                 href="https://github.com/ignacionin"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="px-1"
+                className="px-1 github"
               >
-                <FaGithub style={styleLinkedin} />
+                <i class="fab fa-github fa-2x"></i>
               </a>
             </Col>
           </Row>
