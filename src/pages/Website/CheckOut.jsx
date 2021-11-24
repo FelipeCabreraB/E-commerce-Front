@@ -385,9 +385,9 @@ function CheckOut() {
                           {/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(
                             cardExpiryDate
                           ) ? (
-                            <p className="text-success">Valid Card Number</p>
+                            <p className="text-success">Valid Date</p>
                           ) : (
-                            <p className="text-danger">Invalid Card Number</p>
+                            <p className="text-danger">Invalid Date</p>
                           )}
                         </div>
                       ) : (
