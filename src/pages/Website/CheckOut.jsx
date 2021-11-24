@@ -100,21 +100,45 @@ function CheckOut() {
                 value={fullName}
                 onChange={(ev) => setFullName(ev.target.value)}
               />
+
               <label
                 className="form-label mt-3"
                 htmlFor="phone"
                 style={{ fontSize: "0.85rem" }}
               >
-                Phone number <span className="text-danger">*</span>
+                Phone <span className="text-danger">*</span>
               </label>
-              <input
-                className="form-control"
-                type="text"
-                id="phone"
-                name="phone"
-                value={phone}
-                onChange={(ev) => setPhone(ev.target.value)}
-              />
+              {phone !== "" ? (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="phone"
+                    id="phone"
+                    name="email"
+                    value={phone}
+                    onChange={(ev) => setPhone(ev.target.value)}
+                  />
+                  {/^[0-9]{8,9}$/.test(phone) ? (
+                    <p className="text-success">Valid Phone</p>
+                  ) : (
+                    <p className="text-danger">Invalid Phone</p>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="phone"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(ev) => setPhone(ev.target.value)}
+                  />
+                </div>
+              )}
+
               <label
                 className="form-label mt-3"
                 htmlFor="email"
@@ -122,14 +146,39 @@ function CheckOut() {
               >
                 Email address <span className="text-danger">*</span>
               </label>
-              <input
-                className="form-control"
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-              />
+
+              {email !== "" ? (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(ev) => setEmail(ev.target.value)}
+                  />
+                  {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                    email
+                  ) ? (
+                    <p className="text-success">Valid Email</p>
+                  ) : (
+                    <p className="text-danger">Invalid Email</p>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(ev) => setEmail(ev.target.value)}
+                  />
+                </div>
+              )}
               <label
                 className="form-label mt-3"
                 htmlFor="deliveryAdress"
@@ -259,15 +308,40 @@ function CheckOut() {
                   >
                     Card Number <span className="text-danger">*</span>
                   </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="cardNumber"
-                    name="cardNumber"
-                    value={cardNumber}
-                    onChange={(ev) => setCardNumber(ev.target.value)}
-                    required
-                  />
+
+                  {cardNumber !== "" ? (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        value={cardNumber}
+                        onChange={(ev) => setCardNumber(ev.target.value)}
+                      />
+                      {/^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14})|(6(?:011|5[0-9]{2})[0-9]{12})|(3[47][0-9]{13})|(3(?:0[0-5]|[68][0-9])[0-9]{11})|((?:2131|1800|35[0-9]{3})[0-9]{11}))$/.test(
+                        cardNumber
+                      ) ? (
+                        <p className="text-success">Valid Card Number</p>
+                      ) : (
+                        <p className="text-danger">Invalid Card Number</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="cardNumber"
+                        id="cardNumber"
+                        name="cardNumber"
+                        value={cardNumber}
+                        onChange={(ev) => setCardNumber(ev.target.value)}
+                      />
+                    </div>
+                  )}
+
                   <label
                     className="form-label mt-3"
                     htmlFor="NameOnCard"
@@ -293,16 +367,45 @@ function CheckOut() {
                       >
                         Expiry date <span className="text-danger">*</span>
                       </label>
-                      <input
-                        className="form-control"
-                        placeholder="MM/AAAA"
-                        type="text"
-                        id="expiryDate"
-                        name="expiryDate"
-                        value={cardExpiryDate}
-                        onChange={(ev) => setCardExpiryDate(ev.target.value)}
-                        required
-                      />
+
+                      {cardExpiryDate !== "" ? (
+                        <div>
+                          {" "}
+                          <input
+                            className="form-control"
+                            type="text"
+                            id="cardExpiryDate"
+                            name="cardExpiryDate"
+                            placeholder="MM/YY"
+                            value={cardExpiryDate}
+                            onChange={(ev) =>
+                              setCardExpiryDate(ev.target.value)
+                            }
+                          />
+                          {/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(
+                            cardExpiryDate
+                          ) ? (
+                            <p className="text-success">Valid Card Number</p>
+                          ) : (
+                            <p className="text-danger">Invalid Card Number</p>
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          {" "}
+                          <input
+                            className="form-control"
+                            type="cardExpiryDate"
+                            id="cardExpiryDate"
+                            name="cardExpiryDate"
+                            placeholder="MM/YY"
+                            value={cardExpiryDate}
+                            onChange={(ev) =>
+                              setCardExpiryDate(ev.target.value)
+                            }
+                          />
+                        </div>
+                      )}
                     </Col>
                     <Col sm={6}>
                       <label
@@ -312,16 +415,45 @@ function CheckOut() {
                       >
                         Security code <span className="text-danger">*</span>
                       </label>
-                      <input
-                        className="form-control"
-                        placeholder="***"
-                        type="text"
-                        id="securityCode"
-                        name="securityCode"
-                        value={cardSecurityCode}
-                        onChange={(ev) => setCardSecurityCode(ev.target.value)}
-                        required
-                      />
+
+                      {cardSecurityCode !== "" ? (
+                        <div>
+                          {" "}
+                          <input
+                            className="form-control"
+                            placeholder="***"
+                            type="text"
+                            id="securityCode"
+                            name="securityCode"
+                            value={cardSecurityCode}
+                            onChange={(ev) =>
+                              setCardSecurityCode(ev.target.value)
+                            }
+                            required
+                          />
+                          {/^[0-9]{3,4}$/.test(cardSecurityCode) ? (
+                            <p className="text-success">Valid Security Code</p>
+                          ) : (
+                            <p className="text-danger">Invalid Security Code</p>
+                          )}
+                        </div>
+                      ) : (
+                        <div>
+                          {" "}
+                          <input
+                            className="form-control"
+                            placeholder="***"
+                            type="text"
+                            id="securityCode"
+                            name="securityCode"
+                            value={cardSecurityCode}
+                            onChange={(ev) =>
+                              setCardSecurityCode(ev.target.value)
+                            }
+                            required
+                          />
+                        </div>
+                      )}
                     </Col>
                   </Row>
                   <p
