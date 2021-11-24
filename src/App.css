@@ -13,8 +13,7 @@ body {
   background-color: #222222;
   padding-top: 3 rem;
   width: 100%;
-  /* margin-top: auto;
-  position: absolute; */
+  flex-shrink: 0;
 }
 
 .img-cart {
@@ -84,6 +83,13 @@ body {
   transform: rotate(-90deg);
 }
 
+/* @media (max-width: 575px) {
+  #fixed-button {
+    transform: scale(0.7);
+    left: -35px;
+  }
+} */
+
 .recieve {
   font-size: 20px;
   max-width: 100%;
@@ -132,8 +138,20 @@ body {
   transform: scale(1.1);
 }
 
+.linkedin {
+  color: black;
+}
+
 .linkedin:hover {
-  color: blue;
+  color: #0e76a8;
+}
+
+.github {
+  color: black;
+}
+
+.github:hover {
+  color: #6e5494;
 }
 
 #searchedProducts:hover {
