@@ -41,8 +41,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <ScrollToTop />
         <div id="main">
+          <ScrollToTop />
           <FixedButton hideButton={hideButton} setHideButton={setHideButton} />
           <NavBar setHideButton={setHideButton} />
           <Switch>
