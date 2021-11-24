@@ -10,7 +10,7 @@ function Footer() {
   );
 
   return (
-    <footer className="main-footer footer">
+    <footer className="main-footer footer mt-auto">
       <div className="container">
         <div className="row pt-5 mt-3">
           <div className="col-md-3">

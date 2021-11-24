@@ -1,7 +1,16 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Red Hat Display", sans-serif;
+  height: 100%;
+}
+
+#root {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .pointer:hover {

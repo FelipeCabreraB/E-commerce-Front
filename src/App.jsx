@@ -39,74 +39,82 @@ function App() {
   const [hideButton, setHideButton] = useState(false);
 
   return (
-    <div className="App">
+    <>
       <BrowserRouter>
         <ScrollToTop />
-        <FixedButton hideButton={hideButton} setHideButton={setHideButton} />
-        <NavBar setHideButton={setHideButton} />
-        <Switch>
-          <PublicRoute path="/" component={Home} exact />
-          <PublicRoute path="/accessories" component={Accessories} />
-          <PublicRoute path="/coffee" component={Coffee} />
-          <PublicRoute path="/cart" component={Cart} />
-          <PublicRoute
-            path="/product/1/:productName"
-            component={DetailedProduct}
-          />
-          <PublicRoute
-            path="/product/2/:productName"
-            component={DetailedProductAcc}
-          />
-          <PublicRoute path="/lost-password" component={LostPassword} />
-          <PublicRoute path="/checkout" component={CheckOut} />
-          <PublicRoute path="/my-account" component={MyAccount} exact />
-          <PublicRoute path="/my-account/orders" component={MyAccountOrder} />
-          <PublicRoute
-            path="/my-account/address"
-            component={MyAccountAddress}
-          />
-          <PublicRoute
-            path="/my-account/account-details"
-            component={MyAccountDetail}
-          />
-          <PublicRoute
-            path="/purchase-confirmation"
-            component={PurchaseConfirmation}
-          />
-          <PublicRoute
-            path="/about-this-project"
-            component={AboutThisProject}
-          />
-          <PublicRoute path="/subscription" component={Subscription} />
-          <PrivateRoute path="/admin/dashboard" component={AdminPage} />
-          <PrivateRoute path="/admin/products/:page" component={AdminProduct} />
-          <PrivateRoute path="/admin/categories" component={AdminCategory} />
-          <PrivateRoute path="/admin/orders/:page" component={AdminOrder} />
-          <PrivateRoute path="/admin/users/:page" component={AdminUser} />
-          <PrivateRoute
-            path="/admin/product/edit/:productId"
-            component={EditProduct}
-          />
-          <PrivateRoute
-            path="/admin/category/edit/:categoryId"
-            component={EditCategory}
-          />
-          <PrivateRoute
-            path="/admin/product/create"
-            component={AddNewProduct}
-          />
-          <PrivateRoute path="/admin/user/edit/:userId" component={EditUser} />
+        <div id="main">
+          <FixedButton hideButton={hideButton} setHideButton={setHideButton} />
+          <NavBar setHideButton={setHideButton} />
+          <Switch>
+            <PublicRoute path="/" component={Home} exact />
+            <PublicRoute path="/accessories" component={Accessories} />
+            <PublicRoute path="/coffee" component={Coffee} />
+            <PublicRoute path="/cart" component={Cart} />
+            <PublicRoute
+              path="/product/1/:productName"
+              component={DetailedProduct}
+            />
+            <PublicRoute
+              path="/product/2/:productName"
+              component={DetailedProductAcc}
+            />
+            <PublicRoute path="/lost-password" component={LostPassword} />
+            <PublicRoute path="/checkout" component={CheckOut} />
+            <PublicRoute path="/my-account" component={MyAccount} exact />
+            <PublicRoute path="/my-account/orders" component={MyAccountOrder} />
+            <PublicRoute
+              path="/my-account/address"
+              component={MyAccountAddress}
+            />
+            <PublicRoute
+              path="/my-account/account-details"
+              component={MyAccountDetail}
+            />
+            <PublicRoute
+              path="/purchase-confirmation"
+              component={PurchaseConfirmation}
+            />
+            <PublicRoute
+              path="/about-this-project"
+              component={AboutThisProject}
+            />
+            <PublicRoute path="/subscription" component={Subscription} />
+            <PrivateRoute path="/admin/dashboard" component={AdminPage} />
+            <PrivateRoute
+              path="/admin/products/:page"
+              component={AdminProduct}
+            />
+            <PrivateRoute path="/admin/categories" component={AdminCategory} />
+            <PrivateRoute path="/admin/orders/:page" component={AdminOrder} />
+            <PrivateRoute path="/admin/users/:page" component={AdminUser} />
+            <PrivateRoute
+              path="/admin/product/edit/:productId"
+              component={EditProduct}
+            />
+            <PrivateRoute
+              path="/admin/category/edit/:categoryId"
+              component={EditCategory}
+            />
+            <PrivateRoute
+              path="/admin/product/create"
+              component={AddNewProduct}
+            />
+            <PrivateRoute
+              path="/admin/user/edit/:userId"
+              component={EditUser}
+            />
 
-          <PrivateRoute
-            path="/admin/category/create"
-            component={AddNewCategory}
-          />
-          <PrivateRoute path="/admin/user/create" component={AddNewUser} />
-          <PublicRoute component={NoMatch} />
-        </Switch>
+            <PrivateRoute
+              path="/admin/category/create"
+              component={AddNewCategory}
+            />
+            <PrivateRoute path="/admin/user/create" component={AddNewUser} />
+            <PublicRoute component={NoMatch} />
+          </Switch>
+        </div>
         <Footer />
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
