@@ -13,8 +13,7 @@ body {
   background-color: #222222;
   padding-top: 3 rem;
   width: 100%;
-  /* margin-top: auto;
-  position: absolute; */
+  flex-shrink: 0;
 }
 
 .img-cart {
@@ -83,6 +82,13 @@ body {
   border: 2px black !important;
   transform: rotate(-90deg);
 }
+
+/* @media (max-width: 575px) {
+  #fixed-button {
+    transform: scale(0.7);
+    left: -35px;
+  }
+} */
 
 .recieve {
   font-size: 20px;
