@@ -47,7 +47,7 @@ function AdminMenu() {
         >
           {" "}
           <i class="bi bi-card-checklist"></i>{" "}
-          <Link to="/admin/orders">Orders</Link>
+          <Link to="/admin/orders/1">Orders</Link>
         </ListGroup.Item>
 
         <ListGroup.Item
