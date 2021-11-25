@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
@@ -65,54 +65,61 @@ function AdminUser() {
                 <Button variant="dark">Add a user</Button>
               </Link>
             </div>
-            <Table
-              striped
-              bordered
-              hover
-              responsive
-              className="text-center align-middle"
-            >
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Role</th>
-                  <th>Email</th>
-                  <th>Address</th>
-                  <th>Phone</th>
-                  {/* <th>Completed Orders</th> */}
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {users.map((user) => (
-                  <tr key={user.id}>
-                    <td>{user.id}</td>
-                    <td>{user.firstname}</td>
-                    <td>{user.lastname}</td>
-                    <td>{user.role}</td>
-                    <td>{user.email}</td>
-                    <td>{user.address}</td>
-                    <td>{user.phone}</td>
-                    {/* <td>{user.completedOrders}</td> */}
-                    <td>
-                      <Link to={`/admin/user/edit/${user.id}`}>
-                        <Button className="btn btn-light btn-outline-dark me-2">
-                          <i class="far fa-edit"></i>
-                        </Button>
-                      </Link>
-                      <DeleteUserModal
-                        userId={user.id}
-                        firstname={user.firstname}
-                        lastname={user.lastname}
-                        setUsers={setUsers}
-                      />
-                    </td>
+            {users.length < 1 ? (
+              <div className="w-100 text-center">
+                <Spinner animation="border" variant="dark" />
+              </div>
+            ) : (
+              <Table
+                striped
+                bordered
+                hover
+                responsive
+                className="text-center align-middle"
+              >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    {/* <th>Completed Orders</th> */}
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+
+                <tbody>
+                  {users.map((user) => (
+                    <tr key={user.id}>
+                      <td>{user.id}</td>
+                      <td>{user.firstname}</td>
+                      <td>{user.lastname}</td>
+                      <td>{user.role}</td>
+                      <td>{user.email}</td>
+                      <td>{user.address}</td>
+                      <td>{user.phone}</td>
+                      {/* <td>{user.completedOrders}</td> */}
+                      <td>
+                        <Link to={`/admin/user/edit/${user.id}`}>
+                          <Button className="btn btn-light btn-outline-dark me-2">
+                            <i class="far fa-edit"></i>
+                          </Button>
+                        </Link>
+                        <DeleteUserModal
+                          userId={user.id}
+                          firstname={user.firstname}
+                          lastname={user.lastname}
+                          setUsers={setUsers}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            )}
           </Col>
         </Row>
         <div className="w-100 d-flex justify-content-center">

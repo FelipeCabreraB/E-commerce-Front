@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
 import { Button, Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
@@ -68,63 +68,69 @@ function AdminProduct() {
                 </Link>
               </div>
             </div>
-            <Table
-              striped
-              bordered
-              hover
-              responsive
-              className="text-center align-middle"
-            >
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Picture</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Stock</th>
-                  <th>Featured</th>
-                  <th>Category</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product) => (
-                  <tr key={product.id}>
-                    <td>{product.id}</td>
-                    <td>
-                      <div className="">
-                        <img
-                          style={{ width: "40px", height: "55px" }}
-                          className="img-fluid"
-                          src={
-                            "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
-                            product.picture
-                          }
-                          alt=""
-                        />
-                      </div>
-                    </td>
-                    <td>{product.productName}</td>
-                    <td>{product.price}</td>
-                    <td>{product.stock}</td>
-                    <td>{product.featured.toString()}</td>
-                    <td>{product.categoryId}</td>
-                    <td className="text-center align-middle">
-                      <Link to={`/admin/product/edit/${product.id}`}>
-                        <Button className="btn btn-light btn-outline-dark me-2">
-                          <i class="far fa-edit"></i>
-                        </Button>
-                      </Link>
-                      <DeleteProductModal
-                        productId={product.id}
-                        productName={product.productName}
-                        setProducts={setProducts}
-                      />
-                    </td>
+            {products.length < 1 ? (
+              <div className="w-100 text-center">
+                <Spinner animation="border" variant="dark" />
+              </div>
+            ) : (
+              <Table
+                striped
+                bordered
+                hover
+                responsive
+                className="text-center align-middle"
+              >
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Picture</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Featured</th>
+                    <th>Category</th>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {products.map((product) => (
+                    <tr key={product.id}>
+                      <td>{product.id}</td>
+                      <td>
+                        <div className="">
+                          <img
+                            style={{ width: "40px", height: "55px" }}
+                            className="img-fluid"
+                            src={
+                              "https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/" +
+                              product.picture
+                            }
+                            alt=""
+                          />
+                        </div>
+                      </td>
+                      <td>{product.productName}</td>
+                      <td>{product.price}</td>
+                      <td>{product.stock}</td>
+                      <td>{product.featured.toString()}</td>
+                      <td>{product.categoryId}</td>
+                      <td className="text-center align-middle">
+                        <Link to={`/admin/product/edit/${product.id}`}>
+                          <Button className="btn btn-light btn-outline-dark me-2">
+                            <i class="far fa-edit"></i>
+                          </Button>
+                        </Link>
+                        <DeleteProductModal
+                          productId={product.id}
+                          productName={product.productName}
+                          setProducts={setProducts}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            )}
           </Col>
         </Row>
         <div className="w-100 d-flex justify-content-center">

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Row, Col, Container } from "react-bootstrap";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import AdminMenu from "../../components/Admin/AdminMenu";
 import { Link } from "react-router-dom";
@@ -48,39 +48,46 @@ function AdminCategory() {
                 <Button variant="dark">Add Category</Button>
               </Link>
             </div>
-            <Table striped bordered hover responsive>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Description</th>
 
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {categories.map((category) => (
-                  <tr key={category.id}>
-                    <td>{category.id}</td>
-                    <td>{category.categoryName}</td>
-                    <td>{category.description}</td>
+            {categories.length < 1 ? (
+              <div className="w-100 text-center">
+                <Spinner animation="border" variant="dark" />
+              </div>
+            ) : (
+              <Table striped bordered hover responsive>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Description</th>
 
-                    <td>
-                      <Link to={`/admin/category/edit/${category.id}`}>
-                        <Button className="btn btn-light btn-outline-dark me-2">
-                          <i class="far fa-edit"></i>
-                        </Button>
-                      </Link>
-                      <DeleteCategoryModal
-                        categoryId={category.id}
-                        categoryName={category.categoryName}
-                        setCategories={setCategories}
-                      />
-                    </td>
+                    <th>Actions</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {categories.map((category) => (
+                    <tr key={category.id}>
+                      <td>{category.id}</td>
+                      <td>{category.categoryName}</td>
+                      <td>{category.description}</td>
+
+                      <td>
+                        <Link to={`/admin/category/edit/${category.id}`}>
+                          <Button className="btn btn-light btn-outline-dark me-2">
+                            <i class="far fa-edit"></i>
+                          </Button>
+                        </Link>
+                        <DeleteCategoryModal
+                          categoryId={category.id}
+                          categoryName={category.categoryName}
+                          setCategories={setCategories}
+                        />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            )}
           </Col>
         </Row>
       </Container>
