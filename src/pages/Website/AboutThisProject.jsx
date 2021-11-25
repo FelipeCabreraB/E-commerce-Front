@@ -155,12 +155,14 @@ function AboutThisProject() {
           </Row>
           <Row className="mt-4 pt-4">
             <Col md={7} className="img-fluid">
-              <img
-                className="shadow img-screenCapture"
-                src={Capture_screen2}
-                alt=""
-                style={{ maxWidth: "34rem" }}
-              />
+              <div>
+                <img
+                  className="shadow img-screenCapture"
+                  src={Capture_screen2}
+                  alt=""
+                  style={{ maxWidth: "34rem" }}
+                />
+              </div>
             </Col>
             <Col className="d-flex align-items-center text-center mt-3" md={5}>
               <p>

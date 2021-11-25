@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 function MyAccountAdress() {
   const token = useSelector((state) => state.user.token);
+  const handleClose = () => "";
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
@@ -16,7 +17,11 @@ function MyAccountAdress() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const handleClose = () => "";
+  const [messageCheckFirstName, setMessageCheckFirstName] = useState("");
+  const [messageCheckLastName, setMessageCheckLastName] = useState("");
+  const [messageCheckPhone, setMessageCheckPhone] = useState("");
+  const [messageCheckEmail, setMessageCheckEmail] = useState("");
+  const [messageCheckAddress, setMessageCheckAddress] = useState("");
 
   useEffect(() => {
     const getUser = async () => {
@@ -41,6 +46,43 @@ function MyAccountAdress() {
     };
     getUser();
   }, [params.userId, token]);
+
+  const handleValidation = async () => {
+    setMessageCheckFirstName("");
+    setMessageCheckLastName("");
+    setMessageCheckPhone("");
+    setMessageCheckEmail("");
+    setMessageCheckAddress("");
+    if (firstname.length < 3) {
+      setMessageCheckFirstName(
+        "Please check the first name, it must have at least 3 characters."
+      );
+    }
+    if (lastname.length < 3) {
+      setMessageCheckLastName(
+        "Please check the last name, it must have at least 3 characters."
+      );
+    }
+    if (
+      !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+        email
+      )
+    ) {
+      setMessageCheckEmail(
+        "Please check the email, it must have a valid format."
+      );
+    }
+    if (!/^[0-9]{8,9}$/.test(phone)) {
+      setMessageCheckPhone(
+        "Please check the phone number, it must have a valid format."
+      );
+    }
+    if (address.length < 6) {
+      setMessageCheckAddress(
+        "Please check the last name, it must have at least 6 characters."
+      );
+    }
+  };
 
   const handleUpdate = async (ev) => {
     ev.preventDefault();
@@ -207,18 +249,42 @@ function MyAccountAdress() {
                 onChange={(ev) => setAddress(ev.target.value)}
                 required
               />
+              {firstname.length > 3 &&
+              lastname.length > 3 &&
+              /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                email
+              ) &&
+              /^[0-9]{8,9}$/.test(phone) &&
+              address.length > 6 ? (
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    fontSize: "0.65rem",
+                  }}
+                  className="btn px-4 mt-4 py-2"
+                >
+                  <strong>SAVE ADDRESS</strong>
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    fontSize: "0.65rem",
+                  }}
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    handleValidation();
+                  }}
+                  className="btn px-4 mt-4 py-2"
+                >
+                  <strong>SAVE ADDRESS</strong>
+                </button>
+              )}
 
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  fontSize: "0.65rem",
-                }}
-                className="btn px-4 mt-4 py-2"
-              >
-                <strong>SAVE ADDRESS</strong>
-              </button>
               <p className="text-success text-center mt-3">
                 {" "}
                 <strong>{successMessage}</strong>{" "}
@@ -226,6 +292,21 @@ function MyAccountAdress() {
               <p className="text-danger text-center mt-3">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckFirstName}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckLastName}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckPhone}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckEmail}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckAddress}
               </p>
             </form>
           </Col>
