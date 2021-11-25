@@ -7,6 +7,23 @@ function CheckOut() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [messageCheckEmail, setMessageCheckEmail] = useState("");
+  const [messageCheckPhone, setMessageCheckPhone] = useState("");
+
+  const handleValidation = async () => {
+    setMessageCheckEmail("");
+    setMessageCheckPhone("");
+    if (
+      !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+        email
+      )
+    ) {
+      setMessageCheckEmail("Please check the email address");
+    }
+    if (!/^[0-9]{8,9}$/.test(phone)) {
+      setMessageCheckPhone("Please check the phone number");
+    }
+  };
 
   return (
     <div>
@@ -95,6 +112,7 @@ function CheckOut() {
                   name="deliveryAdress"
                   value={deliveryAddress}
                   onChange={(ev) => setDeliveryAddress(ev.target.value)}
+                  required
                 />
                 <p className="text-danger mt-2" style={{ fontSize: "0.7rem" }}>
                   * Required fields
@@ -157,13 +175,34 @@ function CheckOut() {
                   RECEIVE OUR NEWSLETTER
                 </label>
               </div>
-              <Link to="/checkout/card-information">
-                <Button variant="dark" type="button" className="rounded-pill">
+              {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                email
+              ) && /^[0-9]{8,9}$/.test(phone) ? (
+                <Link to="/checkout/card-information">
+                  <Button variant="dark" type="button" className="rounded-pill">
+                    Proceed to final step{" "}
+                  </Button>
+                </Link>
+              ) : (
+                <Button
+                  variant="dark"
+                  type="button"
+                  className="rounded-pill"
+                  onClick={() => {
+                    handleValidation();
+                  }}
+                >
                   Proceed to final step{" "}
                 </Button>
-              </Link>
+              )}
             </div>
           </Form>
+          <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+            {messageCheckEmail}
+          </p>
+          <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+            {messageCheckPhone}
+          </p>
         </div>
       </div>
     </div>
