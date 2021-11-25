@@ -52,6 +52,7 @@ function NavBar({ setHideButton }) {
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/subscription"
+                  onClick={() => setHideButton(false)}
                 >
                   <strong>SUBSCRIPTION</strong>
                 </Link>
