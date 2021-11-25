@@ -215,7 +215,7 @@ function Cart() {
                   </div>
                 </div>
                 <div className="btn-block">
-                  <Link to="/checkout">
+                  <Link to="/checkout/billing-information">
                     <Button
                       variant="dark"
                       type="button"
