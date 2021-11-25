@@ -159,15 +159,37 @@ function MyAccountDetail() {
               >
                 Phone number *
               </label>
-              <input
-                className="form-control"
-                type="text"
-                id="phone"
-                name="phone"
-                value={phone}
-                onChange={(ev) => setPhone(ev.target.value)}
-                required
-              />
+
+              {phone !== "" ? (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="phone"
+                    id="phone"
+                    name="email"
+                    value={phone}
+                    onChange={(ev) => setPhone(ev.target.value)}
+                  />
+                  {/^[0-9]{8,9}$/.test(phone) ? (
+                    <p className="text-success">Valid Phone</p>
+                  ) : (
+                    <p className="text-danger">Invalid Phone</p>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="phone"
+                    id="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(ev) => setPhone(ev.target.value)}
+                  />
+                </div>
+              )}
               <label
                 className="form-label mt-3"
                 htmlFor="email"
@@ -175,15 +197,38 @@ function MyAccountDetail() {
               >
                 Email address *
               </label>
-              <input
-                className="form-control"
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(ev) => setEmail(ev.target.value)}
-                required
-              />
+              {email !== "" ? (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(ev) => setEmail(ev.target.value)}
+                  />
+                  {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                    email
+                  ) ? (
+                    <p className="text-success">Valid Email</p>
+                  ) : (
+                    <p className="text-danger">Invalid Email</p>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <input
+                    className="form-control"
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={email}
+                    onChange={(ev) => setEmail(ev.target.value)}
+                  />
+                </div>
+              )}
               <p className="mt-4 mb-0">
                 {" "}
                 <strong>Do you want to change your password?</strong>

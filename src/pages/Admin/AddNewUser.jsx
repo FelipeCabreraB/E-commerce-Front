@@ -100,14 +100,38 @@ function AddNewUser() {
                   <label className="form-label mt-2" htmlFor="email">
                     Email
                   </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={(ev) => setEmail(ev.target.value)}
-                  />
+                  {email !== "" ? (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(ev) => setEmail(ev.target.value)}
+                      />
+                      {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                        email
+                      ) ? (
+                        <p className="text-success">Valid Email</p>
+                      ) : (
+                        <p className="text-danger">Invalid Email</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(ev) => setEmail(ev.target.value)}
+                      />
+                    </div>
+                  )}
                 </Col>
                 <Col>
                   <label className="form-label mt-2" htmlFor="password">
@@ -140,14 +164,36 @@ function AddNewUser() {
                   <label className="form-label mt-2" htmlFor="phone">
                     Phone
                   </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="phone"
-                    name="phone"
-                    value={phone}
-                    onChange={(ev) => setPhone(ev.target.value)}
-                  />
+                  {phone !== "" ? (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="phone"
+                        id="phone"
+                        name="email"
+                        value={phone}
+                        onChange={(ev) => setPhone(ev.target.value)}
+                      />
+                      {/^[0-9]{8,9}$/.test(phone) ? (
+                        <p className="text-success">Valid Phone</p>
+                      ) : (
+                        <p className="text-danger">Invalid Phone</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div>
+                      {" "}
+                      <input
+                        className="form-control"
+                        type="phone"
+                        id="phone"
+                        name="phone"
+                        value={phone}
+                        onChange={(ev) => setPhone(ev.target.value)}
+                      />
+                    </div>
+                  )}
                 </Col>
                 <Col>
                   <label className="form-label mt-2" htmlFor="role">

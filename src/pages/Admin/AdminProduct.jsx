@@ -50,7 +50,6 @@ function AdminProduct() {
       </Pagination.Item>
     );
   }
-
   return (
     <div>
       <Container className="py-3  ">
@@ -102,7 +101,7 @@ function AdminProduct() {
                     <td>{product.productName}</td>
                     <td>{product.price}</td>
                     <td>{product.stock}</td>
-                    <td>{product.featured}</td>
+                    <td>{product.featured.toString()}</td>
                     <td>{product.categoryId}</td>
                     <td className="text-center align-middle">
                       <Link to={`/admin/product/edit/${product.id}`}>
