@@ -135,7 +135,7 @@ function AboutThisProject() {
         </div>
         <div className="my-5 py-4 container">
           <Row className="text-center mb-3">
-            <Col className="d-flex align-items-center " md={5}>
+            <Col className="d-flex align-items-center " ld={5}>
               <p>
                 <strong>The user can go through the page very easily! </strong>{" "}
                 <br />
@@ -144,7 +144,7 @@ function AboutThisProject() {
                 to finalize the purchase.
               </p>
             </Col>
-            <Col md={7} className="img-fluid">
+            <Col ld={7} className="img-fluid">
               <img
                 className="shadow img-screenCapture"
                 src={Capture_screen1}
@@ -154,7 +154,7 @@ function AboutThisProject() {
             </Col>
           </Row>
           <Row className="mt-4 pt-4">
-            <Col md={7} className="img-fluid">
+            <Col ld={7} className="img-fluid">
               <div>
                 <img
                   className="shadow img-screenCapture"
@@ -164,7 +164,7 @@ function AboutThisProject() {
                 />
               </div>
             </Col>
-            <Col className="d-flex align-items-center text-center mt-3" md={5}>
+            <Col className="d-flex align-items-center text-center mt-3" ld={5}>
               <p>
                 <strong>
                   The Admin has a a very easy and instinctive panel to use!
@@ -180,11 +180,11 @@ function AboutThisProject() {
           <div className="mt-4 mb-4 py-4 text-center container">
             <h5 className="my-4">USE THIS CREDENTIALS TO LOG IN: </h5>
             <Row className="m-3">
-              <Col>
+              <Col md={4}>
                 <p>Email: user@user.com</p>
                 <p>Password: 123456</p>
               </Col>
-              <Col className="mt-3">
+              <Col className="mt-3" md={4}>
                 <Button
                   variant="light"
                   onClick={() => {
@@ -215,7 +215,7 @@ function AboutThisProject() {
                   )
                 }
               </Col>
-              <Col>
+              <Col md={4}>
                 <p>Email: admin@admin.com</p>
                 <p>Password: 123456</p>
               </Col>
