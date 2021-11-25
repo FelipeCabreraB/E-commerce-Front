@@ -49,7 +49,7 @@ function SearchBar() {
         rootClose
         onHide={() => setShow(false)}
       >
-        <Popover id="popover-contained">
+        <Popover id="popover-contained" onClick={() => setShow(false)}>
           <Popover.Header>
             <input
               type="text"
