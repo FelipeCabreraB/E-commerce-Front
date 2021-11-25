@@ -402,7 +402,7 @@ function CheckOutCardInformation() {
                     cardNumber
                   ) &&
                   /^[0-9]{3,4}$/.test(cardSecurityCode) &&
-                  cardName.length > 3 &&
+                  cardName.length >= 3 &&
                   cart.length > 0 ? (
                     <Link to="/purchase-confirmation">
                       <button
