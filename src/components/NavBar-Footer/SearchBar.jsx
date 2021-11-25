@@ -49,7 +49,7 @@ function SearchBar() {
         rootClose
         onHide={() => setShow(false)}
       >
-        <Popover id="popover-contained" onClick={() => setShow(false)}>
+        <Popover id="popover-contained">
           <Popover.Header>
             <input
               type="text"
@@ -59,7 +59,7 @@ function SearchBar() {
               onChange={(ev) => setSearchValue(ev.target.value)}
             />
           </Popover.Header>
-          <Popover.Body>
+          <Popover.Body onClick={() => setShow(false)}>
             {" "}
             {searchValue !== "" &&
               searchedProducts.map((product) => (

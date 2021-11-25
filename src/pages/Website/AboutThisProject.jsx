@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Spinner } from "react-bootstrap";
 import axios from "axios";
 import {
   FaReact,
@@ -22,6 +22,7 @@ import Capture_screen2 from "../../Capture_screen2.JPG";
 
 function AboutThisProject() {
   const [resetMessage, setResetMessage] = useState("");
+  const [resetSpinner, setResetSpinner] = useState(false);
   const handleResetDatabase = async (ev) => {
     try {
       const response = await axios({
@@ -182,10 +183,25 @@ function AboutThisProject() {
                 <p>Password: 123456</p>
               </Col>
               <Col className="mt-3">
-                <Button variant="light" onClick={() => handleResetDatabase()}>
+                <Button
+                  variant="light"
+                  onClick={() => {
+                    handleResetDatabase();
+                    setResetSpinner(true);
+                  }}
+                >
                   Reset Database
                 </Button>
-                <p className="text-success mt-2">{resetMessage}</p>
+                {
+                  // eslint-disable-next-line
+                  resetSpinner == true && resetMessage.length < 1 ? (
+                    <div className="mt-2">
+                      <Spinner animation="border" variant="light" />
+                    </div>
+                  ) : (
+                    <p className="text-success mt-2">{resetMessage}</p>
+                  )
+                }
               </Col>
               <Col>
                 <p>Email: admin@admin.com</p>
