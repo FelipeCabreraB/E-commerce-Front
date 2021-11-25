@@ -10,9 +10,11 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Accordion } from "react-bootstrap";
+import { useState } from "react";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
+  const [messageEmptyCart, setMessageEmptyCart] = useState("");
   const dispatch = useDispatch();
   const popover = (
     <Tooltip id="overlay-example">
@@ -235,15 +237,31 @@ function Cart() {
                   </div>
                 </div>
                 <div className="btn-block">
-                  <Link to="/checkout/billing-information">
-                    <Button
-                      variant="dark"
-                      type="button"
-                      className="my-3 rounded-pill px-4 w-100"
-                    >
-                      Proceed to checkout
-                    </Button>
-                  </Link>
+                  {cart.length < 1 ? (
+                    <>
+                      <Button
+                        variant="dark"
+                        type="button"
+                        className="my-3 rounded-pill px-4 w-100"
+                        onClick={() =>
+                          setMessageEmptyCart("Your cart is empty!")
+                        }
+                      >
+                        Proceed to checkout
+                      </Button>
+                      <p className="text-danger">{messageEmptyCart}</p>
+                    </>
+                  ) : (
+                    <Link to="/checkout/billing-information">
+                      <Button
+                        variant="dark"
+                        type="button"
+                        className="my-3 rounded-pill px-4 w-100"
+                      >
+                        Proceed to checkout
+                      </Button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </Col>
