@@ -90,6 +90,7 @@ body {
   font-weight: bold !important;
   border: 2px black !important;
   transform: rotate(-90deg);
+  z-index: 10000000;
 }
 
 /* @media (max-width: 575px) {
