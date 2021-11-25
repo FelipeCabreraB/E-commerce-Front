@@ -1,16 +1,19 @@
 import AccordionCards from "../../components/Checkout/AccordionCards";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { Row, Col } from "react-bootstrap";
 
 function CheckOutCardInformation() {
+  const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   const [loginMessage, setLoginMessage] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [cardName, setCardName] = useState("");
   const [cardExpiryDate, setCardExpiryDate] = useState("");
   const [cardSecurityCode, setCardSecurityCode] = useState("");
   const dispatch = useDispatch();
-  import axios from "axios";
 
   const handleCreateOrder = async (ev) => {
     try {
@@ -33,8 +36,35 @@ function CheckOutCardInformation() {
   };
 
   return (
-    <div>
-      <div className="border p-3 mt-5">
+    <div className="d-flex justify-content-center bg-dark">
+      <div
+        className="border p-3 mt-5 mb-5 bg-light"
+        style={{ maxWidth: "900px" }}
+      >
+        <p className="mt-4">
+          <i class="bi bi-ticket-perferated me-2"></i> Have a coupon code?
+        </p>
+        <p style={{ fontSize: "0.75rem" }}>
+          If you have a discount coupon code, please enter it in the field below
+        </p>
+        <form className="d-flex">
+          <input
+            type="text"
+            className="form-control"
+            style={{ maxWidth: "300px" }}
+          />
+          <button
+            type="button"
+            style={{
+              backgroundColor: "black",
+              color: "white",
+              fontSize: "0.65rem",
+            }}
+            className="btn rounded-pill px-3 py-2 ms-4"
+          >
+            <strong>ACTIVATE CODE</strong>
+          </button>
+        </form>
         <p className="mt-2">
           <strong>YOUR ORDER</strong>
         </p>
@@ -264,10 +294,6 @@ function CheckOutCardInformation() {
             </p>
 
             {user.token &&
-            fullName !== "" &&
-            phone !== "" &&
-            email !== "" &&
-            deliveryAddress !== "" &&
             cardNumber !== "" &&
             cardName !== "" &&
             cardExpiryDate !== "" &&

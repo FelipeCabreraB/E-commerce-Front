@@ -7,6 +7,7 @@ import Coffee from "./pages/Website/Coffee";
 import DetailedProduct from "./pages/Website/DetailedProduct";
 import LostPassword from "./pages/Website/LostPassword";
 import CheckOut from "./pages/Website/CheckOut";
+import CheckOutCardInformation from "./pages/Website/CheckOutCardInformation";
 import NavBar from "./components/NavBar-Footer/NavBar";
 import Footer from "./components/NavBar-Footer/Footer";
 import MyAccount from "./pages/MyAccount/MyAccount";
@@ -59,7 +60,14 @@ function App() {
               component={DetailedProductAcc}
             />
             <PublicRoute path="/lost-password" component={LostPassword} />
-            <PublicRoute path="/checkout" component={CheckOut} />
+            <PublicRoute
+              path="/checkout/billing-information"
+              component={CheckOut}
+            />
+            <PublicRoute
+              path="/checkout/card-information"
+              component={CheckOutCardInformation}
+            />
             <PublicRoute path="/my-account" component={MyAccount} exact />
             <PublicRoute path="/my-account/orders" component={MyAccountOrder} />
             <PublicRoute
