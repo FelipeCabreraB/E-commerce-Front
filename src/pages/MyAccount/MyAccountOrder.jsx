@@ -48,7 +48,13 @@ function MyAccountOrder() {
               <h3 className="">Orders </h3>
             </div>
 
-            <Table striped bordered hover className="text-center align-middle">
+            <Table
+              striped
+              bordered
+              hover
+              responsive
+              className="text-center align-middle"
+            >
               <thead>
                 <tr>
                   <th>#</th>

@@ -37,7 +37,7 @@ function Cart() {
                   </h3>
                 </div>
               ) : (
-                <Table hover className="table-borderless">
+                <Table hover responsive className="table-borderless">
                   <thead
                     style={{ borderBottom: "1px solid rgb(200, 200, 200)" }}
                   >

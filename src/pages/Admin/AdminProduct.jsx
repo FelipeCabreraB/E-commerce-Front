@@ -68,7 +68,13 @@ function AdminProduct() {
                 </Link>
               </div>
             </div>
-            <Table striped bordered hover className="text-center align-middle">
+            <Table
+              striped
+              bordered
+              hover
+              responsive
+              className="text-center align-middle"
+            >
               <thead>
                 <tr>
                   <th>#</th>

@@ -93,6 +93,27 @@ body {
   z-index: 10000000;
 }
 
+.fixedButton {
+  /* position: fixed;
+  left: -80px;
+  top: 30vh;
+  transform: rotate(-90deg); */
+  border-radius: 10px;
+  border: 1px solid rgb(212, 209, 209);
+  padding: 8px;
+}
+
+.fixedButton2 {
+  /* position: fixed;
+  left: 1px;
+  top: 15vh;
+  transform: rotate(-90deg); */
+  width: 40px;
+  border-radius: 10px;
+  border: 1px solid rgb(212, 209, 209);
+  padding: 8px;
+}
+
 /* @media (max-width: 575px) {
   #fixed-button {
     transform: scale(0.7);

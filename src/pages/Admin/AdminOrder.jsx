@@ -62,7 +62,13 @@ function AdminProduct() {
             <div className="d-flex justify-content-between py-1 mb-1">
               <h3 className="">Orders </h3>
             </div>
-            <Table striped bordered hover className="text-center align-middle">
+            <Table
+              striped
+              bordered
+              hover
+              responsive
+              className="text-center align-middle"
+            >
               <thead>
                 <tr>
                   <th>#</th>
@@ -83,7 +89,8 @@ function AdminProduct() {
                       }).format(new Date(order.createdAt))}
                     </td>
                     <td className="d-flex justify-content-between">
-                      Actual status: <strong>{order.statusOrder}</strong>
+                      Actual status:{" "}
+                      <strong className="mx-3">{order.statusOrder}</strong>
                       <ChangeStatusOrderModal
                         userId={order.userId}
                         orderId={order.id}
