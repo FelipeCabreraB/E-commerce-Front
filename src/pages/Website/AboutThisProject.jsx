@@ -201,7 +201,17 @@ function AboutThisProject() {
                       <Spinner animation="border" variant="light" />
                     </div>
                   ) : (
-                    <p className="text-success mt-2">{resetMessage}</p>
+                    <div className="d-flex justify-content-center">
+                      <p
+                        className={`mt-3 p-2 ${
+                          resetMessage.length > 1 && "border"
+                        }`}
+                        style={{ color: "white", maxWidth: "230px" }}
+                      >
+                        {" "}
+                        <strong>{resetMessage}</strong>{" "}
+                      </p>
+                    </div>
                   )
                 }
               </Col>
