@@ -52,6 +52,7 @@ function DetailedProduct() {
   return (
     <>
       <ToastContainer
+        className="mt-5"
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
