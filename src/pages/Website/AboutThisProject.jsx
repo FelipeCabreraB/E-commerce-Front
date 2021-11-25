@@ -245,7 +245,6 @@ function AboutThisProject() {
                 {" "}
                 <i class="fab fa-linkedin fa-2x"></i>
               </a>
-              {"     "}
               <a
                 href="https://github.com/FelipeCabreraB"
                 target="_blank"
