@@ -84,7 +84,11 @@ function CheckOutCardInformation() {
       <div className="d-flex justify-content-center">
         <div className="border p-3 mt-5 mb-5">
           <Row className="gx-5">
-            <Col>
+            <Col
+              md={6}
+              sm={12}
+              style={{ borderRight: "1px solid rgb(200, 200, 200)" }}
+            >
               <p className="mt-2">
                 <strong>YOUR ORDER</strong>
               </p>
@@ -161,7 +165,7 @@ function CheckOutCardInformation() {
                 </button>
               </form>
             </Col>
-            <Col>
+            <Col md={6} sm={12}>
               <p>
                 Pay with debit or credit card{" "}
                 <svg
