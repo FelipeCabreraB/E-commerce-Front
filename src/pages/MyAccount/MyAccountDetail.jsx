@@ -7,9 +7,10 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 function MyAccountDetail() {
+  const user = useSelector((state) => state.user);
+
   const token = useSelector((state) => state.user.token);
   const handleClose = () => "";
-
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const params = useParams();
@@ -19,6 +20,12 @@ function MyAccountDetail() {
   const [phone, setPhone] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [loginMessage, setLoginMessage] = useState("");
+  const [messageCheckFirstName, setMessageCheckFirstName] = useState("");
+  const [messageCheckLastName, setMessageCheckLastName] = useState("");
+  const [messageCheckEmail, setMessageCheckEmail] = useState("");
+  const [messageCheckPhone, setMessageCheckPhone] = useState("");
 
   useEffect(() => {
     const getUser = async () => {
@@ -105,6 +112,40 @@ function MyAccountDetail() {
     }
   };
 
+  const handleValidation = async () => {
+    setMessageCheckFirstName("");
+    setMessageCheckLastName("");
+    setMessageCheckEmail("");
+    setMessageCheckPhone("");
+    setLoginMessage("");
+
+    if (!/^[0-9]{8,9}$/.test(phone)) {
+      setMessageCheckPhone(
+        "Please check the phone number, it must have a valid format."
+      );
+    }
+
+    if (
+      !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+        email
+      )
+    ) {
+      setMessageCheckEmail(
+        "Please check the email, it must have a valid format."
+      );
+    }
+    if (firstname.length < 3) {
+      setMessageCheckFirstName(
+        "Please check the first name, it must have at least 3 characters."
+      );
+    }
+    if (lastname.length < 3) {
+      setMessageCheckLastName(
+        "Please check the last name, it must have at least 3 characters."
+      );
+    }
+  };
+
   return (
     <div>
       <Container className="py-5">
@@ -120,7 +161,7 @@ function MyAccountDetail() {
             <form className="mt-3" onSubmit={(ev) => handleUpdate(ev)}>
               <label
                 className="form-label"
-                htmlFor="firstName"
+                htmlFor="firstname"
                 style={{ fontSize: "0.85rem" }}
               >
                 First name *
@@ -128,13 +169,12 @@ function MyAccountDetail() {
               <input
                 className="form-control"
                 type="text"
-                id="firstName"
-                name="firstName"
+                id="firstname"
+                name="firstname"
                 value={firstname}
                 onChange={(ev) => setFirstname(ev.target.value)}
                 required
               />
-
               <label
                 className="form-label"
                 htmlFor="lastname"
@@ -151,7 +191,6 @@ function MyAccountDetail() {
                 onChange={(ev) => setLastname(ev.target.value)}
                 required
               />
-
               <label
                 className="form-label mt-3"
                 htmlFor="phone"
@@ -159,7 +198,6 @@ function MyAccountDetail() {
               >
                 Phone number *
               </label>
-
               {phone !== "" ? (
                 <div>
                   {" "}
@@ -167,7 +205,7 @@ function MyAccountDetail() {
                     className="form-control"
                     type="phone"
                     id="phone"
-                    name="email"
+                    name="phone"
                     value={phone}
                     onChange={(ev) => setPhone(ev.target.value)}
                   />
@@ -263,18 +301,41 @@ function MyAccountDetail() {
                 value={confirmPassword}
                 onChange={(ev) => setConfirmPassword(ev.target.value)}
               />
-
-              <button
-                type="submit"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  fontSize: "0.65rem",
-                }}
-                className="btn px-4 mt-4 py-2"
-              >
-                <strong>SAVE CHANGES</strong>
-              </button>
+              {firstname.length >= 3 &&
+              lastname.length >= 3 &&
+              /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                email
+              ) &&
+              /^[0-9]{8,9}$/.test(phone) ? (
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    fontSize: "0.65rem",
+                  }}
+                  className="btn px-4 mt-4 py-2"
+                >
+                  <strong>SAVE CHANGES</strong>
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "black",
+                    color: "white",
+                    fontSize: "0.65rem",
+                  }}
+                  onClick={(ev) => {
+                    ev.preventDefault();
+                    console.log(handleValidation());
+                    handleValidation();
+                  }}
+                  className="btn px-4 mt-4 py-2"
+                >
+                  <strong>SAVE CHANGES</strong>
+                </button>
+              )}
               <p className="text-success text-center mt-3">
                 {" "}
                 <strong>{successMessage}</strong>{" "}
@@ -282,6 +343,18 @@ function MyAccountDetail() {
               <p className="text-danger text-center mt-3">
                 {" "}
                 <strong>{errorMessage}</strong>{" "}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckFirstName}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckLastName}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckPhone}
+              </p>
+              <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+                {messageCheckEmail}
               </p>
             </form>
           </Col>

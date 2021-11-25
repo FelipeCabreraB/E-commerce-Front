@@ -171,7 +171,7 @@ function MyAccountAdress() {
                     className="form-control"
                     type="phone"
                     id="phone"
-                    name="email"
+                    name="phone"
                     value={phone}
                     onChange={(ev) => setPhone(ev.target.value)}
                   />
@@ -249,13 +249,13 @@ function MyAccountAdress() {
                 onChange={(ev) => setAddress(ev.target.value)}
                 required
               />
-              {firstname.length > 3 &&
-              lastname.length > 3 &&
+              {firstname.length >= 3 &&
+              lastname.length >= 3 &&
               /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
                 email
               ) &&
               /^[0-9]{8,9}$/.test(phone) &&
-              address.length > 6 ? (
+              address.length >= 6 ? (
                 <button
                   type="submit"
                   style={{
