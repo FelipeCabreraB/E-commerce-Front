@@ -25,31 +25,6 @@ function CheckOut() {
               </div>
             )}
 
-            <p className="mt-4">
-              <i class="bi bi-ticket-perferated me-2"></i> Have a coupon code?
-            </p>
-            <p style={{ fontSize: "0.75rem" }}>
-              If you have a discount coupon code, please enter it in the field
-              below
-            </p>
-            <form className="d-flex">
-              <input
-                type="text"
-                className="form-control"
-                style={{ maxWidth: "300px" }}
-              />
-              <button
-                type="button"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  fontSize: "0.65rem",
-                }}
-                className="btn rounded-pill px-3 py-2 ms-4"
-              >
-                <strong>ACTIVATE CODE</strong>
-              </button>
-            </form>
             <p className="mt-5">
               <strong>BILLING INFORMATION</strong>
             </p>
