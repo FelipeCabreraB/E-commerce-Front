@@ -1,4 +1,12 @@
-import { Col, Container, Row, Button, Table } from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Button,
+  Table,
+  Tooltip,
+  OverlayTrigger,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Accordion } from "react-bootstrap";
@@ -6,6 +14,11 @@ import { Accordion } from "react-bootstrap";
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const popover = (
+    <Tooltip id="overlay-example">
+      Sorry, this feature is outside the scope of this project
+    </Tooltip>
+  );
 
   return (
     <>
@@ -158,17 +171,24 @@ function Cart() {
                             className="form-control"
                             style={{ maxWidth: "300px" }}
                           />
-                          <button
-                            type="button"
-                            style={{
-                              backgroundColor: "black",
-                              color: "white",
-                              fontSize: "0.65rem",
-                            }}
-                            className="btn rounded-pill px-3 py-2 ms-4"
+                          <OverlayTrigger
+                            trigger="click"
+                            rootClose
+                            placement="top"
+                            overlay={popover}
                           >
-                            <strong>ACTIVATE CODE</strong>
-                          </button>
+                            <button
+                              type="button"
+                              style={{
+                                backgroundColor: "black",
+                                color: "white",
+                                fontSize: "0.65rem",
+                              }}
+                              className="btn rounded-pill px-3 py-2 ms-4"
+                            >
+                              <strong>ACTIVATE CODE</strong>
+                            </button>
+                          </OverlayTrigger>
                         </form>
                       </div>
                     </Accordion.Body>
