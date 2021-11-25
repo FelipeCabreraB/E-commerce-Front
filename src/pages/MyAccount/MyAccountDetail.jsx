@@ -7,8 +7,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 function MyAccountDetail() {
-  const user = useSelector((state) => state.user);
-
   const token = useSelector((state) => state.user.token);
   const handleClose = () => "";
   const [successMessage, setSuccessMessage] = useState("");
@@ -20,8 +18,6 @@ function MyAccountDetail() {
   const [phone, setPhone] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  const [loginMessage, setLoginMessage] = useState("");
   const [messageCheckFirstName, setMessageCheckFirstName] = useState("");
   const [messageCheckLastName, setMessageCheckLastName] = useState("");
   const [messageCheckEmail, setMessageCheckEmail] = useState("");
@@ -117,7 +113,6 @@ function MyAccountDetail() {
     setMessageCheckLastName("");
     setMessageCheckEmail("");
     setMessageCheckPhone("");
-    setLoginMessage("");
 
     if (!/^[0-9]{8,9}$/.test(phone)) {
       setMessageCheckPhone(
