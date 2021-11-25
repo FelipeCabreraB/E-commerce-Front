@@ -81,24 +81,24 @@ function AboutThisProject() {
             <h3 className="py-4 my-2 text-center">TECHNOLOGIES USED</h3>
             <div className="">
               <Row className="gx-0">
-                <Col>
-                  <ul className="py-2" style={{ listStyle: "none" }}>
-                    <li className="py-2 ms-3">
+                <Col md={4}>
+                  <ul className="py-2 ps-0" style={{ listStyle: "none" }}>
+                    <li className="py-2">
                       <FaReact /> React.js
                     </li>
-                    <li className="py-2 ms-3">
+                    <li className="py-2">
                       <FaCss3Alt /> CSS3
                     </li>
-                    <li className="py-2 ms-3">
+                    <li className="py-2">
                       <FaHtml5 /> HTML5
                     </li>
-                    <li className="py-2 ms-3">
+                    <li className="py-2">
                       <FaNodeJs /> Node.js
                     </li>
                   </ul>
                 </Col>
-                <Col>
-                  <ul className="py-2" style={{ listStyle: "none" }}>
+                <Col md={4}>
+                  <ul className="py-2 ps-0" style={{ listStyle: "none" }}>
                     <li className="py-2">
                       <SiRedux /> Redux
                     </li>
@@ -113,8 +113,8 @@ function AboutThisProject() {
                     </li>
                   </ul>
                 </Col>
-                <Col>
-                  <ul className="py-2" style={{ listStyle: "none" }}>
+                <Col md={4}>
+                  <ul className="py-2 ps-0" style={{ listStyle: "none" }}>
                     <li className="py-2">
                       <SiSequelize /> Sequelize
                     </li>
@@ -135,7 +135,7 @@ function AboutThisProject() {
         </div>
         <div className="my-5 py-4 container">
           <Row className="text-center mb-3">
-            <Col className="d-flex align-items-center " ld={5}>
+            <Col className="d-flex align-items-center" md={5} sm={12}>
               <p>
                 <strong>The user can go through the page very easily! </strong>{" "}
                 <br />
@@ -144,27 +144,31 @@ function AboutThisProject() {
                 to finalize the purchase.
               </p>
             </Col>
-            <Col ld={7} className="img-fluid">
-              <img
-                className="shadow img-screenCapture"
-                src={Capture_screen1}
-                alt=""
-                style={{ maxWidth: "34rem" }}
-              />
-            </Col>
-          </Row>
-          <Row className="mt-4 pt-4">
-            <Col ld={7} className="img-fluid">
-              <div>
+            <Col className="d-flex justify-content-end" md={7} sm={12}>
+              <div style={{ maxWidth: "34rem" }}>
                 <img
-                  className="shadow img-screenCapture"
-                  src={Capture_screen2}
+                  className="shadow img-fluid img-screenCapture"
+                  src={Capture_screen1}
                   alt=""
-                  style={{ maxWidth: "34rem" }}
                 />
               </div>
             </Col>
-            <Col className="d-flex align-items-center text-center mt-3" ld={5}>
+          </Row>
+          <Row className="mt-4 pt-4">
+            <Col md={7} sm={12}>
+              <div style={{ maxWidth: "34rem" }}>
+                <img
+                  className="shadow img-fluid img-screenCapture"
+                  src={Capture_screen2}
+                  alt=""
+                />
+              </div>
+            </Col>
+            <Col
+              className="d-flex align-items-center text-center mt-3"
+              md={5}
+              sm={12}
+            >
               <p>
                 <strong>
                   The Admin has a a very easy and instinctive panel to use!
