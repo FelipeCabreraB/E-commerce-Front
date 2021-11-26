@@ -9,19 +9,37 @@ function CheckOut() {
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [messageCheckEmail, setMessageCheckEmail] = useState("");
   const [messageCheckPhone, setMessageCheckPhone] = useState("");
+  const [messageCheckFullName, setMessageCheckFullName] = useState("");
+  const [messageCheckDelivery, setMessageCheckDelivery] = useState("");
 
   const handleValidation = async () => {
     setMessageCheckEmail("");
     setMessageCheckPhone("");
+    setMessageCheckFullName("");
+    setMessageCheckDelivery("");
     if (
       !/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
         email
       )
     ) {
-      setMessageCheckEmail("Please check the email address");
+      setMessageCheckEmail(
+        "Please check the email, it must have a valid format."
+      );
     }
     if (!/^[0-9]{8,9}$/.test(phone)) {
-      setMessageCheckPhone("Please check the phone number");
+      setMessageCheckPhone(
+        "Please check the phone number, it must have a valid format."
+      );
+    }
+    if (fullName.length < 5) {
+      setMessageCheckFullName(
+        "Please check the Full Name, it must have at least 5 characters."
+      );
+    }
+    if (deliveryAddress < 5) {
+      setMessageCheckDelivery(
+        "Please check the Delivery Address, it must have at least 5 characters."
+      );
     }
   };
 
@@ -76,9 +94,19 @@ function CheckOut() {
                     {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
                       email
                     ) ? (
-                      <p className="text-success">Valid Email</p>
+                      <p
+                        className="text-success mt-1"
+                        style={{ fontSize: "0.7rem" }}
+                      >
+                        Valid Email Format
+                      </p>
                     ) : (
-                      <p className="text-danger">Invalid Email</p>
+                      <p
+                        className="text-danger mt-1"
+                        style={{ fontSize: "0.7rem" }}
+                      >
+                        Invalid Email Format
+                      </p>
                     )}
                   </div>
                 ) : (
@@ -97,7 +125,7 @@ function CheckOut() {
               </Col>
             </Row>
             <Row>
-              <Col>
+              <Col md={6} sm={12}>
                 <label
                   className="form-label mt-3"
                   htmlFor="deliveryAdress"
@@ -118,7 +146,7 @@ function CheckOut() {
                   * Required fields
                 </p>
               </Col>
-              <Col>
+              <Col md={6} sm={12}>
                 <label
                   className="form-label mt-3"
                   htmlFor="phone"
@@ -138,9 +166,19 @@ function CheckOut() {
                       onChange={(ev) => setPhone(ev.target.value)}
                     />
                     {/^[0-9]{8,9}$/.test(phone) ? (
-                      <p className="text-success">Valid Phone</p>
+                      <p
+                        className="text-success mt-1"
+                        style={{ fontSize: "0.7rem" }}
+                      >
+                        Valid Phone Format
+                      </p>
                     ) : (
-                      <p className="text-danger">Invalid Phone</p>
+                      <p
+                        className="text-danger mt-1"
+                        style={{ fontSize: "0.7rem" }}
+                      >
+                        Invalid Phone Format
+                      </p>
                     )}
                   </div>
                 ) : (
@@ -158,45 +196,67 @@ function CheckOut() {
                 )}
               </Col>
             </Row>
-            <div className="d-flex justify-content-between">
-              <div>
-                <input
-                  type="checkbox"
-                  id="newsletter"
-                  name="newsletter"
-                  value="newsletter"
-                  className="mt-4"
-                />
-                <label
-                  className="ms-2"
-                  for="newsletter"
-                  style={{ fontSize: "0.9rem" }}
-                >
-                  RECEIVE OUR NEWSLETTER
-                </label>
-              </div>
-              {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
-                email
-              ) && /^[0-9]{8,9}$/.test(phone) ? (
-                <Link to="/checkout/card-information">
-                  <Button variant="dark" type="button" className="rounded-pill">
+            <Row>
+              <Col md={6} sm={12}>
+                <div>
+                  <input
+                    type="checkbox"
+                    id="newsletter"
+                    name="newsletter"
+                    value="newsletter"
+                    className="mt-4"
+                  />
+                  <label
+                    className="ms-2"
+                    for="newsletter"
+                    style={{ fontSize: "0.9rem" }}
+                  >
+                    RECEIVE OUR NEWSLETTER
+                  </label>
+                </div>
+              </Col>
+              <Col className="text-end" md={6} sm={12}>
+                {/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(
+                  email
+                ) &&
+                /^[0-9]{8,9}$/.test(phone) &&
+                fullName.length >= 5 &&
+                deliveryAddress.length >= 5 ? (
+                  <Link to="/checkout/card-information">
+                    <Button
+                      variant="dark"
+                      type="button"
+                      className="rounded-pill mt-2"
+                    >
+                      Proceed to final step{" "}
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    variant="dark"
+                    type="button"
+                    className="rounded-pill mt-2"
+                    onClick={() => {
+                      handleValidation();
+                    }}
+                  >
                     Proceed to final step{" "}
                   </Button>
-                </Link>
-              ) : (
-                <Button
-                  variant="dark"
-                  type="button"
-                  className="rounded-pill"
-                  onClick={() => {
-                    handleValidation();
-                  }}
-                >
-                  Proceed to final step{" "}
-                </Button>
-              )}
-            </div>
+                )}
+              </Col>
+            </Row>
+            <Link style={{ textDecoration: "none", color: "black" }} to="/cart">
+              <p className="mt-4 py-0 align-self-center">
+                <i class="fas fa-less-than"></i> Return to cart
+              </p>
+            </Link>
           </Form>
+          <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+            {messageCheckFullName}
+          </p>
+          <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
+            {messageCheckDelivery}
+          </p>
           <p className="text-danger mt-3" style={{ fontSize: "0.7rem" }}>
             {messageCheckEmail}
           </p>

@@ -164,6 +164,14 @@ function CheckOutCardInformation() {
                   <strong>ACTIVATE CODE</strong>
                 </button>
               </form>
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to="/checkout/billing-information"
+              >
+                <p className="mt-4 py-0 align-self-center">
+                  <i class="fas fa-less-than"></i> Go back
+                </p>
+              </Link>
             </Col>
             <Col md={6} sm={12}>
               <p>
