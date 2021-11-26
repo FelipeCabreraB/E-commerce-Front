@@ -5,6 +5,7 @@ html {
 body {
   font-family: "Red Hat Display", sans-serif;
   height: 100%;
+  padding-top: 73px;
 }
 
 #root {
@@ -15,6 +16,13 @@ body {
 
 .pointer:hover {
   cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .main-footer {
