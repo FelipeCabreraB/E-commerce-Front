@@ -83,11 +83,11 @@ function OffCanvasExample({ name, ...props }) {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <g id="color">
-                  <circle cx="36" cy="36" r="28" fill="#b1cc33" />
+                  <circle cx="28" cy="36" r="28" fill="#b1cc33" />
                 </g>
                 <g id="line">
                   <circle
-                    cx="36"
+                    cx="28"
                     cy="36"
                     r="28"
                     fill="none"
