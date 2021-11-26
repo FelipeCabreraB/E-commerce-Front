@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
 
 function CheckOutCardInformation() {
   const cart = useSelector((state) => state.cart);
@@ -79,6 +79,12 @@ function CheckOutCardInformation() {
     }
   };
 
+  const popover = (
+    <Tooltip id="overlay-example">
+      Sorry, this feature is outside the scope of this project
+    </Tooltip>
+  );
+
   return (
     <>
       <div className="d-flex justify-content-center">
@@ -152,17 +158,24 @@ function CheckOutCardInformation() {
                   className="form-control"
                   style={{ maxWidth: "300px" }}
                 />
-                <button
-                  type="button"
-                  style={{
-                    backgroundColor: "black",
-                    color: "white",
-                    fontSize: "0.65rem",
-                  }}
-                  className="btn rounded-pill px-3 py-2 ms-4"
+                <OverlayTrigger
+                  trigger="click"
+                  rootClose
+                  placement="top"
+                  overlay={popover}
                 >
-                  <strong>ACTIVATE CODE</strong>
-                </button>
+                  <button
+                    type="button"
+                    style={{
+                      backgroundColor: "black",
+                      color: "white",
+                      fontSize: "0.65rem",
+                    }}
+                    className="btn rounded-pill px-3 py-2 ms-4"
+                  >
+                    <strong>ACTIVATE CODE</strong>
+                  </button>
+                </OverlayTrigger>
               </form>
               <Link
                 style={{ textDecoration: "none", color: "black" }}
