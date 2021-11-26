@@ -17,7 +17,7 @@ function Footer() {
             <p>
               <strong>Contact</strong>
             </p>
-            <p>hola@cultocafe.uy</p>
+            <p>hello@cultocafe.uy</p>
             <p>T: 094 787 478</p>
             <p>
               <a
@@ -38,7 +38,7 @@ function Footer() {
           </div>
           <div className="col-md-3">
             <p>
-              <strong>Locals</strong>
+              <strong>Our shops</strong>
             </p>
             <ul className="list-unstyled">
               <li>La Tostaduría</li>
