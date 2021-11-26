@@ -74,8 +74,29 @@ function OffCanvasExample({ name, ...props }) {
             className="far fa-user pointer"
             style={{ color: "black" }}
           >
-            <div id="welcomeEmailNavbar" className="numberOfCart text-center">
-              <i class="fas fa-check"></i>
+            <div id="welcomeEmailNavbar" className="online-logo text-center">
+              <svg
+                width="12px"
+                height="12px"
+                viewBox="0 0 72 72"
+                id="emoji"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="color">
+                  <circle cx="36" cy="36" r="28" fill="#b1cc33" />
+                </g>
+                <g id="line">
+                  <circle
+                    cx="36"
+                    cy="36"
+                    r="28"
+                    fill="none"
+                    stroke="#000"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                  />
+                </g>
+              </svg>
             </div>
           </i>
         </Nav.Link>

@@ -32,7 +32,7 @@ function NavBar({ setHideButton }) {
               {user.role === "admin" && (
                 <Nav.Link>
                   <Link
-                    className="p-3"
+                    className="pe-3 py-3"
                     style={{
                       textDecoration: "none",
                       color: "black",
