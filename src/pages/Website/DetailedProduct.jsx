@@ -52,6 +52,7 @@ function DetailedProduct() {
   return (
     <>
       <ToastContainer
+        style={{ zIndex: "9999999999" }}
         className="mt-5"
         position="top-right"
         autoClose={5000}
