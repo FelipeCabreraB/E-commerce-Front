@@ -261,7 +261,7 @@ function AboutThisProject() {
               <img
                 className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
-                src="https://media-exp1.licdn.com/dms/image/C4E03AQHHHmEEq7QhRw/profile-displayphoto-shrink_400_400/0/1517612030695?e=1643241600&v=beta&t=SH5ZReSMpfdACKqGPxJoYltEryy7xMDt4QtyqSgixoA"
+                src="https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/FelipeCabrera_1000x1000.JPG"
                 alt=""
               />
               <p>
@@ -290,7 +290,7 @@ function AboutThisProject() {
               <img
                 className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
-                src="https://media-exp1.licdn.com/dms/image/C5603AQEHCKfHmnPefQ/profile-displayphoto-shrink_400_400/0/1516842180500?e=1643241600&v=beta&t=GWltYmraJysAWDx2Cp3FXccDaP6itOImhZ1Wf6YG90A"
+                src="https://hxxxiarcaeviegtlscdm.supabase.in/storage/v1/object/public/culto-coffee-img/IgnacioNin_1000x1000.JPG"
                 alt=""
               />
               <p>

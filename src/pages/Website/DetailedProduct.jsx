@@ -334,7 +334,10 @@ function DetailedProduct() {
                                   },
                                 });
                             }
-                            notify();
+                            // eslint-disable-next-line
+                            {
+                              count !== 0 && notify();
+                            }
                             setCount(0);
                             setCounterMessage("");
                             // eslint-disable-next-line
