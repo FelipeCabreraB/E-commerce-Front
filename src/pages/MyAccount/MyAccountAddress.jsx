@@ -119,8 +119,10 @@ function MyAccountAdress() {
     <div>
       <Container className="py-5">
         <Row>
-          <Col sm={3}>
-            <MyAccountMenu handleClose={handleClose} />
+          <Col sm={12} md={2}>
+            <div className="sticky-top">
+              <MyAccountMenu handleClose={handleClose} />
+            </div>
           </Col>
           <Col className="myAccountResponsive" sm={9}>
             <h3>BILLING ADDRESS</h3>
