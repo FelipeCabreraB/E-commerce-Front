@@ -183,12 +183,17 @@ function AboutThisProject() {
         <div className="credentials">
           <div className="mt-4 mb-4 py-4 text-center container">
             <h5 className="my-4">USE THIS CREDENTIALS TO LOG IN: </h5>
-            <Row className="m-3">
+            <Row className="m-3 gx-0">
               <Col md={4}>
-                <p>Email: user@user.com</p>
+                <h5 className="mb-3">Login as a Client:</h5>
+                <p className="my-0 py-0">Email: user@user.com</p>
                 <p>Password: 123456</p>
               </Col>
-              <Col className="mt-3" md={4}>
+              <Col md={4}>
+                <p>
+                  Before you start browsing, we recommend that you reset the
+                  database:
+                </p>
                 <Button
                   variant="light"
                   onClick={() => {
@@ -220,7 +225,8 @@ function AboutThisProject() {
                 }
               </Col>
               <Col md={4}>
-                <p>Email: admin@admin.com</p>
+                <h5 className="mb-3">Login as an Admin:</h5>
+                <p className="my-0 py-0">Email: admin@admin.com</p>
                 <p>Password: 123456</p>
               </Col>
             </Row>
