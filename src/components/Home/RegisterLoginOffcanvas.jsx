@@ -107,6 +107,7 @@ function OffCanvasExample({ name, ...props }) {
       )}
 
       <Offcanvas
+        style={{ zIndex: "99999999999999999999999999999999" }}
         show={show}
         onHide={() => {
           handleClose();
