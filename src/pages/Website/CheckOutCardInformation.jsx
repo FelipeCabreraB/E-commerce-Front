@@ -72,7 +72,7 @@ function CheckOutCardInformation() {
       );
     }
     if (!user.token) {
-      setLoginMessage("Please check you´re logued in.");
+      setLoginMessage("Please check you´re logged in.");
     }
     if (cart.length < 1) {
       setMessageEmptyCart("You don´t have any product in your cart");
