@@ -239,7 +239,7 @@ function AboutThisProject() {
               <img
                 className="img-thumbnail rounded-circle img-profile"
                 style={{ maxWidth: "8rem" }}
-                src="https://media-exp1.licdn.com/dms/image/C5103AQFIDI16-RugSg/profile-displayphoto-shrink_400_400/0/1562091332774?e=1643241600&v=beta&t=eOhkSRLXxwllBxTJfiu2X0F42OCObURyHsJhET_thT0"
+                src="https://hxxxiarcaeviegtlscdm.supabase.co/storage/v1/object/public/culto-coffee-img/1562091332774.jpg"
                 alt=""
               />
               <p>
@@ -280,7 +280,6 @@ function AboutThisProject() {
                 rel="noreferrer noopener"
                 className="px-1 linkedin"
               >
-                {" "}
                 <i class="fab fa-linkedin fa-2x"></i>
               </a>
               <a
