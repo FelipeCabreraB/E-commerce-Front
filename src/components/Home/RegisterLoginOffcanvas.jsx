@@ -68,7 +68,7 @@ function OffCanvasExample({ name, ...props }) {
   return (
     <>
       {user.token ? (
-        <Nav.Link onClick={handleShow}>
+        <Nav.Link eventKey="5" onClick={handleShow}>
           <i
             id="userLogoNavbar"
             className="far fa-user pointer"
@@ -101,7 +101,7 @@ function OffCanvasExample({ name, ...props }) {
           </i>
         </Nav.Link>
       ) : (
-        <Nav.Link onClick={handleShow}>
+        <Nav.Link eventKey="5" onClick={handleShow}>
           <i className="far fa-user pointer" style={{ color: "black" }}></i>{" "}
         </Nav.Link>
       )}

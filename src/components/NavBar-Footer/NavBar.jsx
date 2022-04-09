@@ -30,7 +30,7 @@ function NavBar({ setHideButton }) {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto ms-auto">
               {user.role === "admin" && (
-                <Nav.Link>
+                <Nav.Link eventKey="1">
                   <Link
                     className="pe-3 py-3"
                     style={{
@@ -48,7 +48,7 @@ function NavBar({ setHideButton }) {
                 </Nav.Link>
               )}
 
-              <Nav.Link>
+              <Nav.Link eventKey="2">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/subscription"
@@ -57,7 +57,7 @@ function NavBar({ setHideButton }) {
                   <strong>SUBSCRIPTION</strong>
                 </Link>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link eventKey="3">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/coffee"
@@ -66,7 +66,7 @@ function NavBar({ setHideButton }) {
                   <strong>COFFEE</strong>
                 </Link>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link eventKey="4">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/accessories"
@@ -79,7 +79,7 @@ function NavBar({ setHideButton }) {
             <Nav>
               <RegisterLoginOffcanvas />
               <SearchBar />
-              <Nav.Link>
+              <Nav.Link eventKey="6">
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   to="/cart"
@@ -91,7 +91,6 @@ function NavBar({ setHideButton }) {
                       className="fas fa-shopping-cart"
                       style={{ color: "black" }}
                     >
-                      {" "}
                       <div
                         style={{
                           color: "white",

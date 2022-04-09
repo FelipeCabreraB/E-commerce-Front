@@ -60,7 +60,6 @@ function SearchBar() {
             />
           </Popover.Header>
           <Popover.Body onClick={() => setShow(false)}>
-            {" "}
             {searchValue !== "" &&
               searchedProducts.map((product) => (
                 <Link
